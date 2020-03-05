@@ -11,7 +11,6 @@ public class BoomerangProjectileController : MonoBehaviour
     float speed;
     float rotation = 0f;
 
-    //Animator animator;
     Vector2 direction;
 
     // Start is called before the first frame update
@@ -37,9 +36,10 @@ public class BoomerangProjectileController : MonoBehaviour
             MoveAway(position);
         } 
         else if (timer > 0){
-            MoveBack(position);            
+            MoveBack(position);
         } 
         else{
+            LinkController.boomerangPresent = false;
             Destroy(gameObject);
         }
     }
@@ -75,7 +75,7 @@ public class BoomerangProjectileController : MonoBehaviour
             Destroy(gameObject);
         }
         else{
-            timer = time / 2;
+            timer = (2*time) -timer -(float) 0.1;
         }
     }
 }
