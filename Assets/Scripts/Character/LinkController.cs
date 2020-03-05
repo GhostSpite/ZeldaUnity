@@ -51,11 +51,12 @@ public class LinkController : MonoBehaviour
 
         if (posChange != Vector2.zero)
         {
-            animator.SetBool("Moving", true);
+            MoveLink(posChange);
+            /*animator.SetBool("Moving", true);
             animator.SetFloat("Move X", posChange.x);
             animator.SetFloat("Move Y", posChange.y);
 
-            lookDirection = posChange;
+            lookDirection = posChange;*/
         }
         else
         {
@@ -70,43 +71,35 @@ public class LinkController : MonoBehaviour
 
         rigidbody2d.position = position;
 
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N))
-        {
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N)){
             animator.SetTrigger("Attacking");
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha1)){
             LaunchArrow();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha2)){
             LaunchBoomerang();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
+        if (Input.GetKeyDown(KeyCode.Alpha3)){
             PlaceBomb();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+        if (Input.GetKeyDown(KeyCode.E)){
             ChangeHealth(-1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
+        if (Input.GetKeyDown(KeyCode.Q)){
             EditorApplication.ExecuteMenuItem("Edit/Play");
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
+        if (Input.GetKeyDown(KeyCode.R)){
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
-        if (invincible)
-        {
+        if (invincible){
             invincibleTimer -= Time.deltaTime;
 
             if(invincibleTimer < 0)
@@ -122,10 +115,12 @@ public class LinkController : MonoBehaviour
         {
             if (!invincible)
             {
+                DamageLink(amount);
+                /*
                 animator.SetTrigger("Damaged");
                 invincibleTimer = invincibleTime;
                 invincible = true;
-                currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+                currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);*/
 
                 /*Vector2 push = rigidbody2d.position;
                 push.x += lookDirection.x * pushScale * -1;
@@ -140,6 +135,21 @@ public class LinkController : MonoBehaviour
 
         Debug.Log(currentHealth + "/" + maxHealth);
     }
+    //
+    public void MoveLink(Vector2 posChange){
+        animator.SetBool("Moving", true);
+        animator.SetFloat("Move X", posChange.x);
+        animator.SetFloat("Move Y", posChange.y);
+        lookDirection = posChange;
+    }
+
+    public void DamageLink(int amount){
+        animator.SetTrigger("Damaged");
+        invincibleTimer = invincibleTime;
+        invincible = true;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
+    //
 
     public void ChangeBombCount(int amount)
     {
