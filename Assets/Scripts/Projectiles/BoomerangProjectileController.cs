@@ -31,22 +31,30 @@ public class BoomerangProjectileController : MonoBehaviour
         if (rotation > 360) rotation = rotation % 360;
         rigidbody2d.MoveRotation(rotation);
 
-        if (timer > time) 
-        {
-            Vector2 position = rigidbody2d.position;
-            position += direction * speed * Time.deltaTime;
-            rigidbody2d.position = position;
+        Vector2 position = rigidbody2d.position;
+
+        if (timer > time) {
+            MoveAway(position);
         } 
-        else if (timer > 0)
-        {
-            Vector2 position = rigidbody2d.position;
-            position += -1 * direction * speed * Time.deltaTime;
-            rigidbody2d.position = position;
+        else if (timer > 0){
+            MoveBack(position);            
         } 
-        else
-        {
+        else{
             Destroy(gameObject);
         }
+    }
+
+
+    public void MoveAway(Vector2 position)
+    {
+        position += direction * speed * Time.deltaTime;
+        rigidbody2d.position = position;
+    }
+
+    public void MoveBack(Vector2 position)
+    {
+        position += -1 * direction * speed * Time.deltaTime;
+        rigidbody2d.position = position;
     }
 
     public void Launch(Vector2 direction, float speed)
@@ -62,13 +70,11 @@ public class BoomerangProjectileController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag(collisionTag))
-        {
+        if (other.gameObject.CompareTag(collisionTag)){
             // Apply damage to enemies on collision
             Destroy(gameObject);
         }
-        else
-        {
+        else{
             timer = time / 2;
         }
     }
