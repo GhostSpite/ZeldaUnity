@@ -14276,6 +14276,90 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 414abca74d649c44c9e9890dbb0a8b05, type: 3}
+--- !u!1001 &2814990544258037063
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -10.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -28
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418608, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418610, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_AutoTiling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418610, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.48416424
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418610, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.95646095
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814990542991418614, guid: 30458ba83f6975d4ea47e3b911dbec4c,
+        type: 3}
+      propertyPath: m_Name
+      value: Aquamentus (With AI)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30458ba83f6975d4ea47e3b911dbec4c, type: 3}
 --- !u!1001 &2847963840635410371
 PrefabInstance:
   m_ObjectHideFlags: 0
