@@ -126,7 +126,7 @@ public class BladeTrapController : MonoBehaviour
         {
             controller.ChangeHealth(-1);
         }
-        else
+        else if(!returning)
         {
             direction = -1 * direction;
             speed = speed / 4;

@@ -7,6 +7,7 @@ public class GoriaController : MonoBehaviour
 {
     public float speed;
     public float projectileSpeed;
+    public int moveSeed;
 
     public float moveTime;
     float timer;
@@ -14,7 +15,7 @@ public class GoriaController : MonoBehaviour
     float attackTimer;
 
     private int direction;
-    private System.Random rand = new System.Random();
+    private System.Random rand;
     private int lastDirection;
     private bool isStopped;
     private bool launched;
@@ -29,6 +30,7 @@ public class GoriaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rand = new System.Random(moveSeed);
         timer = moveTime;
         attackTimer = attackTime;
         direction = 2;

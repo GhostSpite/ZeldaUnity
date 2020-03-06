@@ -5,18 +5,20 @@ using UnityEngine;
 public class GelController : MonoBehaviour
 {
     public float speed;
+    public int moveSeed;
 
     public float moveTime;
     float timer;
 
     private int direction;
-    private System.Random rand = new System.Random();
+    private System.Random rand;
 
     Rigidbody2D rigidbody2d;
 
     // Start is called before the first frame update
     void Start()
     {
+        rand = new System.Random(moveSeed);
         timer = moveTime;
         direction = 2;
 
