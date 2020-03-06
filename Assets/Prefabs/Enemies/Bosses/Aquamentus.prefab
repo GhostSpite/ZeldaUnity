@@ -11,16 +11,16 @@ GameObject:
   - component: {fileID: 6666560937360481076}
   - component: {fileID: 6666560937360481077}
   - component: {fileID: 6666560937360481078}
-  - component: {fileID: 532006241485024228}
   - component: {fileID: 6666560937360481072}
   - component: {fileID: 6666560937360481073}
+  - component: {fileID: -1206289547043073687}
   m_Layer: 9
   m_Name: Aquamentus
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6666560937360481076
 Transform:
   m_ObjectHideFlags: 0
@@ -105,25 +105,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &532006241485024228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6666560937360481074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059eef1e0b3577144a82c120fc2d9ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  projectileSpeed: 4
-  moveTime: 2
-  attackTime: 3
-  vertical: 0
-  projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
-    type: 3}
 --- !u!61 &6666560937360481072
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,3 +152,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-1206289547043073687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6666560937360481074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a84ff29311c8e549a1656193e916d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  projectileSpeed: 2
+  buffer: 5
+  moveTime: 1
+  attackTime: 4
+  animateTime: 1
+  projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
+    type: 3}

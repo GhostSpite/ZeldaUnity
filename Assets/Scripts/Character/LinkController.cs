@@ -95,14 +95,6 @@ public class LinkController : MonoBehaviour
             ChangeHealth(-1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)){
-            EditorApplication.ExecuteMenuItem("Edit/Play");
-        }
-
-        if (Input.GetKeyDown(KeyCode.R)){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
         if (invincible){
             invincibleTimer -= Time.deltaTime;
 
@@ -120,11 +112,6 @@ public class LinkController : MonoBehaviour
             if (!invincible)
             {
                 DamageLink(amount);
-
-                /*Vector2 push = rigidbody2d.position;
-                push.x += lookDirection.x * pushScale * -1;
-                push.y += lookDirection.y * pushScale * -1;
-                rigidbody2d.position = push;*/
             }
         }
         else
