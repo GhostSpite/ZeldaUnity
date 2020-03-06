@@ -131,7 +131,7 @@ public class LinkController : MonoBehaviour
         Debug.Log(currentHealth + "/" + maxHealth);
     }
     //
-    public void MoveLink(Vector2 posChange){
+    void MoveLink(Vector2 posChange){
         if (!boomerangPresent)
         {
             animator.SetBool("Moving", true);
@@ -145,13 +145,12 @@ public class LinkController : MonoBehaviour
         }
     }
 
-    public void DamageLink(int amount){
+    void DamageLink(int amount){
         animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
-    //
 
     public void ChangeBombCount(int amount)
     {
@@ -175,6 +174,12 @@ public class LinkController : MonoBehaviour
     {
         rupeeCounter += amount;
         Debug.Log("Link now has " + rupeeCounter + " rupee(s)");
+    }
+
+    public void RoomChange(Vector2 change)
+    {
+        Vector2 newPos = new Vector2(rigidbody2d.position.x + change.x, rigidbody2d.position.y + change.y);
+        rigidbody2d.position = newPos;
     }
 
     void LaunchArrow()
