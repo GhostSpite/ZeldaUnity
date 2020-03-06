@@ -60,6 +60,7 @@ public class GoriaController : MonoBehaviour
                 isStopped = false;
                 attackTimer = attackTime;
                 timer = 0;
+                launched = false;
             }
         }
         

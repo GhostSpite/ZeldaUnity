@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  projectileSpeed: 4
+  projectileSpeed: 2
   moveTime: 1
-  attackTime: 2.5
+  attackTime: 4
   projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
     type: 3}
 --- !u!95 &6366587672749559630
