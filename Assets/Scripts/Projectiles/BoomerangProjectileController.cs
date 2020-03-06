@@ -6,9 +6,9 @@ public class BoomerangProjectileController : MonoBehaviour
 {
     public string collisionTag;
     Rigidbody2D rigidbody2d;
-    float time = 1f;
+    float time = 0.5f;
     float timer;
-    float speed;
+    float speed= 7f;
     float rotation = 0f;
 
     Vector2 direction;

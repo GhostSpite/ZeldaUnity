@@ -50,6 +50,10 @@ public class LinkController : MonoBehaviour
         Vector2 posChange = new Vector2(horizontal, vertical);
         Vector2 position = rigidbody2d.position;
 
+        if (boomerangPresent)
+        {
+            posChange = new Vector2(0, 0);
+        }
         if (posChange != Vector2.zero)
         {
             MoveLink(posChange);
@@ -63,10 +67,7 @@ public class LinkController : MonoBehaviour
         animator.SetFloat("Look Y", lookDirection.y);
 
         posChange.Normalize();
-        if (!boomerangPresent)
-        {
-            position += (posChange * movementSpeed * Time.deltaTime);
-        }
+        position += (posChange * movementSpeed * Time.deltaTime);
 
         rigidbody2d.position = position;
 
@@ -79,8 +80,11 @@ public class LinkController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2)){
+            if (!boomerangPresent)
+            {
+                LaunchBoomerang();
+            }
             boomerangPresent = true;
-            LaunchBoomerang();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3)){
@@ -130,15 +134,15 @@ public class LinkController : MonoBehaviour
 
         Debug.Log(currentHealth + "/" + maxHealth);
     }
-    //
-    void MoveLink(Vector2 posChange){
+
+    public void MoveLink(Vector2 posChange){
         if (!boomerangPresent)
         {
             animator.SetBool("Moving", true);
             animator.SetFloat("Move X", posChange.x);
             animator.SetFloat("Move Y", posChange.y);
             lookDirection = posChange;
-        }
+        } 
         else
         {
             animator.SetBool("Moving", false);
