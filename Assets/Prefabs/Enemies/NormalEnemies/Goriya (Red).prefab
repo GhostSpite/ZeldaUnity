@@ -12,15 +12,15 @@ GameObject:
   - component: {fileID: 2847963841013573965}
   - component: {fileID: 1395075097604698928}
   - component: {fileID: 7149665181598761012}
-  - component: {fileID: -1683840506659468519}
   - component: {fileID: 721321614}
+  - component: {fileID: -8884035479741950480}
   m_Layer: 9
   m_Name: Goriya (Red)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2847963841013573966
 Transform:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.25996876}
+  m_Offset: {x: -0.01590848, y: -0.2679224}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7626209}
+  m_Size: {x: 0.74546576, y: 0.5876293}
   m_EdgeRadius: 0
 --- !u!50 &7149665181598761012
 Rigidbody2D:
@@ -133,25 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-1683840506659468519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2847963841013573967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 059eef1e0b3577144a82c120fc2d9ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  projectileSpeed: 4
-  moveTime: 2
-  attackTime: 2.5
-  vertical: 0
-  projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
-    type: 3}
 --- !u!95 &721321614
 Animator:
   serializedVersion: 3
@@ -171,3 +152,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8884035479741950480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847963841013573967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622f88e15e592b64aac2fc900eceac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  projectileSpeed: 4
+  moveTime: 1
+  attackTime: 2.5
+  projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
+    type: 3}
