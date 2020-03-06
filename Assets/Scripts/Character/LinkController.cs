@@ -9,6 +9,7 @@ public class LinkController : MonoBehaviour
     public float projectileSpeed;
     public float movementSpeed;
     public float pushScale;
+    public static bool boomerangPresent = false;
 
     public int health { get { return currentHealth; } }
     public int maxHealth;
@@ -49,14 +50,13 @@ public class LinkController : MonoBehaviour
         Vector2 posChange = new Vector2(horizontal, vertical);
         Vector2 position = rigidbody2d.position;
 
+        if (boomerangPresent)
+        {
+            posChange = new Vector2(0, 0);
+        }
         if (posChange != Vector2.zero)
         {
             MoveLink(posChange);
-            /*animator.SetBool("Moving", true);
-            animator.SetFloat("Move X", posChange.x);
-            animator.SetFloat("Move Y", posChange.y);
-
-            lookDirection = posChange;*/
         }
         else
         {
@@ -80,7 +80,11 @@ public class LinkController : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2)){
-            LaunchBoomerang();
+            if (!boomerangPresent)
+            {
+                LaunchBoomerang();
+            }
+            boomerangPresent = true;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3)){
@@ -116,11 +120,6 @@ public class LinkController : MonoBehaviour
             if (!invincible)
             {
                 DamageLink(amount);
-                /*
-                animator.SetTrigger("Damaged");
-                invincibleTimer = invincibleTime;
-                invincible = true;
-                currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);*/
 
                 /*Vector2 push = rigidbody2d.position;
                 push.x += lookDirection.x * pushScale * -1;
@@ -135,21 +134,27 @@ public class LinkController : MonoBehaviour
 
         Debug.Log(currentHealth + "/" + maxHealth);
     }
-    //
+
     public void MoveLink(Vector2 posChange){
-        animator.SetBool("Moving", true);
-        animator.SetFloat("Move X", posChange.x);
-        animator.SetFloat("Move Y", posChange.y);
-        lookDirection = posChange;
+        if (!boomerangPresent)
+        {
+            animator.SetBool("Moving", true);
+            animator.SetFloat("Move X", posChange.x);
+            animator.SetFloat("Move Y", posChange.y);
+            lookDirection = posChange;
+        } 
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
     }
 
-    public void DamageLink(int amount){
+    void DamageLink(int amount){
         animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
-    //
 
     public void ChangeBombCount(int amount)
     {
@@ -175,6 +180,12 @@ public class LinkController : MonoBehaviour
         Debug.Log("Link now has " + rupeeCounter + " rupee(s)");
     }
 
+    public void RoomChange(Vector2 change)
+    {
+        Vector2 newPos = new Vector2(rigidbody2d.position.x + change.x, rigidbody2d.position.y + change.y);
+        rigidbody2d.position = newPos;
+    }
+
     void LaunchArrow()
     {
         GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
@@ -185,7 +196,7 @@ public class LinkController : MonoBehaviour
 
     void LaunchBoomerang()
     {
-        GameObject boomerang = Instantiate(boomerangPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
+        GameObject boomerang = Instantiate(boomerangPrefab, rigidbody2d.position + Vector2.up * .2f, Quaternion.identity);
 
         BoomerangProjectileController boomerangProjectile = boomerang.GetComponent<BoomerangProjectileController>();
         boomerangProjectile.Launch(lookDirection, projectileSpeed);

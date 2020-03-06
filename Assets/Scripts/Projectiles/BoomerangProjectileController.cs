@@ -6,12 +6,11 @@ public class BoomerangProjectileController : MonoBehaviour
 {
     public string collisionTag;
     Rigidbody2D rigidbody2d;
-    float time = 1f;
+    float time = 0.5f;
     float timer;
-    float speed;
+    float speed= 7f;
     float rotation = 0f;
 
-    //Animator animator;
     Vector2 direction;
 
     // Start is called before the first frame update
@@ -37,9 +36,10 @@ public class BoomerangProjectileController : MonoBehaviour
             MoveAway(position);
         } 
         else if (timer > 0){
-            MoveBack(position);            
+            MoveBack(position);
         } 
         else{
+            LinkController.boomerangPresent = false;
             Destroy(gameObject);
         }
     }
@@ -75,7 +75,7 @@ public class BoomerangProjectileController : MonoBehaviour
             Destroy(gameObject);
         }
         else{
-            timer = time / 2;
+            timer = (2*time) -timer -(float) 0.1;
         }
     }
 }
