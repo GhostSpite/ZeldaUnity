@@ -33472,6 +33472,11 @@ PrefabInstance:
       propertyPath: buffer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6666560937360481073, guid: 414abca74d649c44c9e9890dbb0a8b05,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6666560937360481074, guid: 414abca74d649c44c9e9890dbb0a8b05,
         type: 3}
       propertyPath: m_Name
