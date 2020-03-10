@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 3815884931066928758}
   - component: {fileID: 3574844639190264907}
   - component: {fileID: 6861681605862245295}
-  m_Layer: 0
+  - component: {fileID: 8893261036217637031}
+  m_Layer: 9
   m_Name: Keese
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,3 +152,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8893261036217637031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658180048644395865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90977de2d131340c68aedf84b6a2529c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  projectileSpeed: 0
+  moveSeed: 0
+  moveTime: 1
+  stopTime: 1
+  deltaSpeed: 0.02

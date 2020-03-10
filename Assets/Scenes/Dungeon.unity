@@ -814,6 +814,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!1001 &177650115
@@ -1406,7 +1411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 291869169}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1698436441}
@@ -30410,6 +30415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese
       objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!4 &457490674 stripped
@@ -30706,6 +30716,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Keese (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
@@ -31564,6 +31579,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!1 &772135621
@@ -32272,6 +32292,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!1 &978364380
@@ -32637,6 +32662,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!1001 &1053625000
@@ -32705,6 +32735,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Keese (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
@@ -33073,6 +33108,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!4 &1142562491 stripped
@@ -33257,6 +33297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Keese (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
@@ -33826,6 +33871,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!4 &1382036034 stripped
@@ -33901,6 +33951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Keese (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!4 &1388592333 stripped
@@ -33975,6 +34030,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Keese (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
@@ -34560,6 +34620,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Keese (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8893261036217637031, guid: 2d274513977c32444a96de5fede08dc0,
+        type: 3}
+      propertyPath: moveSeed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
