@@ -168,5 +168,5 @@ MonoBehaviour:
   projectileSpeed: 0
   moveSeed: 0
   moveTime: 1
-  stopTime: 1
-  deltaSpeed: 0.02
+  stopTime: 2
+  deltaSpeed: 0.01

@@ -91,6 +91,10 @@ public class KeeseController : MonoBehaviour
 
         if (isStopped)
         {
+            if(direction == 0)
+            {
+                direction = rand.Next(-5, 5);
+            }
             speed -= deltaSpeed;
             animator.SetFloat("Speed" , speed);
 
