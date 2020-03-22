@@ -6,8 +6,9 @@ public class ArrowProjectileController : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
     Animator animator;
+    BoxCollider2D boxCollider;
 
-    float timer = 2f;
+    float timer = 1.5f;
     float speed;
     Vector2 direction;
 
@@ -16,6 +17,7 @@ public class ArrowProjectileController : MonoBehaviour
     {
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
+        boxCollider = gameObject.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -34,6 +36,13 @@ public class ArrowProjectileController : MonoBehaviour
         this.direction = direction;
         this.speed = speed;
 
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            Vector2 size = boxCollider.size;
+            size.y = size.x;
+            size.x = 1;
+            boxCollider.size = size;
+        }
         animator.SetFloat("Look X", direction.x);
         animator.SetFloat("Look Y", direction.y);
     }

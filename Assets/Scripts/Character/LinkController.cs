@@ -182,6 +182,7 @@ public class LinkController : MonoBehaviour
             ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
             arrowProjectile.Launch(lookDirection, projectileSpeed);
             rupeeCounter--;
+            Debug.Log("Link now has " + rupeeCounter + " rupee(s)");
         }
         
     }
