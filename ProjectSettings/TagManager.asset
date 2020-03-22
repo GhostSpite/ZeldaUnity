@@ -45,6 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Walls
+    uniqueID: 3777451305
+    locked: 0
   - name: Enemies
     uniqueID: 4113969783
     locked: 0
