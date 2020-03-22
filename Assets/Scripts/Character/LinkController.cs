@@ -175,10 +175,16 @@ public class LinkController : MonoBehaviour
 
     void LaunchArrow()
     {
-        GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
+        if (rupeeCounter > 0)
+        {
+            GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
-        ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
-        arrowProjectile.Launch(lookDirection, projectileSpeed);
+            ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
+            arrowProjectile.Launch(lookDirection, projectileSpeed);
+            rupeeCounter--;
+            Debug.Log("Link now has " + rupeeCounter + " rupee(s)");
+        }
+        
     }
 
     void LaunchBoomerang()

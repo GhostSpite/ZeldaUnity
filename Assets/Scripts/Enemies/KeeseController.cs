@@ -5,12 +5,13 @@ using UnityEngine;
 public class KeeseController : MonoBehaviour
 {
     public float speed;
-    public float projectileSpeed;
+    public float originalSpeed;
     public int moveSeed;
 
     private int direction;
     private System.Random rand;
     private bool isStopped;
+    private bool startingUp;
 
     public float moveTime;
     public float stopTime;
@@ -28,6 +29,10 @@ public class KeeseController : MonoBehaviour
         stopTimer = stopTime;
         direction = 2;
         isStopped = false;
+
+        startingUp = true;
+        originalSpeed = speed;
+        speed = 0;
 
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -83,7 +88,7 @@ public class KeeseController : MonoBehaviour
     {
         timer -= Time.deltaTime;
     
-        if (timer < 0)
+        if (timer <= 0)
         {
             direction = rand.Next(-5, 5);
             timer = moveTime;
@@ -108,9 +113,19 @@ public class KeeseController : MonoBehaviour
                 if(stopTimer < 0)
                 {
                     isStopped = false;
+                    startingUp = true;
                     direction = rand.Next(-5, 5);
                     stopTimer = stopTime;
                 }
+            }
+        }
+        else if (startingUp)
+        {
+            speed += deltaSpeed;
+            animator.SetFloat("Speed", speed);
+            if(speed == originalSpeed)
+            {
+                startingUp = false;
             }
         }
     }
@@ -174,6 +189,10 @@ public class KeeseController : MonoBehaviour
         if (controller != null)
         {
             controller.ChangeHealth(-1);
+        }
+        else
+        {
+            direction = rand.Next(-5, 5);
         }
     }
 
