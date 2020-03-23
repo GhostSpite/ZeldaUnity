@@ -24,8 +24,8 @@ TagManager:
   - Item
   - PlayerProjectile
   - EnemyProjectile
-  - 
-  - 
+  - Walls
+  - Wallmaster
   - 
   - 
   - 

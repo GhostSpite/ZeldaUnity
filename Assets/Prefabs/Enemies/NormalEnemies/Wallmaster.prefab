@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 389071368585173674}
   - component: {fileID: 389071368585173673}
   - component: {fileID: 389071368585173672}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Wallmaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
