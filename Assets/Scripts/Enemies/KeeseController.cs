@@ -19,6 +19,9 @@ public class KeeseController : MonoBehaviour
     float stopTimer;
     public float deltaSpeed;
 
+    public int maxHealth;
+    int currentHealth;
+
     Rigidbody2D rigidbody2d;
     Animator animator;
     
@@ -29,6 +32,7 @@ public class KeeseController : MonoBehaviour
         stopTimer = stopTime;
         direction = 2;
         isStopped = false;
+        currentHealth = maxHealth;
 
         startingUp = true;
         originalSpeed = speed;
@@ -123,7 +127,7 @@ public class KeeseController : MonoBehaviour
         {
             speed += deltaSpeed;
             animator.SetFloat("Speed", speed);
-            if(speed == originalSpeed)
+            if(speed >= originalSpeed)
             {
                 startingUp = false;
             }
@@ -195,5 +199,18 @@ public class KeeseController : MonoBehaviour
             direction = rand.Next(-5, 5);
         }
     }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        }
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 }

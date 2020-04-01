@@ -20,6 +20,13 @@ public class GoriaController : MonoBehaviour
     private bool isStopped;
     private bool launched;
 
+    public int maxHealth;
+    int currentHealth;
+
+    public float invincibleTime;
+    float invincibleTimer = 0f;
+    bool invincible = false;
+
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -37,6 +44,7 @@ public class GoriaController : MonoBehaviour
         lastDirection = direction;
         isStopped = false;
         launched = false;
+        currentHealth = maxHealth;
 
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -165,5 +173,24 @@ public class GoriaController : MonoBehaviour
 
         BoomerangProjectileController boomerangProjectile = projectile.GetComponent<BoomerangProjectileController>();
         boomerangProjectile.Launch(lookDirection, projectileSpeed);
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (!invincible)
+            {
+                DamageGoria(amount);
+            }
+        }
+    }
+
+    void DamageGoria(int amount)
+    {
+        //animator.SetTrigger("Damaged");
+        invincibleTimer = invincibleTime;
+        invincible = true;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 }

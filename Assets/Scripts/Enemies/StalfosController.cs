@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GelController : MonoBehaviour
+public class StalfosController : MonoBehaviour
 {
     public float speed;
     public int moveSeed;
@@ -16,7 +16,12 @@ public class GelController : MonoBehaviour
     public int maxHealth;
     int currentHealth;
 
+    public float invincibleTime;
+    float invincibleTimer = 0f;
+    bool invincible = false;
+
     Rigidbody2D rigidbody2d;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,16 @@ public class GelController : MonoBehaviour
     void Update()
     {
         moveWithAI();
+
+        if (invincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+
+            if (invincibleTimer < 0)
+            {
+                invincible = false;
+            }
+        }
     }
 
     public void moveWithAI()
@@ -109,11 +124,18 @@ public class GelController : MonoBehaviour
     {
         if (amount < 0)
         {
-            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            if (!invincible)
+            {
+                DamageStalfos(amount);
+            }
         }
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
+    }
+
+    void DamageStalfos(int amount)
+    {
+        //animator.SetTrigger("Damaged");
+        invincibleTimer = invincibleTime;
+        invincible = true;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 }

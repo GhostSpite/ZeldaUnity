@@ -124,7 +124,7 @@ public class BladeTrapController : MonoBehaviour
         LinkController controller = other.gameObject.GetComponent<LinkController>();
         if (controller != null)
         {
-            controller.ChangeHealth(-1);
+            controller.ChangeHealth(-2);
         }
         else if(!returning)
         {

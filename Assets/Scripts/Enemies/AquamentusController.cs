@@ -20,6 +20,13 @@ public class AquamentusController : MonoBehaviour
     private int direction;
     private System.Random rand = new System.Random();
 
+    public int maxHealth;
+    int currentHealth;
+
+    public float invincibleTime;
+    float invincibleTimer = 0f;
+    bool invincible = false;
+
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -35,6 +42,7 @@ public class AquamentusController : MonoBehaviour
         attackTimer = attackTime;
         animateTimer = animateTime;
         direction = -1;
+        currentHealth = maxHealth;
 
         launched = false;
 
@@ -119,7 +127,7 @@ public class AquamentusController : MonoBehaviour
 
         if (controller != null)
         {
-            controller.ChangeHealth(-1);
+            controller.ChangeHealth(-2);
         }
     }
 
@@ -133,5 +141,24 @@ public class AquamentusController : MonoBehaviour
         BoomerangProjectileController boomerangProjectile = projectile.GetComponent<BoomerangProjectileController>();
         boomerangProjectile.Launch(lookDirection, projectileSpeed);
 
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (!invincible)
+            {
+                DamageAquamentus(amount);
+            }
+        }
+    }
+
+    void DamageAquamentus(int amount)
+    {
+        //animator.SetTrigger("Damaged");
+        invincibleTimer = invincibleTime;
+        invincible = true;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2969818026465886493}
   - component: {fileID: 4329272153118054126}
   - component: {fileID: 4889780334066695310}
-  - component: {fileID: 6316235083794104210}
+  - component: {fileID: 3014602993635285449}
   m_Layer: 9
   m_Name: Skeleton
   m_TagString: Enemy
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -180997513
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -5009223088708221049, guid: f58ec7a5e8eb2894fa04de8260f9c732,
     type: 3}
@@ -168,7 +168,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6316235083794104210
+--- !u!114 &3014602993635285449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,9 +177,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1249692749800637946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f93362c96a8591c419527560ddc859f6, type: 3}
+  m_Script: {fileID: 11500000, guid: 6911280406b41ea48950967302faaf86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
   moveSeed: 0
   moveTime: 1
+  maxHealth: 2
+  invincibleTime: 1

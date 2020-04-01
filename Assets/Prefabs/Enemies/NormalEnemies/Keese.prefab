@@ -169,4 +169,5 @@ MonoBehaviour:
   moveSeed: 0
   moveTime: 1
   stopTime: 2
-  deltaSpeed: 0.01
+  deltaSpeed: 0.009
+  maxHealth: 1

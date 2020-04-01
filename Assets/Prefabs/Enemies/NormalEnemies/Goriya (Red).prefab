@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -180997513
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1017871411792229582, guid: f58ec7a5e8eb2894fa04de8260f9c732,
     type: 3}
@@ -169,5 +169,7 @@ MonoBehaviour:
   moveSeed: 0
   moveTime: 1
   attackTime: 2.5
+  maxHealth: 3
+  invincibleTime: 1
   projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
     type: 3}
