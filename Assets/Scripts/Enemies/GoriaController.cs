@@ -27,6 +27,10 @@ public class GoriaController : MonoBehaviour
     float invincibleTimer = 0f;
     bool invincible = false;
 
+    public GameObject heartPrefab;
+    public GameObject rupeePrefab;
+    GameObject drop;
+
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -184,6 +188,11 @@ public class GoriaController : MonoBehaviour
                 DamageGoria(amount);
             }
         }
+        if (currentHealth <= 0)
+        {
+            dropItem();
+            Destroy(gameObject);            
+        }
     }
 
     void DamageGoria(int amount)
@@ -192,5 +201,21 @@ public class GoriaController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
+
+    void dropItem()
+    {
+        int item = rand.Next(0, 10);
+        switch (item)
+        {
+            case 0:
+                drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            case 1:
+                drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            default:
+                break;
+        }
     }
 }

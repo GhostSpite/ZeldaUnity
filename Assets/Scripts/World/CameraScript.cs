@@ -7,6 +7,13 @@ public class CameraScript : MonoBehaviour
     
     Vector3 target;
     public float smoothing;
+    public SpriteRenderer walls;
+
+    void Start()
+    {
+        //May be a way to get the screen to be square like the original game
+        //Camera.main.rect = new Rect(transform.position.x, transform.position.y, walls.bounds.size.x, walls.bounds.size.y);
+    }
 
     public void Move(Vector3 change)
     {
