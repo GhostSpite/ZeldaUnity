@@ -5,20 +5,26 @@ using UnityEngine;
 public class GelController : MonoBehaviour
 {
     public float speed;
+    public int moveSeed;
 
     public float moveTime;
     float timer;
 
     private int direction;
-    private System.Random rand = new System.Random();
+    private System.Random rand;
+
+    public int maxHealth;
+    int currentHealth;
 
     Rigidbody2D rigidbody2d;
 
     // Start is called before the first frame update
     void Start()
     {
+        rand = new System.Random(moveSeed);
         timer = moveTime;
         direction = 2;
+        currentHealth = maxHealth;
 
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
@@ -96,6 +102,18 @@ public class GelController : MonoBehaviour
         if (controller != null)
         {
             controller.ChangeHealth(-1);
+        }
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        }
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

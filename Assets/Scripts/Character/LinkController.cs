@@ -95,14 +95,6 @@ public class LinkController : MonoBehaviour
             ChangeHealth(-1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)){
-            EditorApplication.ExecuteMenuItem("Edit/Play");
-        }
-
-        if (Input.GetKeyDown(KeyCode.R)){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
         if (invincible){
             invincibleTimer -= Time.deltaTime;
 
@@ -120,11 +112,6 @@ public class LinkController : MonoBehaviour
             if (!invincible)
             {
                 DamageLink(amount);
-
-                /*Vector2 push = rigidbody2d.position;
-                push.x += lookDirection.x * pushScale * -1;
-                push.y += lookDirection.y * pushScale * -1;
-                rigidbody2d.position = push;*/
             }
         }
         else
@@ -134,21 +121,27 @@ public class LinkController : MonoBehaviour
 
         Debug.Log(currentHealth + "/" + maxHealth);
     }
-    //
+
     public void MoveLink(Vector2 posChange){
+        if (!boomerangPresent)
+        {
             animator.SetBool("Moving", true);
             animator.SetFloat("Move X", posChange.x);
             animator.SetFloat("Move Y", posChange.y);
             lookDirection = posChange;
+        } 
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
     }
 
-    public void DamageLink(int amount){
+    void DamageLink(int amount){
         animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
-    //
 
     public void ChangeBombCount(int amount)
     {
@@ -174,12 +167,24 @@ public class LinkController : MonoBehaviour
         Debug.Log("Link now has " + rupeeCounter + " rupee(s)");
     }
 
+    public void RoomChange(Vector2 change)
+    {
+        Vector2 newPos = new Vector2(rigidbody2d.position.x + change.x, rigidbody2d.position.y + change.y);
+        rigidbody2d.position = newPos;
+    }
+
     void LaunchArrow()
     {
-        GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
+        if (rupeeCounter > 0)
+        {
+            GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
-        ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
-        arrowProjectile.Launch(lookDirection, projectileSpeed);
+            ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
+            arrowProjectile.Launch(lookDirection, projectileSpeed);
+            rupeeCounter--;
+            Debug.Log("Link now has " + rupeeCounter + " rupee(s)");
+        }
+        
     }
 
     void LaunchBoomerang()

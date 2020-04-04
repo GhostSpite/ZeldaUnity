@@ -7,6 +7,7 @@ public class GoriaController : MonoBehaviour
 {
     public float speed;
     public float projectileSpeed;
+    public int moveSeed;
 
     public float moveTime;
     float timer;
@@ -14,10 +15,21 @@ public class GoriaController : MonoBehaviour
     float attackTimer;
 
     private int direction;
-    private System.Random rand = new System.Random();
+    private System.Random rand;
     private int lastDirection;
     private bool isStopped;
     private bool launched;
+
+    public int maxHealth;
+    int currentHealth;
+
+    public float invincibleTime;
+    float invincibleTimer = 0f;
+    bool invincible = false;
+
+    public GameObject heartPrefab;
+    public GameObject rupeePrefab;
+    GameObject drop;
 
     Rigidbody2D rigidbody2d;
     Animator animator;
@@ -29,12 +41,14 @@ public class GoriaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rand = new System.Random(moveSeed);
         timer = moveTime;
         attackTimer = attackTime;
         direction = 2;
         lastDirection = direction;
         isStopped = false;
         launched = false;
+        currentHealth = maxHealth;
 
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -60,6 +74,7 @@ public class GoriaController : MonoBehaviour
                 isStopped = false;
                 attackTimer = attackTime;
                 timer = 0;
+                launched = false;
             }
         }
         
@@ -162,5 +177,45 @@ public class GoriaController : MonoBehaviour
 
         BoomerangProjectileController boomerangProjectile = projectile.GetComponent<BoomerangProjectileController>();
         boomerangProjectile.Launch(lookDirection, projectileSpeed);
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (!invincible)
+            {
+                DamageGoria(amount);
+            }
+        }
+        if (currentHealth <= 0)
+        {
+            dropItem();
+            Destroy(gameObject);            
+        }
+    }
+
+    void DamageGoria(int amount)
+    {
+        //animator.SetTrigger("Damaged");
+        invincibleTimer = invincibleTime;
+        invincible = true;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
+
+    void dropItem()
+    {
+        int item = rand.Next(0, 10);
+        switch (item)
+        {
+            case 0:
+                drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            case 1:
+                drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            default:
+                break;
+        }
     }
 }
