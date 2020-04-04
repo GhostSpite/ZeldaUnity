@@ -187,7 +187,7 @@ public class LinkController : MonoBehaviour
         GameObject boomerang = Instantiate(boomerangPrefab, rigidbody2d.position + Vector2.up * .2f, Quaternion.identity);
 
         BoomerangProjectileController boomerangProjectile = boomerang.GetComponent<BoomerangProjectileController>();
-        boomerangProjectile.Launch(lookDirection, projectileSpeed);
+            boomerangProjectile.Launch(lookDirection, projectileSpeed);
     }
 
     void PlaceBomb()
