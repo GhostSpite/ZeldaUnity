@@ -27,6 +27,9 @@ public class AquamentusController : MonoBehaviour
     float invincibleTimer = 0f;
     bool invincible = false;
 
+    public GameObject heartContainerPrefab;
+    GameObject drop;
+
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -151,6 +154,11 @@ public class AquamentusController : MonoBehaviour
             {
                 DamageAquamentus(amount);
             }
+        }
+        if (currentHealth <= 0)
+        {
+            drop = Instantiate(heartContainerPrefab, rigidbody2d.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 

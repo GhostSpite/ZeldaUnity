@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7292105858294329394}
   - component: {fileID: 4301543391445935157}
-  - component: {fileID: 8812622324157721099}
   - component: {fileID: 2969818026465886493}
   - component: {fileID: 4329272153118054126}
   - component: {fileID: 4889780334066695310}
@@ -87,21 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8812622324157721099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249692749800637946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e34bdafc8982f4686e82912fd04879, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 4
-  moveTime: 1
-  vertical: 0
 --- !u!61 &2969818026465886493
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -185,3 +169,14 @@ MonoBehaviour:
   moveTime: 1
   maxHealth: 2
   invincibleTime: 1
+  hasKey: 0
+  keyPrefab: {fileID: 8733669295376117042, guid: 2843dd33d3ea17c4f815fea9f9da194a,
+    type: 3}
+  heartPrefab: {fileID: 680990604283564758, guid: 080b22d2bb6779144802ae1774d191c2,
+    type: 3}
+  rupeePrefab: {fileID: 787848368218459589, guid: 8fc91514fd1a4e643a9c678d8641128e,
+    type: 3}
+  bombPrefab: {fileID: 2197349076463630800, guid: a72a8a1f9242b544c897bb86706add3e,
+    type: 3}
+  clockPrefab: {fileID: 5756480175157075681, guid: 530ad9a748fcf434096cb4c07bc01f78,
+    type: 3}

@@ -172,5 +172,7 @@ MonoBehaviour:
   animateTime: 1
   maxHealth: 6
   invincibleTime: 1
+  heartContainerPrefab: {fileID: 1343164384280962614, guid: dbb619eca3f94e449a0e963e29579461,
+    type: 3}
   projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
     type: 3}

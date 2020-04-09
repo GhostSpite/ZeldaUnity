@@ -16,6 +16,12 @@ public class GelController : MonoBehaviour
     public int maxHealth;
     int currentHealth;
 
+    public GameObject heartPrefab;
+    public GameObject rupeePrefab;
+    public GameObject bombPrefab;
+    public GameObject clockPrefab;
+    GameObject drop;
+
     Rigidbody2D rigidbody2d;
 
     // Start is called before the first frame update
@@ -114,6 +120,42 @@ public class GelController : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+        }
+        if (currentHealth <= 0)
+        {
+            dropItem();
+            Destroy(gameObject);
+        }
+    }
+
+    void dropItem()
+    {
+        int item = rand.Next(0, 15);
+        switch (item)
+        {
+            case 0:
+                drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            case 1:
+                drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            case 2:
+                drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            case 3:
+                drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            case 4:
+                drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            case 5:
+                drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            case 6:
+                drop = Instantiate(clockPrefab, rigidbody2d.position, Quaternion.identity);
+                break;
+            default:
+                break;
         }
     }
 }
