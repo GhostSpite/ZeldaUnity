@@ -21,6 +21,7 @@ public class GoriaController : MonoBehaviour
     private bool launched;
 
     public int maxHealth;
+    public int health { get { return currentHealth; } }
     int currentHealth;
 
     public float invincibleTime;
@@ -197,7 +198,7 @@ public class GoriaController : MonoBehaviour
         }
     }
 
-    void DamageGoria(int amount)
+    public void DamageGoria(int amount)
     {
         //animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;

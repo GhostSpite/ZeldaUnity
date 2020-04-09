@@ -21,6 +21,7 @@ public class AquamentusController : MonoBehaviour
     private System.Random rand = new System.Random();
 
     public int maxHealth;
+    public int health { get { return currentHealth; } }
     int currentHealth;
 
     public float invincibleTime;
@@ -162,7 +163,7 @@ public class AquamentusController : MonoBehaviour
         }
     }
 
-    void DamageAquamentus(int amount)
+    public void DamageAquamentus(int amount)
     {
         //animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;

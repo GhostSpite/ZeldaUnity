@@ -20,6 +20,7 @@ public class KeeseController : MonoBehaviour
     public float deltaSpeed;
 
     public int maxHealth;
+    public int health { get { return currentHealth; } }
     int currentHealth;
 
     public GameObject heartPrefab;
@@ -253,4 +254,5 @@ public class KeeseController : MonoBehaviour
                 break;
         }
     }
+
 }

@@ -14,6 +14,7 @@ public class StalfosController : MonoBehaviour
     private System.Random rand;
 
     public int maxHealth;
+    public int health { get { return currentHealth; } }
     int currentHealth;
 
     public float invincibleTime;
@@ -144,7 +145,7 @@ public class StalfosController : MonoBehaviour
         }
     }
 
-    void DamageStalfos(int amount)
+    public void DamageStalfos(int amount)
     {
         //animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;

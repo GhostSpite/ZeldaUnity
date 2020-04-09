@@ -14,6 +14,7 @@ public class GelController : MonoBehaviour
     private System.Random rand;
 
     public int maxHealth;
+    public int health { get { return currentHealth; } }
     int currentHealth;
 
     public GameObject heartPrefab;
@@ -158,4 +159,5 @@ public class GelController : MonoBehaviour
                 break;
         }
     }
+
 }
