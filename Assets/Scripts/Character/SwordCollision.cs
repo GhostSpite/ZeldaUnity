@@ -13,6 +13,10 @@ public class SwordCollision : MonoBehaviour
             {
                 cont1.DamageAquamentus(-1);
             }
+            if(cont1.health <= 0) 
+            {
+                Destroy(col.gameObject);
+            }
             Debug.Log("hit aqua " + "health: " + cont1.health + "/" + cont1.maxHealth);
         }else if (col.gameObject.name.Contains("Gel"))
         {
@@ -29,6 +33,10 @@ public class SwordCollision : MonoBehaviour
             {
                 cont3.DamageGoria(-1);
             }
+            if (cont3.health <= 0)
+            {
+                Destroy(col.gameObject);
+            }
             Debug.Log("hit goria " + "health: " + cont3.health + "/" + cont3.maxHealth);
         }else if (col.gameObject.name.Contains("Keese"))
         {
@@ -44,6 +52,10 @@ public class SwordCollision : MonoBehaviour
             if (cont5.health > 0)
             {
                 cont5.DamageStalfos(-1);
+            }
+            if (cont5.health <= 0)
+            {
+                Destroy(col.gameObject);
             }
             Debug.Log("hit stalfos " + "health: " + cont5.health + "/" + cont5.maxHealth);
         }
