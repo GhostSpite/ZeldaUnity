@@ -20,6 +20,14 @@ public class StalfosController : MonoBehaviour
     float invincibleTimer = 0f;
     bool invincible = false;
 
+    public bool hasKey;
+    public GameObject keyPrefab;
+    public GameObject heartPrefab;
+    public GameObject rupeePrefab;
+    public GameObject bombPrefab;
+    public GameObject clockPrefab;
+    GameObject drop;
+
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -128,6 +136,11 @@ public class StalfosController : MonoBehaviour
             {
                 DamageStalfos(amount);
             }
+            if (currentHealth <= 0)
+            {
+                dropItem();
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -137,5 +150,43 @@ public class StalfosController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
+
+    void dropItem()
+    {
+        if (!hasKey)
+        {
+            int item = rand.Next(0, 10);
+            switch (item)
+            {
+                case 0:
+                    drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
+                    break;
+                case 1:
+                    drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
+                    break;
+                case 2:
+                    drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
+                    break;
+                case 3:
+                    drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
+                    break;
+                case 4:
+                    drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
+                    break;
+                case 5:
+                    drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
+                    break;
+                case 6:
+                    drop = Instantiate(clockPrefab, rigidbody2d.position, Quaternion.identity);
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            drop = Instantiate(keyPrefab, rigidbody2d.position, Quaternion.identity);
+        }
     }
 }
