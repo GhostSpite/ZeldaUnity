@@ -27,7 +27,7 @@ namespace Assets.Scripts.Items
             LinkController controller = other.GetComponent<LinkController>();
             if (controller != null && collectible)
             {
-                if (controller.health < controller.maxHealth)
+                if (controller.life < controller.maxLife)
                 {
                     controller.ChangeHealth(amount);
 

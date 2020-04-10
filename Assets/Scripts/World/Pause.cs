@@ -1,59 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    bool isPaused = false;
+    public GameObject pauseCanvas;
 
-    
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-            {
-                ResumeScreen();
-            }
-            else
-            {
-                PauseScreen();
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.BackQuote))
-        {
-            if (isPaused)
-            {
-                ResumeNoScreen();
-            }
-            else
-            {
-                PauseNoScreen();
-            }
-        }
-    }
+    bool isPaused;
+    public KeyCode pause;
 
-    void ResumeScreen()
-    {
-        //Pan away from pause screen
-        ResumeNoScreen();
-    }
-
-    void PauseScreen()
-    {
-        //Pan to pause screen
-        PauseNoScreen();
-    }
-
-    void ResumeNoScreen()
+    void Start()
     {
         isPaused = false;
-        Time.timeScale = 1f;
     }
 
-    void PauseNoScreen()
+    void Update()
     {
-        isPaused = true;
-        Time.timeScale = 0f;
+        if (Input.GetKeyDown(pause))
+        {
+            ChangePause();
+        }
+    }
+
+    void ChangePause()
+    {
+        isPaused = !isPaused;
+        if(isPaused)
+        {
+            pauseCanvas.SetActive(true);
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            pauseCanvas.SetActive(false);
+            Time.timeScale = 1f;
+        }
     }
 }

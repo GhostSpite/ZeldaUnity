@@ -24,8 +24,7 @@ public class HeartContainerCollectible : MonoBehaviour
 
         if (controller != null && collectible)
         {
-            controller.maxHealth += 2;
-            controller.ChangeHealth(2);
+            controller.ChangeMaxHealth();
 
             Destroy(gameObject);
         }
