@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
     public int bluePotions;
     public int redPotions;
 
+    public bool hasRaft;
     public bool hasBow;
     public bool hasRang;
     public bool hasRod;
