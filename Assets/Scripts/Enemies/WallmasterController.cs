@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallmasterController : MonoBehaviour
 {
+    AudioSource audioSource;
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -33,6 +34,9 @@ public class WallmasterController : MonoBehaviour
     public GameObject clockPrefab;
     GameObject drop;
 
+    public AudioClip getHit;
+    public AudioClip die;
+
     void Start()
     {
         rand = new System.Random(moveSeed);
@@ -41,6 +45,7 @@ public class WallmasterController : MonoBehaviour
         startPosition = new Vector2(0, -4);
         currentHealth = maxHealth;
 
+        audioSource = GetComponent<AudioSource>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -147,18 +152,23 @@ public class WallmasterController : MonoBehaviour
         {
             if (!invincible)
             {
-                DamageStalfos(amount);
+                DamageWallmaster(amount);
             }
         }
 
         if (currentHealth <= 0)
         {
+            PlaySound(die);
             dropItem();
             Destroy(gameObject);
         }
+        else //if (!invincible)
+        {
+            PlaySound(getHit);
+        }
     }
 
-    public void DamageStalfos(int amount)
+    public void DamageWallmaster(int amount)
     {
         //animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
@@ -195,5 +205,10 @@ public class WallmasterController : MonoBehaviour
             default:
                 break;
             }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

@@ -22,7 +22,10 @@ public class GelController : MonoBehaviour
     public GameObject bombPrefab;
     public GameObject clockPrefab;
     GameObject drop;
+    
+    public AudioClip die;
 
+    AudioSource audioSource;
     Rigidbody2D rigidbody2d;
 
     // Start is called before the first frame update
@@ -33,6 +36,7 @@ public class GelController : MonoBehaviour
         direction = 2;
         currentHealth = maxHealth;
 
+        audioSource = GetComponent<AudioSource>();
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
@@ -120,10 +124,7 @@ public class GelController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
-        }
-        if (currentHealth <= 0)
-        {
+            PlaySound(die);
             dropItem();
             Destroy(gameObject);
         }
@@ -160,4 +161,8 @@ public class GelController : MonoBehaviour
         }
     }
 
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 }

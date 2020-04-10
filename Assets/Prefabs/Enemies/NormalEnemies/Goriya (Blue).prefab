@@ -171,5 +171,9 @@ MonoBehaviour:
   attackTime: 2.5
   maxHealth: 3
   invincibleTime: 1
+  heartPrefab: {fileID: 0}
+  rupeePrefab: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  clockPrefab: {fileID: 0}
   projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
     type: 3}
