@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8764852875009914485}
   m_Layer: 0
   m_Name: Goriya (Blue)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,5 +171,9 @@ MonoBehaviour:
   attackTime: 2.5
   maxHealth: 3
   invincibleTime: 1
+  heartPrefab: {fileID: 0}
+  rupeePrefab: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  clockPrefab: {fileID: 0}
   projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
     type: 3}

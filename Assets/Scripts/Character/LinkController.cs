@@ -45,10 +45,16 @@ public class LinkController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector2 posChange = new Vector2(horizontal, vertical);
         Vector2 position = rigidbody2d.position;
+
+        if (currentHealth <= 0)
+        {
+            DeathScene();
+        }
 
         if (boomerangPresent)
         {
@@ -198,5 +204,30 @@ public class LinkController : MonoBehaviour
     void PlaceBomb()
     {
         GameObject bomb = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
+    }
+
+    void DeathScene()
+    {
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(o);
+        }
+
+        StartCoroutine(wait());
+
+        animator.SetTrigger("Dead");
+    }
+
+    IEnumerator wait()
+    {
+        foreach (GameObject g in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
+            if (g.name.Contains("gray"))
+            {
+                g.SetActive(true);
+                yield return new WaitForSeconds(1f);
+            }
+        }
+        
     }
 }

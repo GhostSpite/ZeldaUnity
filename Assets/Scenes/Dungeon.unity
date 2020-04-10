@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 373221}
   m_Layer: 18
   m_Name: Boss Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 3842128}
   m_Layer: 0
   m_Name: Room 9 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 39780494}
   m_Layer: 18
   m_Name: Room 10 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 52696615}
   m_Layer: 18
   m_Name: Room 2 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -924,7 +924,7 @@ GameObject:
   - component: {fileID: 63246868}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1680,6 +1680,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Link
       objectReference: {fileID: 0}
+    - target: {fileID: 5223815306591368338, guid: 3969eb5eb46891f46aca962716fb6e38,
+        type: 3}
+      propertyPath: m_TagString
+      value: Dungeon
+      objectReference: {fileID: 0}
     - target: {fileID: 5223815306591368342, guid: 3969eb5eb46891f46aca962716fb6e38,
         type: 3}
       propertyPath: m_IsTrigger
@@ -2200,7 +2205,7 @@ GameObject:
   - component: {fileID: 167986504}
   m_Layer: 0
   m_Name: Room 11 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2802,7 +2807,7 @@ GameObject:
   - component: {fileID: 203738737}
   m_Layer: 18
   m_Name: Top Border
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3231,7 +3236,7 @@ GameObject:
   - component: {fileID: 222420361}
   m_Layer: 0
   m_Name: Room 10 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3321,7 +3326,7 @@ GameObject:
   - component: {fileID: 222979067}
   m_Layer: 8
   m_Name: down hit box
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3597,7 +3602,7 @@ GameObject:
   - component: {fileID: 252589494}
   m_Layer: 0
   m_Name: Room 2 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3871,7 +3876,7 @@ GameObject:
   - component: {fileID: 273731347}
   m_Layer: 0
   m_Name: Stair Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4047,7 +4052,7 @@ GameObject:
   - component: {fileID: 291869173}
   m_Layer: 10
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20694,7 +20699,7 @@ GameObject:
   - component: {fileID: 301965061}
   m_Layer: 0
   m_Name: Room 6 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20956,7 +20961,7 @@ GameObject:
   - component: {fileID: 320089388}
   m_Layer: 18
   m_Name: Right Border
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21086,7 +21091,7 @@ GameObject:
   - component: {fileID: 329581035}
   m_Layer: 0
   m_Name: Shop Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21425,7 +21430,7 @@ GameObject:
   - component: {fileID: 357435965}
   m_Layer: 0
   m_Name: Room 8 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22164,7 +22169,7 @@ GameObject:
   - component: {fileID: 413647867}
   m_Layer: 18
   m_Name: Left Border
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22270,7 +22275,7 @@ GameObject:
   - component: {fileID: 432913373}
   m_Layer: 8
   m_Name: up hit box
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24640,7 +24645,7 @@ GameObject:
   - component: {fileID: 582581103}
   m_Layer: 18
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25244,7 +25249,7 @@ GameObject:
   - component: {fileID: 642766148}
   m_Layer: 18
   m_Name: Room 1 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25426,7 +25431,7 @@ GameObject:
   - component: {fileID: 647413108}
   m_Layer: 0
   m_Name: Start Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26045,7 +26050,7 @@ GameObject:
   - component: {fileID: 695442898}
   m_Layer: 8
   m_Name: left hit box
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26894,7 +26899,7 @@ GameObject:
   - component: {fileID: 750879705}
   m_Layer: 18
   m_Name: Bottom Right Border
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27146,7 +27151,7 @@ GameObject:
   - component: {fileID: 757838749}
   m_Layer: 18
   m_Name: Room 12 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28907,7 +28912,7 @@ GameObject:
   - component: {fileID: 889683316}
   m_Layer: 0
   m_Name: Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29276,7 +29281,7 @@ GameObject:
   - component: {fileID: 923172648}
   m_Layer: 18
   m_Name: Shop Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29492,7 +29497,7 @@ GameObject:
   - component: {fileID: 940739441}
   m_Layer: 18
   m_Name: Room 5 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29800,7 +29805,7 @@ GameObject:
   - component: {fileID: 972364260}
   m_Layer: 18
   m_Name: Room 6 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30306,7 +30311,7 @@ GameObject:
   - component: {fileID: 997551557}
   m_Layer: 18
   m_Name: Bottom Border
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30502,7 +30507,7 @@ GameObject:
   - component: {fileID: 1005013206}
   m_Layer: 18
   m_Name: Tri Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32280,7 +32285,7 @@ GameObject:
   - component: {fileID: 1104773743}
   m_Layer: 0
   m_Name: Room 1 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32551,7 +32556,7 @@ GameObject:
   - component: {fileID: 1125494086}
   m_Layer: 0
   m_Name: Boss Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33883,7 +33888,7 @@ GameObject:
   - component: {fileID: 1236159523}
   m_Layer: 18
   m_Name: Top Right Border
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34177,7 +34182,7 @@ GameObject:
   - component: {fileID: 1274321150}
   m_Layer: 18
   m_Name: Stairs Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35399,7 +35404,7 @@ GameObject:
   - component: {fileID: 1370178746}
   m_Layer: 18
   m_Name: Bottom Left Border
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36338,7 +36343,7 @@ GameObject:
   - component: {fileID: 1418509055}
   m_Layer: 0
   m_Name: Room 7 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37850,7 +37855,7 @@ GameObject:
   - component: {fileID: 1538127151}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37951,7 +37956,7 @@ GameObject:
   - component: {fileID: 1543383853}
   m_Layer: 18
   m_Name: Start Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38497,7 +38502,7 @@ GameObject:
   - component: {fileID: 1585238827}
   m_Layer: 0
   m_Name: Room 4 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39039,7 +39044,7 @@ GameObject:
   - component: {fileID: 1625731211}
   m_Layer: 18
   m_Name: Room 9 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39206,7 +39211,7 @@ GameObject:
   - component: {fileID: 1635369231}
   m_Layer: 18
   m_Name: Room 11 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39403,7 +39408,7 @@ GameObject:
   - component: {fileID: 1644989333}
   m_Layer: 18
   m_Name: Room 8 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39990,7 +39995,7 @@ GameObject:
   - component: {fileID: 1677983411}
   m_Layer: 0
   m_Name: Room 12 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40332,7 +40337,7 @@ GameObject:
   - component: {fileID: 1698436440}
   m_Layer: 10
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40609,7 +40614,7 @@ GameObject:
   - component: {fileID: 1717709696}
   m_Layer: 8
   m_Name: right hit box
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41290,7 +41295,7 @@ GameObject:
   - component: {fileID: 1750579762}
   m_Layer: 18
   m_Name: Room 7 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41398,7 +41403,7 @@ GameObject:
   - component: {fileID: 1758831769}
   m_Layer: 18
   m_Name: Top Left Border
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42583,7 +42588,7 @@ GameObject:
   - component: {fileID: 1817480980}
   m_Layer: 0
   m_Name: Tri Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42623,7 +42628,7 @@ GameObject:
   - component: {fileID: 1826352022}
   m_Layer: 18
   m_Name: Room 3 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43109,7 +43114,7 @@ GameObject:
   - component: {fileID: 1859003850}
   m_Layer: 0
   m_Name: Rooms
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45116,7 +45121,7 @@ GameObject:
   - component: {fileID: 2005535817}
   m_Layer: 18
   m_Name: Room 4 Walls
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45579,7 +45584,7 @@ GameObject:
   - component: {fileID: 2039938357}
   m_Layer: 0
   m_Name: Room 3 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46091,7 +46096,7 @@ GameObject:
   - component: {fileID: 2074313686}
   m_Layer: 0
   m_Name: Room 5 Doors
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
