@@ -9,18 +9,7 @@ namespace Assets.Scripts.Items
 
         public bool collectible;
         public int amount;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        public AudioClip collected;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -32,6 +21,8 @@ namespace Assets.Scripts.Items
                     controller.ChangeHealth(amount);
 
                     Destroy(gameObject);
+
+                    controller.PlaySound(collected);
                 }
             }
         }

@@ -22,6 +22,8 @@ public class LinkController : MonoBehaviour
     public GameObject boomerangPrefab;
     public GameObject bombPrefab;
 
+    AudioSource audioSource;
+
     Vector2 lookDirection = new Vector2(0f, -1f);
 
     Inventory inventory;
@@ -35,6 +37,7 @@ public class LinkController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         inventory = GetComponent<Inventory>();
+        audioSource = GetComponent<AudioSource>();
         health = GetComponent<Health>();
         health.health = health.maxHealth;
     }
@@ -207,5 +210,10 @@ public class LinkController : MonoBehaviour
             inventory.bombs--;
         }
         
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
