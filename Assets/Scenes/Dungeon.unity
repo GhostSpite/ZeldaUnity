@@ -34595,16 +34595,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 441579300}
     m_Modifications:
-    - target: {fileID: -1206289547043073687, guid: 414abca74d649c44c9e9890dbb0a8b05,
-        type: 3}
-      propertyPath: buffer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6666560937360481073, guid: 414abca74d649c44c9e9890dbb0a8b05,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6666560937360481074, guid: 414abca74d649c44c9e9890dbb0a8b05,
         type: 3}
       propertyPath: m_Name
@@ -38945,30 +38935,6 @@ PrefabInstance:
       propertyPath: hasKey
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3014602993635285449, guid: d630c1885000144e78189a8093944b25,
-        type: 3}
-      propertyPath: keyPrefab
-      value: 
-      objectReference: {fileID: 8733669295376117042, guid: 2843dd33d3ea17c4f815fea9f9da194a,
-        type: 3}
-    - target: {fileID: 3014602993635285449, guid: d630c1885000144e78189a8093944b25,
-        type: 3}
-      propertyPath: heartPrefab
-      value: 
-      objectReference: {fileID: 680990604283564758, guid: 080b22d2bb6779144802ae1774d191c2,
-        type: 3}
-    - target: {fileID: 3014602993635285449, guid: d630c1885000144e78189a8093944b25,
-        type: 3}
-      propertyPath: rupeePrefab
-      value: 
-      objectReference: {fileID: 787848368218459589, guid: 8fc91514fd1a4e643a9c678d8641128e,
-        type: 3}
-    - target: {fileID: 3014602993635285449, guid: d630c1885000144e78189a8093944b25,
-        type: 3}
-      propertyPath: movingKeyPrefab
-      value: 
-      objectReference: {fileID: 7278334679043268018, guid: f5fefe9dac9249546a9a8af3c09eb98f,
-        type: 3}
     - target: {fileID: 7292105858294329394, guid: d630c1885000144e78189a8093944b25,
         type: 3}
       propertyPath: m_LocalPosition.x

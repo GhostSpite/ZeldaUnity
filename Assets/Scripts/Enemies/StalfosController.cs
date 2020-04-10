@@ -137,11 +137,12 @@ public class StalfosController : MonoBehaviour
             {
                 DamageStalfos(amount);
             }
-            if (currentHealth <= 0)
-            {
-                dropItem();
-                Destroy(gameObject);
-            }
+        }
+
+        if (currentHealth <= 0)
+        {
+            dropItem();
+            Destroy(gameObject);
         }
     }
 
@@ -157,7 +158,7 @@ public class StalfosController : MonoBehaviour
     {
         if (!hasKey)
         {
-            int item = rand.Next(0, 10);
+            int item = rand.Next(0, 20);
             switch (item)
             {
                 case 0:

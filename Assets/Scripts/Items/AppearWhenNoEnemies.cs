@@ -39,7 +39,7 @@ public class AppearWhenNoEnemies : MonoBehaviour
         if(numEnemies == 0)
         {
             spriteRenderer.color = startColor;
-            collectionScript.collectible = false;
+            collectionScript.collectible = true;
         }
     }
 }

@@ -213,10 +213,6 @@ public class KeeseController : MonoBehaviour
         {
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         }
-        if(currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
         if (currentHealth <= 0)
         {
             dropItem();
@@ -226,7 +222,7 @@ public class KeeseController : MonoBehaviour
 
     void dropItem()
     {
-        int item = rand.Next(0, 10);
+        int item = rand.Next(0, 20);
         switch (item)
         {
             case 0:

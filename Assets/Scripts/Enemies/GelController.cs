@@ -131,7 +131,7 @@ public class GelController : MonoBehaviour
 
     void dropItem()
     {
-        int item = rand.Next(0, 15);
+        int item = rand.Next(0, 20);
         switch (item)
         {
             case 0:

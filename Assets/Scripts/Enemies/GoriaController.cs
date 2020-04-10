@@ -80,7 +80,17 @@ public class GoriaController : MonoBehaviour
                 launched = false;
             }
         }
-        
+
+        if (invincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+
+            if (invincibleTimer < 0)
+            {
+                invincible = false;
+            }
+        }
+
     }
 
     public void moveWithAI()
@@ -194,7 +204,7 @@ public class GoriaController : MonoBehaviour
         if (currentHealth <= 0)
         {
             dropItem();
-            Destroy(gameObject);            
+            Destroy(gameObject);
         }
     }
 
@@ -208,7 +218,7 @@ public class GoriaController : MonoBehaviour
 
     void dropItem()
     {
-        int item = rand.Next(0, 10);
+        int item = rand.Next(0, 20);
         switch (item)
         {
             case 0:
