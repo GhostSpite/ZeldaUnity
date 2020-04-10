@@ -11,18 +11,12 @@ public class LinkController : MonoBehaviour
     public float pushScale;
     public static bool boomerangPresent = false;
 
-    public int health { get { return currentHealth; } }
-    public int maxHealth;
-    int currentHealth;
+    public int life { get { return health.health; } }
+    public int maxLife { get { return health.maxHealth; } }
 
     public float invincibleTime;
     float invincibleTimer = 0f;
     bool invincible = false;
-
-    int bombCounter = 0;
-    int redPotionCounter = 0;
-    int bluePotionCounter = 0;
-    int rupeeCounter = 0;
 
     public GameObject arrowPrefab;
     public GameObject boomerangPrefab;
@@ -30,19 +24,21 @@ public class LinkController : MonoBehaviour
 
     Vector2 lookDirection = new Vector2(0f, -1f);
 
+    Inventory inventory;
+    Health health;
     Rigidbody2D rigidbody2d;
     Animator animator;
 
-    // Start is called before the first frame update
+    // ------------------ Core Methods ----------------
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-        currentHealth = maxHealth;
+        inventory = GetComponent<Inventory>();
+        health = GetComponent<Health>();
+        health.health = health.maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -105,6 +101,22 @@ public class LinkController : MonoBehaviour
         }
     }
 
+    public void MoveLink(Vector2 posChange)
+    {
+        if (!boomerangPresent)
+        {
+            animator.SetBool("Moving", true);
+            animator.SetFloat("Move X", posChange.x);
+            animator.SetFloat("Move Y", posChange.y);
+            lookDirection = posChange;
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
+    }
+
+    // ------------------- Health Methods ------------------
     public void ChangeHealth(int amount)
     {
         if (amount < 0)
@@ -116,55 +128,47 @@ public class LinkController : MonoBehaviour
         }
         else
         {
-            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            health.health = Mathf.Clamp(health.health + amount, 0, health.maxHealth);
+            
         }
-
-        //Debug.Log(currentHealth + "/" + maxHealth);
     }
 
-    public void MoveLink(Vector2 posChange){
-        if (!boomerangPresent)
-        {
-            animator.SetBool("Moving", true);
-            animator.SetFloat("Move X", posChange.x);
-            animator.SetFloat("Move Y", posChange.y);
-            lookDirection = posChange;
-        } 
-        else
-        {
-            animator.SetBool("Moving", false);
-        }
+    public void ChangeMaxHealth()
+    {
+        health.numberOfHearts = Mathf.Clamp(health.numberOfHearts + 1, 0, 10);
+        health.health = Mathf.Clamp(health.health + 2, 0, health.numberOfHearts * 2);
     }
 
     void DamageLink(int amount){
         animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
         invincible = true;
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        health.health = Mathf.Clamp(health.health + amount, 0, health.maxHealth);
     }
 
+    // ------------------- Inventory Methods ------------------
+    public void ChangeRupeeCount(int amount)
+    {
+        inventory.rupees += amount;
+    }
+
+    public void ChangeKeyCount(int amount)
+    {
+        inventory.keys += amount;
+    }
     public void ChangeBombCount(int amount)
     {
-        bombCounter += amount;
-        Debug.Log("Link now has " + bombCounter + " bomb(s)");
+        inventory.bombs += amount;
     }
 
     public void ChangeRedPotionCount(int amount)
     {
-        redPotionCounter += amount;
-        Debug.Log("Link now has " + redPotionCounter + " red potion(s)");
+        inventory.redPotions += amount;
     }
 
     public void ChangeBluePotionCount(int amount)
     {
-        bluePotionCounter += amount;
-        Debug.Log("Link now has " + bluePotionCounter + " blue potion(s)");
-    }
-
-    public void ChangeRupeeCount(int amount)
-    {
-        rupeeCounter += amount;
-        Debug.Log("Link now has " + rupeeCounter + " rupee(s)");
+        inventory.bluePotions += amount;
     }
 
     public void RoomChange(Vector2 change)
@@ -173,16 +177,16 @@ public class LinkController : MonoBehaviour
         rigidbody2d.position = newPos;
     }
 
+    // --------------------- Attack Methods -------------------------
     void LaunchArrow()
     {
-        if (rupeeCounter > 0)
+        if (inventory.rupees > 0)
         {
             GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
             ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
             arrowProjectile.Launch(lookDirection, projectileSpeed);
-            rupeeCounter--;
-            Debug.Log("Link now has " + rupeeCounter + " rupee(s)");
+            inventory.rupees--;
         }
         
     }
@@ -197,6 +201,11 @@ public class LinkController : MonoBehaviour
 
     void PlaceBomb()
     {
-        GameObject bomb = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
+        if(inventory.bombs > 0)
+        {
+            GameObject bomb = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
+            inventory.bombs--;
+        }
+        
     }
 }
