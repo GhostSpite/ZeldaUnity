@@ -34,6 +34,10 @@ public class GoriaController : MonoBehaviour
     public GameObject clockPrefab;
     GameObject drop;
 
+    public AudioClip getHit;
+    public AudioClip die;
+
+    AudioSource audioSource;
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -53,6 +57,7 @@ public class GoriaController : MonoBehaviour
         launched = false;
         currentHealth = maxHealth;
 
+        audioSource = GetComponent<AudioSource>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -203,8 +208,13 @@ public class GoriaController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
+            PlaySound(die);
             dropItem();
             Destroy(gameObject);
+        }
+        else //if (!invincible)
+        {
+            PlaySound(getHit);
         }
     }
 
@@ -245,5 +255,10 @@ public class GoriaController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

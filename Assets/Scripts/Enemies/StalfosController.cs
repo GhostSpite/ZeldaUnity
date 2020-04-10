@@ -29,6 +29,10 @@ public class StalfosController : MonoBehaviour
     public GameObject clockPrefab;
     GameObject drop;
 
+    public AudioClip getHit;
+    public AudioClip die;
+
+    AudioSource audioSource;
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -40,6 +44,7 @@ public class StalfosController : MonoBehaviour
         direction = 2;
         currentHealth = maxHealth;
 
+        audioSource = GetComponent<AudioSource>();
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
 
@@ -141,8 +146,13 @@ public class StalfosController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            PlaySound(die);
             dropItem();
             Destroy(gameObject);
+        }
+        else //if (!invincible)
+        {
+            PlaySound(getHit);
         }
     }
 
@@ -190,5 +200,10 @@ public class StalfosController : MonoBehaviour
         {
             drop = Instantiate(keyPrefab, rigidbody2d.position, Quaternion.identity);
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
