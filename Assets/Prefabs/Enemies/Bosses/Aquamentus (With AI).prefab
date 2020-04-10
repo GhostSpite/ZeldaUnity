@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2814990542991418613}
   m_Layer: 0
   m_Name: Aquamentus (With AI)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -180997513
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -360669639213803596, guid: a50d4fc78de71e540ad90e18a1c44106,
     type: 3}
@@ -170,5 +170,8 @@ MonoBehaviour:
   moveTime: 1
   attackTime: 4
   animateTime: 1
+  maxHealth: 0
+  invincibleTime: 0
+  heartContainerPrefab: {fileID: 0}
   projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
     type: 3}

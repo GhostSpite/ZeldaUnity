@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6366587672749559630}
   m_Layer: 0
   m_Name: Goriya (Blue) (With AI)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -180997513
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1646162936135731460, guid: f58ec7a5e8eb2894fa04de8260f9c732,
     type: 3}
@@ -150,6 +150,12 @@ MonoBehaviour:
   moveSeed: 0
   moveTime: 1
   attackTime: 4
+  maxHealth: 0
+  invincibleTime: 0
+  heartPrefab: {fileID: 0}
+  rupeePrefab: {fileID: 0}
+  bombPrefab: {fileID: 0}
+  clockPrefab: {fileID: 0}
   projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
     type: 3}
 --- !u!95 &6366587672749559630

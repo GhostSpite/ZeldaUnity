@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -5722184843756408411}
   m_Layer: 9
   m_Name: Keese
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   stopTime: 2
   deltaSpeed: 0.009
   maxHealth: 1
---- !u!114 &-5722184843756408411
+--- !u!114 &
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

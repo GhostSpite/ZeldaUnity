@@ -23,4 +23,5 @@ public class CameraScript : MonoBehaviour
         //Smooth transition
         //transform.position = Vector3.Lerp(transform.position, target, smoothing);
     }
+
 }

@@ -44,10 +44,16 @@ public class LinkController : MonoBehaviour
 
     void Update()
     {
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector2 posChange = new Vector2(horizontal, vertical);
         Vector2 position = rigidbody2d.position;
+
+        if (life <= 0)
+        {
+            DeathScene();
+        }
 
         if (boomerangPresent)
         {
@@ -134,6 +140,8 @@ public class LinkController : MonoBehaviour
             health.health = Mathf.Clamp(health.health + amount, 0, health.maxHealth);
             
         }
+
+        Debug.Log("Link: " +life + "/" + maxLife);
     }
 
     public void ChangeMaxHealth()
@@ -215,5 +223,30 @@ public class LinkController : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    void DeathScene()
+    {
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(o);
+        }
+
+        StartCoroutine(wait());
+
+        animator.SetTrigger("Dead");
+    }
+
+    IEnumerator wait()
+    {
+        foreach (GameObject g in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
+            if (g.name.Contains("gray"))
+            {
+                g.SetActive(true);
+                yield return new WaitForSeconds(1f);
+            }
+        }
+        
     }
 }

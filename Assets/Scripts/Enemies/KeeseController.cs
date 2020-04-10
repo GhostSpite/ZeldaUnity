@@ -25,7 +25,7 @@ public class KeeseController : MonoBehaviour
 
     DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
-    Animator animator;
+    public static Animator animator;
     
     void Start()
     {
