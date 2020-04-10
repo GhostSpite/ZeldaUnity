@@ -22,25 +22,19 @@ public class GelController : MonoBehaviour
     public GameObject bombPrefab;
     public GameObject clockPrefab;
     GameObject drop;
-    
-    public AudioClip die;
 
-    AudioSource audioSource;
     Rigidbody2D rigidbody2d;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         rand = new System.Random(moveSeed);
         timer = moveTime;
         direction = 2;
         currentHealth = maxHealth;
-
-        audioSource = GetComponent<AudioSource>();
+        
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         moveWithAI();
@@ -124,7 +118,6 @@ public class GelController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            PlaySound(die);
             dropItem();
             Destroy(gameObject);
         }
@@ -159,10 +152,5 @@ public class GelController : MonoBehaviour
             default:
                 break;
         }
-    }
-
-    public void PlaySound(AudioClip clip)
-    {
-        audioSource.PlayOneShot(clip);
     }
 }

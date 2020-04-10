@@ -31,8 +31,7 @@ public class AquamentusController : MonoBehaviour
     public GameObject heartContainerPrefab;
     GameObject drop;
 
-    public AudioClip getHit;
-    public AudioClip die;
+    public AudioClip scream;
 
     AudioSource audioSource;
     Rigidbody2D rigidbody2d;
@@ -70,6 +69,7 @@ public class AquamentusController : MonoBehaviour
         attackTimer -= Time.deltaTime;
         if (attackTimer < 0)
         {
+            PlaySound(scream);
             Launch();
             attackTimer = attackTime;
         }
@@ -180,13 +180,8 @@ public class AquamentusController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            PlaySound(die);
             drop = Instantiate(heartContainerPrefab, rigidbody2d.position, Quaternion.identity);
             Destroy(gameObject);
-        }
-        else //if (!invincible)
-        {
-            PlaySound(getHit);
         }
     }
 
