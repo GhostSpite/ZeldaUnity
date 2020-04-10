@@ -24,19 +24,17 @@ public class GelController : MonoBehaviour
     GameObject drop;
 
     Rigidbody2D rigidbody2d;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         rand = new System.Random(moveSeed);
         timer = moveTime;
         direction = 2;
         currentHealth = maxHealth;
-
+        
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         moveWithAI();
@@ -120,10 +118,6 @@ public class GelController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
-        }
-        if (currentHealth <= 0)
-        {
             dropItem();
             Destroy(gameObject);
         }
@@ -131,7 +125,7 @@ public class GelController : MonoBehaviour
 
     void dropItem()
     {
-        int item = rand.Next(0, 15);
+        int item = rand.Next(0, 20);
         switch (item)
         {
             case 0:
@@ -159,5 +153,4 @@ public class GelController : MonoBehaviour
                 break;
         }
     }
-
 }

@@ -31,6 +31,9 @@ public class AquamentusController : MonoBehaviour
     public GameObject heartContainerPrefab;
     GameObject drop;
 
+    public AudioClip scream;
+
+    AudioSource audioSource;
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -50,6 +53,7 @@ public class AquamentusController : MonoBehaviour
 
         launched = false;
 
+        audioSource = GetComponent<AudioSource>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -61,9 +65,11 @@ public class AquamentusController : MonoBehaviour
     void Update()
     {
         moveWithAI();
+
         attackTimer -= Time.deltaTime;
         if (attackTimer < 0)
         {
+            PlaySound(scream);
             Launch();
             attackTimer = attackTime;
         }
@@ -76,6 +82,16 @@ public class AquamentusController : MonoBehaviour
                 animator.SetFloat("Look Y", 0);
                 launched = false;
                 animateTimer = animateTime;
+            }
+        }
+
+        if (invincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+
+            if (invincibleTimer < 0)
+            {
+                invincible = false;
             }
         }
     }
@@ -140,10 +156,16 @@ public class AquamentusController : MonoBehaviour
         launched = true;
         animator.SetFloat("Look X", 0);
         animator.SetFloat("Look Y", 1);
-        GameObject projectile = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
+        GameObject projectileUp = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
+        GameObject projectileStraight = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
+        GameObject projectileDown = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
-        BoomerangProjectileController boomerangProjectile = projectile.GetComponent<BoomerangProjectileController>();
-        boomerangProjectile.Launch(lookDirection, projectileSpeed);
+        BoomerangProjectileController boomerangProjectileUp = projectileUp.GetComponent<BoomerangProjectileController>();
+        boomerangProjectileUp.Launch(new Vector2(lookDirection.x, lookDirection.y + 0.5f), projectileSpeed);
+        BoomerangProjectileController boomerangProjectileStraight = projectileStraight.GetComponent<BoomerangProjectileController>();
+        boomerangProjectileStraight.Launch(lookDirection, projectileSpeed);
+        BoomerangProjectileController boomerangProjectileDown = projectileDown.GetComponent<BoomerangProjectileController>();
+        boomerangProjectileDown.Launch(new Vector2(lookDirection.x, lookDirection.y - 0.5f), projectileSpeed);
 
     }
 
@@ -169,5 +191,10 @@ public class AquamentusController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

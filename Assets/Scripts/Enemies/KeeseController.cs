@@ -44,13 +44,12 @@ public class KeeseController : MonoBehaviour
         startingUp = true;
         originalSpeed = speed;
         speed = 0;
-
+        
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         moveWithAI();
@@ -213,10 +212,6 @@ public class KeeseController : MonoBehaviour
         {
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         }
-        if(currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
         if (currentHealth <= 0)
         {
             dropItem();
@@ -226,7 +221,7 @@ public class KeeseController : MonoBehaviour
 
     void dropItem()
     {
-        int item = rand.Next(0, 10);
+        int item = rand.Next(0, 20);
         switch (item)
         {
             case 0:
@@ -254,5 +249,4 @@ public class KeeseController : MonoBehaviour
                 break;
         }
     }
-
 }
