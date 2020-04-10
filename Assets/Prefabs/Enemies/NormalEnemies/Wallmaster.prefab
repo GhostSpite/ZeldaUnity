@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 389071368585173674}
   - component: {fileID: 389071368585173673}
   - component: {fileID: 389071368585173672}
+  - component: {fileID: 502255554}
   m_Layer: 19
   m_Name: Wallmaster
   m_TagString: Untagged
@@ -151,3 +152,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &502255554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389071368585173671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16987fe602d4e9a4b8f4099d70a6d3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  moveSeed: 0
+  moveTime: 1
+  maxHealth: 2
+  invincibleTime: 1
+  heartPrefab: {fileID: 680990604283564758, guid: 080b22d2bb6779144802ae1774d191c2,
+    type: 3}
+  rupeePrefab: {fileID: 787848368218459589, guid: 8fc91514fd1a4e643a9c678d8641128e,
+    type: 3}
+  bombPrefab: {fileID: 2197349076463630800, guid: a72a8a1f9242b544c897bb86706add3e,
+    type: 3}
+  clockPrefab: {fileID: 5756480175157075681, guid: 530ad9a748fcf434096cb4c07bc01f78,
+    type: 3}
