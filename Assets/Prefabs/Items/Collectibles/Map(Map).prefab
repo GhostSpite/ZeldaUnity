@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3054382312585852103}
   - component: {fileID: 1985552641958288724}
   m_Layer: 15
-  m_Name: Map(Map) - Copy
+  m_Name: Map(Map)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectible: 1
+  collected: {fileID: 8300000, guid: ef7b37b2b5294034bbc42185e4e6cc4e, type: 3}

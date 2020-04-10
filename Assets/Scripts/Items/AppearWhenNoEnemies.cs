@@ -8,24 +8,28 @@ public class AppearWhenNoEnemies : MonoBehaviour
     int numEnemies;
 
     Color startColor;
+    bool invisible;
 
+    public AudioClip appear;
+
+    AudioSource audioSource;
     SpriteRenderer spriteRenderer;
     GenericItemScript collectionScript;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         collectionScript = GetComponent<GenericItemScript>();
+        audioSource = GetComponent<AudioSource>();
 
         collectionScript.collectible = false;
+        invisible = true;
 
         numEnemies = enemies.Count;
         startColor = spriteRenderer.color;
         spriteRenderer.color = Color.clear;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         for(int i = 0; i < numEnemies; i++)
@@ -36,10 +40,17 @@ public class AppearWhenNoEnemies : MonoBehaviour
                 enemies.RemoveAt(i);
             }
         }
-        if(numEnemies == 0)
+        if(numEnemies == 0 && invisible)
         {
             spriteRenderer.color = startColor;
             collectionScript.collectible = true;
+            PlaySound(appear);
+            invisible = false;
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

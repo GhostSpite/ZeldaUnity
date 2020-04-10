@@ -5,18 +5,7 @@ using UnityEngine;
 public class HeartContainerCollectible : MonoBehaviour
 {
     public bool collectible;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public AudioClip collected;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,6 +16,8 @@ public class HeartContainerCollectible : MonoBehaviour
             controller.ChangeMaxHealth();
 
             Destroy(gameObject);
+
+            controller.PlaySound(collected);
         }
     }
 }

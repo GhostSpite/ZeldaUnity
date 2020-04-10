@@ -26164,7 +26164,7 @@ PrefabInstance:
       propertyPath: moveSeed
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents: [{fileID: 0}]
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!1001 &448133167
 PrefabInstance:
@@ -26676,6 +26676,7 @@ MonoBehaviour:
   - {fileID: 941071205}
   - {fileID: 132098065}
   - {fileID: 470098942}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
 --- !u!1 &486663236
 GameObject:
   m_ObjectHideFlags: 0
@@ -28317,6 +28318,12 @@ EdgeCollider2D:
   - {x: -5.7, y: 3.1}
   - {x: -5.7, y: 0.7}
   - {x: -6.7, y: 0.7}
+--- !u!4 &570083452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 852102088132941645, guid: 82ec90dfdba7541468eb7af4eb29558e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1535058508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &565838948
 GameObject:
   m_ObjectHideFlags: 0
@@ -28355,12 +28362,6 @@ RectTransform:
   m_AnchoredPosition: {x: 325, y: -170}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &570083452 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 852102088132941645, guid: 82ec90dfdba7541468eb7af4eb29558e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1535058508}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &575861722
 GameObject:
   m_ObjectHideFlags: 0
@@ -31430,8 +31431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966b04dce6cd12e48b7f29f08a0f476d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 320714678}
-  pause: 27
+  pauseCanvas: {fileID: 0}
+  pause: 0
 --- !u!114 &754597671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45827,6 +45828,7 @@ MonoBehaviour:
   - {fileID: 1520164799}
   - {fileID: 1574290595}
   - {fileID: 928241931}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
 --- !u!1 &1680839088
 GameObject:
   m_ObjectHideFlags: 0
@@ -47479,6 +47481,7 @@ MonoBehaviour:
   - {fileID: 1701700432}
   - {fileID: 284899946}
   - {fileID: 400628159}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
 --- !u!4 &1762752596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6628331135950198397, guid: 2843dd33d3ea17c4f815fea9f9da194a,
@@ -48870,6 +48873,7 @@ MonoBehaviour:
   - {fileID: 1709573178}
   - {fileID: 1907631876}
   - {fileID: 1173539646}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
 --- !u!1 &1840620907
 GameObject:
   m_ObjectHideFlags: 0
