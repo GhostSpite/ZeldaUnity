@@ -177,6 +177,7 @@ MonoBehaviour:
     type: 3}
   clockPrefab: {fileID: 5756480175157075681, guid: 530ad9a748fcf434096cb4c07bc01f78,
     type: 3}
+  getHit: {fileID: 8300000, guid: 60e83708e745e5549a090e90b81b3d96, type: 3}
   die: {fileID: 8300000, guid: 97faf8406c158064c965cfb3bb19531b, type: 3}
 --- !u!82 &205080917916384949
 AudioSource:
@@ -189,7 +190,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

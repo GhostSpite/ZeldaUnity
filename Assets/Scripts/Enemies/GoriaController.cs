@@ -33,19 +33,14 @@ public class GoriaController : MonoBehaviour
     public GameObject bombPrefab;
     public GameObject clockPrefab;
     GameObject drop;
-
-    public AudioClip getHit;
-    public AudioClip die;
-
-    AudioSource audioSource;
+    
     Rigidbody2D rigidbody2d;
     Animator animator;
 
     Vector2 lookDirection = new Vector2(0, 0);
 
     public GameObject projectilePrefab;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         rand = new System.Random(moveSeed);
@@ -56,13 +51,11 @@ public class GoriaController : MonoBehaviour
         isStopped = false;
         launched = false;
         currentHealth = maxHealth;
-
-        audioSource = GetComponent<AudioSource>();
+        
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (!isStopped)
@@ -208,13 +201,8 @@ public class GoriaController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            PlaySound(die);
             dropItem();
             Destroy(gameObject);
-        }
-        else //if (!invincible)
-        {
-            PlaySound(getHit);
         }
     }
 
@@ -255,10 +243,5 @@ public class GoriaController : MonoBehaviour
             default:
                 break;
         }
-    }
-
-    public void PlaySound(AudioClip clip)
-    {
-        audioSource.PlayOneShot(clip);
     }
 }

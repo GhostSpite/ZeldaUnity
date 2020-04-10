@@ -29,9 +29,6 @@ public class KeeseController : MonoBehaviour
     public GameObject clockPrefab;
     GameObject drop;
 
-    public AudioClip die;
-
-    AudioSource audioSource;
     Rigidbody2D rigidbody2d;
     Animator animator;
     
@@ -47,14 +44,12 @@ public class KeeseController : MonoBehaviour
         startingUp = true;
         originalSpeed = speed;
         speed = 0;
-
-        audioSource = GetComponent<AudioSource>();
+        
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         moveWithAI();
@@ -219,7 +214,6 @@ public class KeeseController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            PlaySound(die);
             dropItem();
             Destroy(gameObject);
         }
@@ -254,10 +248,5 @@ public class KeeseController : MonoBehaviour
             default:
                 break;
         }
-    }
-
-    public void PlaySound(AudioClip clip)
-    {
-        audioSource.PlayOneShot(clip);
     }
 }
