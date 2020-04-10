@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WallmasterController : MonoBehaviour
 {
+    DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -27,12 +28,6 @@ public class WallmasterController : MonoBehaviour
     float invincibleTimer = 0f;
     bool invincible = false;
 
-    public GameObject heartPrefab;
-    public GameObject rupeePrefab;
-    public GameObject bombPrefab;
-    public GameObject clockPrefab;
-    GameObject drop;
-
     void Start()
     {
         rand = new System.Random(moveSeed);
@@ -40,7 +35,8 @@ public class WallmasterController : MonoBehaviour
         grabbed = false;
         startPosition = new Vector2(0, -4);
         currentHealth = maxHealth;
-        
+
+        drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
@@ -152,7 +148,7 @@ public class WallmasterController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            dropItem();
+            drop.dropItem(false, moveSeed, rigidbody2d.position);
             Destroy(gameObject);
         }
     }
@@ -163,36 +159,5 @@ public class WallmasterController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-    }
-
-    void dropItem()
-    {
-        int item = rand.Next(0, 20);
-        switch (item)
-        {
-            case 0:
-                drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 1:
-                drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 2:
-                drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 3:
-                drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 4:
-                drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 5:
-                drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 6:
-                drop = Instantiate(clockPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            default:
-                break;
-            }
     }
 }

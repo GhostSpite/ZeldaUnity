@@ -2,49 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeeseController : MonoBehaviour
+public class FairyController : MonoBehaviour
 {
     public float speed;
-    public float originalSpeed;
     public int moveSeed;
-
     private int direction;
     private System.Random rand;
-    private bool isStopped;
-    private bool startingUp;
 
     public float moveTime;
-    public float stopTime;
     float timer;
-    float stopTimer;
-    public float deltaSpeed;
 
-    public int maxHealth;
-    public int health { get { return currentHealth; } }
-    int currentHealth;
-
-    DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
-    Animator animator;
-    
     void Start()
     {
         rand = new System.Random(moveSeed);
         timer = moveTime;
-        stopTimer = stopTime;
         direction = 2;
-        isStopped = false;
-        currentHealth = maxHealth;
 
-        startingUp = true;
-        originalSpeed = speed;
-        speed = 0;
-
-        drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        
     }
+
     
     void Update()
     {
@@ -83,8 +60,6 @@ public class KeeseController : MonoBehaviour
                 position = moveSE(position);
                 break;
             case 0:
-                //dont move & thus attack
-                isStopped = true;
                 break;
         }
         rigidbody2d.position = position;
@@ -93,46 +68,11 @@ public class KeeseController : MonoBehaviour
     void changeDirection()
     {
         timer -= Time.deltaTime;
-    
+
         if (timer <= 0)
         {
             direction = rand.Next(-5, 5);
             timer = moveTime;
-        }
-
-        if (isStopped)
-        {
-            if(direction == 0)
-            {
-                direction = rand.Next(-5, 5);
-            }
-            speed -= deltaSpeed;
-            animator.SetFloat("Speed" , speed);
-
-            if (speed<=0)
-            {
-                speed = 0;
-                animator.SetFloat("Speed", 0);
-             
-                stopTimer -= Time.deltaTime;
-
-                if(stopTimer < 0)
-                {
-                    isStopped = false;
-                    startingUp = true;
-                    direction = rand.Next(-5, 5);
-                    stopTimer = stopTime;
-                }
-            }
-        }
-        else if (startingUp)
-        {
-            speed += deltaSpeed;
-            animator.SetFloat("Speed", speed);
-            if(speed >= originalSpeed)
-            {
-                startingUp = false;
-            }
         }
     }
 
@@ -168,7 +108,7 @@ public class KeeseController : MonoBehaviour
         return position;
     }
 
-   Vector2 moveSW(Vector2 position)
+    Vector2 moveSW(Vector2 position)
     {
         position.y -= speed * Time.deltaTime;
         position.x -= speed * Time.deltaTime;
@@ -181,37 +121,10 @@ public class KeeseController : MonoBehaviour
         return position;
     }
 
-     Vector2 moveNW(Vector2 position)
+    Vector2 moveNW(Vector2 position)
     {
         position.x -= speed * Time.deltaTime;
         position.y += speed * Time.deltaTime;
         return position;
-    }
-    
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        LinkController controller = other.gameObject.GetComponent<LinkController>();
-
-        if (controller != null)
-        {
-            controller.ChangeHealth(-1);
-        }
-        else
-        {
-            direction = rand.Next(-5, 5);
-        }
-    }
-
-    public void ChangeHealth(int amount)
-    {
-        if (amount < 0)
-        {
-            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        }
-        if (currentHealth <= 0)
-        {
-            drop.dropItem(false, moveSeed, rigidbody2d.position);
-            Destroy(gameObject);
-        }
     }
 }

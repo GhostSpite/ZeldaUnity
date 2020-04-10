@@ -25340,7 +25340,8 @@ PrefabInstance:
       propertyPath: moveSeed
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: [{fileID: 0}]
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 2d274513977c32444a96de5fede08dc0, type: 3}
 --- !u!1001 &448133167
 PrefabInstance:
@@ -27494,12 +27495,6 @@ EdgeCollider2D:
   - {x: -5.7, y: 3.1}
   - {x: -5.7, y: 0.7}
   - {x: -6.7, y: 0.7}
---- !u!4 &570083452 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 852102088132941645, guid: 82ec90dfdba7541468eb7af4eb29558e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1535058508}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &565838948
 GameObject:
   m_ObjectHideFlags: 0
@@ -27538,6 +27533,12 @@ RectTransform:
   m_AnchoredPosition: {x: 325, y: -170}
   m_SizeDelta: {x: 270, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &570083452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 852102088132941645, guid: 82ec90dfdba7541468eb7af4eb29558e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1535058508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &575861722
 GameObject:
   m_ObjectHideFlags: 0
@@ -42154,7 +42155,7 @@ PrefabInstance:
     - target: {fileID: 852102088132941645, guid: 82ec90dfdba7541468eb7af4eb29558e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.55
+      value: -1.57
       objectReference: {fileID: 0}
     - target: {fileID: 852102088132941645, guid: 82ec90dfdba7541468eb7af4eb29558e,
         type: 3}

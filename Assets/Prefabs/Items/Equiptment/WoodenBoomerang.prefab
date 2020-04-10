@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2392111276215161300}
   - component: {fileID: 2392111276215161301}
-  - component: {fileID: 2392111276215161290}
   - component: {fileID: 2392111276215161291}
   - component: {fileID: -4730885922309736555}
+  - component: {fileID: -1947168539867317208}
   m_Layer: 15
   m_Name: WoodenBoomerang
   m_TagString: Untagged
@@ -85,20 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2392111276215161290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2392111276215161288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362cd1469b11f614084437526001fe65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectible: 1
-  collected: {fileID: 8300000, guid: ef7b37b2b5294034bbc42185e4e6cc4e, type: 3}
 --- !u!61 &2392111276215161291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -221,3 +207,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-1947168539867317208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392111276215161288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212b7e4e47e812347a2c532ee84249ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectible: 1
+  collected: {fileID: 8300000, guid: b36ba7c5980a68740b2edcd53a861894, type: 3}

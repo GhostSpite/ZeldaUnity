@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3381560010536559304}
   - component: {fileID: 3381560010536559305}
   - component: {fileID: 3381560010536559306}
-  - component: {fileID: 3381560010536559307}
   - component: {fileID: 3381560010536559308}
+  - component: {fileID: -3081801460553303310}
   m_Layer: 15
   m_Name: TriforcePiece
   m_TagString: Untagged
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1750465819
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -3074023447068413781, guid: 84fc0f4d38064654db5b82bdebcab0e0,
     type: 3}
@@ -104,19 +104,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3381560010536559307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3381560010536559309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362cd1469b11f614084437526001fe65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectible: 1
 --- !u!61 &3381560010536559308
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +130,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.625, y: 0.47122192}
   m_EdgeRadius: 0
+--- !u!114 &-3081801460553303310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3381560010536559309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea41a8ab99e7314684f5c65a7b3600a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectible: 1
+  collected: {fileID: 8300000, guid: 489b3bdefb2e19f409564397ffac8102, type: 3}

@@ -22,13 +22,8 @@ public class StalfosController : MonoBehaviour
     bool invincible = false;
 
     public bool hasKey;
-    public GameObject keyPrefab;
-    public GameObject heartPrefab;
-    public GameObject rupeePrefab;
-    public GameObject bombPrefab;
-    public GameObject clockPrefab;
-    GameObject drop;
 
+    DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
     Animator animator;
     
@@ -38,7 +33,8 @@ public class StalfosController : MonoBehaviour
         timer = moveTime;
         direction = 2;
         currentHealth = maxHealth;
-        
+
+        drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
     
@@ -139,7 +135,7 @@ public class StalfosController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            dropItem();
+            drop.dropItem(hasKey, moveSeed, rigidbody2d.position);
             Destroy(gameObject);
         }
     }
@@ -150,43 +146,5 @@ public class StalfosController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-    }
-
-    void dropItem()
-    {
-        if (!hasKey)
-        {
-            int item = rand.Next(0, 20);
-            switch (item)
-            {
-                case 0:
-                    drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
-                    break;
-                case 1:
-                    drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
-                    break;
-                case 2:
-                    drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
-                    break;
-                case 3:
-                    drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
-                    break;
-                case 4:
-                    drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
-                    break;
-                case 5:
-                    drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
-                    break;
-                case 6:
-                    drop = Instantiate(clockPrefab, rigidbody2d.position, Quaternion.identity);
-                    break;
-                default:
-                    break;
-            }
-        }
-        else
-        {
-            drop = Instantiate(keyPrefab, rigidbody2d.position, Quaternion.identity);
-        }
     }
 }

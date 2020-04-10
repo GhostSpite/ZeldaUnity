@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3574844639190264907}
   - component: {fileID: 6861681605862245295}
   - component: {fileID: 8893261036217637031}
+  - component: {fileID: -5722184843756408411}
   m_Layer: 9
   m_Name: Keese
   m_TagString: Untagged
@@ -171,11 +172,27 @@ MonoBehaviour:
   stopTime: 2
   deltaSpeed: 0.009
   maxHealth: 1
-  heartPrefab: {fileID: 680990604283564758, guid: 080b22d2bb6779144802ae1774d191c2,
+--- !u!114 &-5722184843756408411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658180048644395865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5dd8cc0ef3a8b946a3186841785e65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyPrefab: {fileID: 8733669295376117042, guid: 2843dd33d3ea17c4f815fea9f9da194a,
     type: 3}
   rupeePrefab: {fileID: 787848368218459589, guid: 8fc91514fd1a4e643a9c678d8641128e,
     type: 3}
+  heartPrefab: {fileID: 680990604283564758, guid: 080b22d2bb6779144802ae1774d191c2,
+    type: 3}
   bombPrefab: {fileID: 2197349076463630800, guid: a72a8a1f9242b544c897bb86706add3e,
     type: 3}
-  clockPrefab: {fileID: 5756480175157075681, guid: 530ad9a748fcf434096cb4c07bc01f78,
+  clockPrefab: {fileID: 5213127872902049111, guid: 64df7a18cdd097d4d95ee9f595c9ea38,
+    type: 3}
+  fairyPrefab: {fileID: 6132056957784146176, guid: 08561fee725551e4dbdd00a150bf629e,
     type: 3}

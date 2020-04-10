@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4043692071728395395}
   - component: {fileID: 4043692071728395394}
-  - component: {fileID: 4043692071728395421}
   - component: {fileID: 4043692071728395420}
+  - component: {fileID: -2976609243648673674}
   m_Layer: 15
   m_Name: Bow
   m_TagString: Untagged
@@ -84,20 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4043692071728395421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4043692071728395423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 362cd1469b11f614084437526001fe65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectible: 1
-  collected: {fileID: 8300000, guid: b36ba7c5980a68740b2edcd53a861894, type: 3}
 --- !u!61 &4043692071728395420
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +110,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.70503616, y: 0.63093567}
   m_EdgeRadius: 0
+--- !u!114 &-2976609243648673674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4043692071728395423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 212b7e4e47e812347a2c532ee84249ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectible: 1
+  collected: {fileID: 8300000, guid: b36ba7c5980a68740b2edcd53a861894, type: 3}
