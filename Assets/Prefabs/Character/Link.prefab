@@ -109,6 +109,11 @@ MonoBehaviour:
     type: 3}
   bombPrefab: {fileID: 2197349076463630800, guid: a72a8a1f9242b544c897bb86706add3e,
     type: 3}
+  swing: {fileID: 8300000, guid: bfe8981bc99f2ad4197912dccb16440e, type: 3}
+  bombPlace: {fileID: 8300000, guid: 01eab139877fbca48acbc0095b17fa99, type: 3}
+  arrowBoom: {fileID: 8300000, guid: 6ae10fad782218f4fbcac6a4f4a67650, type: 3}
+  getHurt: {fileID: 8300000, guid: 1e16c02160100cc4291195683bb38b1b, type: 3}
+  die: {fileID: 8300000, guid: 1448d94286e35464eb0142a7760f6015, type: 3}
 --- !u!50 &5223815306591368553
 Rigidbody2D:
   serializedVersion: 4

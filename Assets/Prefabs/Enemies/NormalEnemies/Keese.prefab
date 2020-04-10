@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3574844639190264907}
   - component: {fileID: 6861681605862245295}
   - component: {fileID: 8893261036217637031}
-  - component: {fileID: -5722184843756408411}
+  - component: {fileID: 6770785947470026183}
   m_Layer: 9
   m_Name: Keese
   m_TagString: Enemy
@@ -172,7 +172,7 @@ MonoBehaviour:
   stopTime: 2
   deltaSpeed: 0.009
   maxHealth: 1
---- !u!114 &
+--- !u!114 &6770785947470026183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,7 +192,7 @@ MonoBehaviour:
     type: 3}
   bombPrefab: {fileID: 2197349076463630800, guid: a72a8a1f9242b544c897bb86706add3e,
     type: 3}
-  clockPrefab: {fileID: 5213127872902049111, guid: 64df7a18cdd097d4d95ee9f595c9ea38,
+  clockPrefab: {fileID: 5756480175157075681, guid: 530ad9a748fcf434096cb4c07bc01f78,
     type: 3}
   fairyPrefab: {fileID: 6132056957784146176, guid: 08561fee725551e4dbdd00a150bf629e,
     type: 3}

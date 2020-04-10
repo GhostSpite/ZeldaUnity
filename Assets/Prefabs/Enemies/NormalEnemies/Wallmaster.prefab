@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 389071368585173673}
   - component: {fileID: 389071368585173672}
   - component: {fileID: 502255554}
-  - component: {fileID: -5742025138142937121}
+  - component: {fileID: -5337613384095050210}
   m_Layer: 19
   m_Name: Wallmaster
   m_TagString: Enemy
@@ -170,7 +170,7 @@ MonoBehaviour:
   moveTime: 1
   maxHealth: 2
   invincibleTime: 1
---- !u!114 &
+--- !u!114 &-5337613384095050210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

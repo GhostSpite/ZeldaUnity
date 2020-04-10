@@ -22,6 +22,12 @@ public class LinkController : MonoBehaviour
     public GameObject boomerangPrefab;
     public GameObject bombPrefab;
 
+    public AudioClip swing;
+    public AudioClip bombPlace;
+    public AudioClip arrowBoom;
+    public AudioClip getHurt;
+    public AudioClip die;
+
     AudioSource audioSource;
 
     Vector2 lookDirection = new Vector2(0f, -1f);
@@ -78,6 +84,7 @@ public class LinkController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N)){
             animator.SetTrigger("Attacking");
+            PlaySound(swing);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1)){
@@ -133,6 +140,7 @@ public class LinkController : MonoBehaviour
             if (!invincible)
             {
                 DamageLink(amount);
+                PlaySound(getHurt);
             }
         }
         else
@@ -198,6 +206,7 @@ public class LinkController : MonoBehaviour
             ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
             arrowProjectile.Launch(lookDirection, projectileSpeed);
             inventory.rupees--;
+            PlaySound(arrowBoom);
         }
         
     }
@@ -208,6 +217,7 @@ public class LinkController : MonoBehaviour
 
         BoomerangProjectileController boomerangProjectile = boomerang.GetComponent<BoomerangProjectileController>();
             boomerangProjectile.Launch(lookDirection, projectileSpeed);
+        PlaySound(arrowBoom);
     }
 
     void PlaceBomb()
@@ -216,6 +226,7 @@ public class LinkController : MonoBehaviour
         {
             GameObject bomb = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
             inventory.bombs--;
+            PlaySound(bombPlace);
         }
         
     }

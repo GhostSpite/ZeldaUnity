@@ -7,6 +7,9 @@ public class ArrowProjectileController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     Animator animator;
     BoxCollider2D boxCollider;
+    AudioSource audioSource;
+
+    public AudioClip fly;
 
     float timer = 1.5f;
     float speed;
@@ -18,6 +21,9 @@ public class ArrowProjectileController : MonoBehaviour
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         boxCollider = gameObject.GetComponent<BoxCollider2D>();
+        audioSource = gameObject.GetComponent<AudioSource>();
+
+        PlaySound(fly);
     }
 
     // Update is called once per frame
@@ -54,5 +60,10 @@ public class ArrowProjectileController : MonoBehaviour
             // Apply damage to enemies on collision
         }
         Destroy(gameObject);
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

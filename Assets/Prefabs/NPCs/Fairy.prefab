@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectible: 1
-  amount: 3
+  amount: 6
   collected: {fileID: 8300000, guid: ef7b37b2b5294034bbc42185e4e6cc4e, type: 3}
 --- !u!61 &6132056957784146177
 BoxCollider2D:
