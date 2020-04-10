@@ -65,6 +65,7 @@ public class GameControl : MonoBehaviour
 
         playerLoc = room.transform.GetChild(index).transform.position;
         playerLoc.y += -4f;
+        if (index + 1 == room.transform.childCount) playerLoc.y += 1f;
         playerLoc.z = 0f;
 
         player = gameObject.transform.GetChild(1).gameObject;
