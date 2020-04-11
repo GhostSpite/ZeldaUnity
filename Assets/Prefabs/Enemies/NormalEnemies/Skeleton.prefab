@@ -171,6 +171,7 @@ MonoBehaviour:
   maxHealth: 2
   invincibleTime: 1
   hasKey: 0
+  animator: {fileID: 0}
 --- !u!114 &9171636392838225559
 MonoBehaviour:
   m_ObjectHideFlags: 0

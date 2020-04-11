@@ -25,7 +25,7 @@ public class StalfosController : MonoBehaviour
 
     DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
-    Animator animator;
+    public Animator animator;
     
     void Start()
     {
@@ -36,6 +36,7 @@ public class StalfosController : MonoBehaviour
 
         drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     
     void Update()
@@ -135,8 +136,8 @@ public class StalfosController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            StartCoroutine(wait());
             drop.dropItem(hasKey, moveSeed, rigidbody2d.position);
-            Destroy(gameObject);
         }
     }
 
@@ -146,5 +147,12 @@ public class StalfosController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
+
+    IEnumerator wait()
+    {
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }

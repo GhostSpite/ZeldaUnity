@@ -19,7 +19,9 @@ public class GelController : MonoBehaviour
 
     DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
-    
+
+    public Animator animator;
+
     void Start()
     {
         rand = new System.Random(moveSeed);
@@ -29,6 +31,7 @@ public class GelController : MonoBehaviour
 
         drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     
     void Update()
@@ -114,8 +117,15 @@ public class GelController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
+            StartCoroutine(wait());
             drop.dropItem(false, moveSeed, rigidbody2d.position);
-            Destroy(gameObject);
         }
+    }
+
+    IEnumerator wait()
+    {
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }

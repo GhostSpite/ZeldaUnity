@@ -25,7 +25,7 @@ public class KeeseController : MonoBehaviour
 
     DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
-    public static Animator animator;
+    public Animator animator;
     
     void Start()
     {
@@ -210,8 +210,15 @@ public class KeeseController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
+            StartCoroutine(wait());
             drop.dropItem(false, moveSeed, rigidbody2d.position);
-            Destroy(gameObject);
         }
+    }
+
+    IEnumerator wait()
+    {
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }

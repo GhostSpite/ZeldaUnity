@@ -30,7 +30,7 @@ public class GoriaController : MonoBehaviour
 
     DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
-    Animator animator;
+    public Animator animator;
 
     Vector2 lookDirection = new Vector2(0, 0);
 
@@ -197,9 +197,16 @@ public class GoriaController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
+            StartCoroutine(wait());
             drop.dropItem(false, moveSeed, rigidbody2d.position);
-            Destroy(gameObject);
         }
+    }
+
+    public IEnumerator wait()
+    {
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
     public void DamageGoria(int amount)
@@ -209,4 +216,6 @@ public class GoriaController : MonoBehaviour
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
+
+    
 }
