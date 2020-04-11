@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Equipment : MonoBehaviour
+public class BowCollectible : MonoBehaviour
 {
     public bool collectible;
     public AudioClip collected;
