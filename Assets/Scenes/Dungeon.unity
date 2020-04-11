@@ -5067,7 +5067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4245283, g: 0.41451585, b: 0.41451585, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -31541,8 +31541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966b04dce6cd12e48b7f29f08a0f476d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 0}
-  pause: 0
+  pauseCanvas: {fileID: 320714678}
+  pause: 27
 --- !u!114 &754597671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53424,12 +53424,9 @@ MonoBehaviour:
   bait: 0
   bluePotions: 0
   redPotions: 0
-  hasRaft: 0
   hasBow: 0
   hasRang: 0
-  hasRod: 0
   hasCandle: 0
-  hasFlute: 0
 --- !u!4 &2089407195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5270365819154499367, guid: ad5d1d391374af144b2566d6d582f175,
