@@ -22,6 +22,7 @@ public class LinkController : MonoBehaviour
     public GameObject boomerangPrefab;
     public GameObject bombPrefab;
 
+    public AudioClip die;
     AudioSource audioSource;
 
     Vector2 lookDirection = new Vector2(0f, -1f);
@@ -40,6 +41,7 @@ public class LinkController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         health = GetComponent<Health>();
         health.health = health.maxHealth;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -233,8 +235,9 @@ public class LinkController : MonoBehaviour
         }
 
         StartCoroutine(wait());
-
         animator.SetTrigger("Dead");
+        //play death sound
+        PlaySound(die);
     }
 
     IEnumerator wait()
