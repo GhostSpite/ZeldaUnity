@@ -15,13 +15,15 @@ public class Inventory : MonoBehaviour
     public int bluePotions;
     public int redPotions;
 
-    //public bool hasRaft;
+    public bool hasMap;
+    public bool hasCompass;
     public bool hasBow;
     public bool hasRang;
-    //public bool hasRod;
     public bool hasCandle;
     //public bool hasFlute;
-    
+    //public bool hasRaft;
+    //public bool hasRod;
+
     void Update()
     {
         text[0].text = "   x " + rupees.ToString();

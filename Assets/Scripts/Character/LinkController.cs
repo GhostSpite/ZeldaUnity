@@ -196,6 +196,7 @@ public class LinkController : MonoBehaviour
         rigidbody2d.position = newPos;
     }
 
+    // ------------------ Equipment Collection Methods ---------------------
     public void CollectBow()
     {
         inventory.hasBow = true;
@@ -204,6 +205,21 @@ public class LinkController : MonoBehaviour
     public void CollectBoomerang()
     {
         inventory.hasRang = true;
+    }
+
+    public void CollectCompass()
+    {
+        inventory.hasCompass = true;
+    }
+
+    public void CollectMap()
+    {
+        inventory.hasMap = true;
+    }
+
+    public void CollectCandle()
+    {
+        inventory.hasCandle = true;
     }
 
     // --------------------- Attack Methods -------------------------
