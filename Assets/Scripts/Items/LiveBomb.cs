@@ -6,6 +6,8 @@ public class LiveBomb : MonoBehaviour
 {
     public float timer;
     public bool isLive;
+    public GameObject link;
+    public AudioClip explode;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +23,11 @@ public class LiveBomb : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
+                LinkController linkC = link.GetComponent<LinkController>();
                 // Set explosion trigger for animator
                 // Deal damage
                 Destroy(gameObject);
+                linkC.PlaySound(explode);
             }
         }
     }

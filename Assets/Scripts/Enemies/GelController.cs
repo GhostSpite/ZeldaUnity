@@ -17,12 +17,7 @@ public class GelController : MonoBehaviour
     public int health { get { return currentHealth; } }
     int currentHealth;
 
-    public GameObject heartPrefab;
-    public GameObject rupeePrefab;
-    public GameObject bombPrefab;
-    public GameObject clockPrefab;
-    GameObject drop;
-
+    DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
     
     void Start()
@@ -31,7 +26,8 @@ public class GelController : MonoBehaviour
         timer = moveTime;
         direction = 2;
         currentHealth = maxHealth;
-        
+
+        drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
     }
     
@@ -118,39 +114,8 @@ public class GelController : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            dropItem();
+            drop.dropItem(false, moveSeed, rigidbody2d.position);
             Destroy(gameObject);
-        }
-    }
-
-    void dropItem()
-    {
-        int item = rand.Next(0, 20);
-        switch (item)
-        {
-            case 0:
-                drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 1:
-                drop = Instantiate(rupeePrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 2:
-                drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 3:
-                drop = Instantiate(heartPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 4:
-                drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 5:
-                drop = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            case 6:
-                drop = Instantiate(clockPrefab, rigidbody2d.position, Quaternion.identity);
-                break;
-            default:
-                break;
         }
     }
 }

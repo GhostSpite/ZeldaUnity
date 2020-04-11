@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6132056957784146179}
   - component: {fileID: 6132056957784146178}
   - component: {fileID: 6132056957784146177}
+  - component: {fileID: -6963144494909277694}
   m_Layer: 14
   m_Name: Fairy
   m_TagString: Untagged
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1063907031
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -321526769949002426, guid: 4bd0207dab8e36344a1f197968b16e8e,
     type: 3}
@@ -116,8 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc4866bccec8d346b3d6198c0648766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: 0
-  amount: 10
+  collectible: 1
+  amount: 6
+  collected: {fileID: 8300000, guid: ef7b37b2b5294034bbc42185e4e6cc4e, type: 3}
 --- !u!61 &6132056957784146177
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -144,3 +146,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56636953, y: 0.50655746}
   m_EdgeRadius: 0
+--- !u!114 &-6963144494909277694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6132056957784146176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a50964366627d843b67501f9f8d867b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  moveSeed: 0
+  moveTime: 1

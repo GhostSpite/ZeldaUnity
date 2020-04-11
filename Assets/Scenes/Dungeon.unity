@@ -4717,9 +4717,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abf88b54b8aa6c4ab496d22c0f2e113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHit: {fileID: 0}
-  die: {fileID: 0}
-  getHitBoss: {fileID: 0}
+  getHit: {fileID: 8300000, guid: 60e83708e745e5549a090e90b81b3d96, type: 3}
+  die: {fileID: 8300000, guid: 97faf8406c158064c965cfb3bb19531b, type: 3}
+  getHitBoss: {fileID: 8300000, guid: 3bc84409fc0e4be499fa4f85631edcd1, type: 3}
 --- !u!50 &222979067
 Rigidbody2D:
   serializedVersion: 4
@@ -5067,7 +5067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.4245283, g: 0.41451585, b: 0.41451585, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -25767,9 +25767,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abf88b54b8aa6c4ab496d22c0f2e113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHit: {fileID: 0}
-  die: {fileID: 0}
-  getHitBoss: {fileID: 0}
+  getHit: {fileID: 8300000, guid: 60e83708e745e5549a090e90b81b3d96, type: 3}
+  die: {fileID: 8300000, guid: 97faf8406c158064c965cfb3bb19531b, type: 3}
+  getHitBoss: {fileID: 8300000, guid: 3bc84409fc0e4be499fa4f85631edcd1, type: 3}
 --- !u!50 &432913373
 Rigidbody2D:
   serializedVersion: 4
@@ -30180,9 +30180,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abf88b54b8aa6c4ab496d22c0f2e113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHit: {fileID: 0}
-  die: {fileID: 0}
-  getHitBoss: {fileID: 0}
+  getHit: {fileID: 8300000, guid: 60e83708e745e5549a090e90b81b3d96, type: 3}
+  die: {fileID: 8300000, guid: 97faf8406c158064c965cfb3bb19531b, type: 3}
+  getHitBoss: {fileID: 8300000, guid: 3bc84409fc0e4be499fa4f85631edcd1, type: 3}
 --- !u!50 &695442898
 Rigidbody2D:
   serializedVersion: 4
@@ -31541,8 +31541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966b04dce6cd12e48b7f29f08a0f476d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 0}
-  pause: 0
+  pauseCanvas: {fileID: 320714678}
+  pause: 27
 --- !u!114 &754597671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43322,7 +43322,7 @@ PrefabInstance:
     - target: {fileID: 852102088132941645, guid: 82ec90dfdba7541468eb7af4eb29558e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.55
+      value: -1.57
       objectReference: {fileID: 0}
     - target: {fileID: 852102088132941645, guid: 82ec90dfdba7541468eb7af4eb29558e,
         type: 3}
@@ -46479,9 +46479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abf88b54b8aa6c4ab496d22c0f2e113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHit: {fileID: 0}
-  die: {fileID: 0}
-  getHitBoss: {fileID: 0}
+  getHit: {fileID: 8300000, guid: 60e83708e745e5549a090e90b81b3d96, type: 3}
+  die: {fileID: 8300000, guid: 97faf8406c158064c965cfb3bb19531b, type: 3}
+  getHitBoss: {fileID: 8300000, guid: 3bc84409fc0e4be499fa4f85631edcd1, type: 3}
 --- !u!50 &1717709696
 Rigidbody2D:
   serializedVersion: 4
@@ -53424,12 +53424,9 @@ MonoBehaviour:
   bait: 0
   bluePotions: 0
   redPotions: 0
-  hasRaft: 0
   hasBow: 0
   hasRang: 0
-  hasRod: 0
   hasCandle: 0
-  hasFlute: 0
 --- !u!4 &2089407195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5270365819154499367, guid: ad5d1d391374af144b2566d6d582f175,

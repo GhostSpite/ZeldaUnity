@@ -6,6 +6,8 @@ public class BoomerangProjectileController : MonoBehaviour
 {
     public string collisionTag;
     Rigidbody2D rigidbody2d;
+    AudioSource audioSource;
+    public AudioClip fly;
     float time = 0.5f;
     float timer;
     float speed= 7f;
@@ -17,8 +19,10 @@ public class BoomerangProjectileController : MonoBehaviour
     void Awake()
     {
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         //animator = gameObject.GetComponent<Animator>();
 
+        PlaySound(fly);
         timer = 2 * time;
     }
 
@@ -77,5 +81,10 @@ public class BoomerangProjectileController : MonoBehaviour
         else{
             timer = (2*time) -timer -(float) 0.1;
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }

@@ -14,15 +14,25 @@ public class AppearWhenNoEnemies : MonoBehaviour
 
     AudioSource audioSource;
     SpriteRenderer spriteRenderer;
-    GenericItemScript collectionScript;
+    Key keyScript;
+    Equipment boomScript;
     
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        collectionScript = GetComponent<GenericItemScript>();
+        keyScript = GetComponent<Key>();
+        boomScript = GetComponent<Equipment>();
         audioSource = GetComponent<AudioSource>();
 
-        collectionScript.collectible = false;
+        if (keyScript != null)
+        {
+            keyScript.collectible = false;
+        }
+        else
+        {
+            boomScript.collectible = false;
+        }
+
         invisible = true;
 
         numEnemies = enemies.Count;
@@ -43,9 +53,16 @@ public class AppearWhenNoEnemies : MonoBehaviour
         if(numEnemies == 0 && invisible)
         {
             spriteRenderer.color = startColor;
-            collectionScript.collectible = true;
             PlaySound(appear);
             invisible = false;
+            if(keyScript != null)
+            {
+                keyScript.collectible = true;
+            }
+            else
+            {
+                boomScript.collectible = true;
+            }
         }
     }
 
