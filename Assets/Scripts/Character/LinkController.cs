@@ -22,7 +22,16 @@ public class LinkController : MonoBehaviour
     public GameObject boomerangPrefab;
     public GameObject bombPrefab;
 
+<<<<<<< HEAD
     public AudioClip die;
+=======
+    public AudioClip swing;
+    public AudioClip bombPlace;
+    public AudioClip arrowBoom;
+    public AudioClip getHurt;
+    public AudioClip die;
+
+>>>>>>> 4e8f676884189b2396822d756fc7c34b105ed745
     AudioSource audioSource;
 
     Vector2 lookDirection = new Vector2(0f, -1f);
@@ -80,6 +89,7 @@ public class LinkController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N)){
             animator.SetTrigger("Attacking");
+            PlaySound(swing);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1)){
@@ -135,6 +145,7 @@ public class LinkController : MonoBehaviour
             if (!invincible)
             {
                 DamageLink(amount);
+                PlaySound(getHurt);
             }
         }
         else
@@ -190,26 +201,56 @@ public class LinkController : MonoBehaviour
         rigidbody2d.position = newPos;
     }
 
+    // ------------------ Equipment Collection Methods ---------------------
+    public void CollectBow()
+    {
+        inventory.hasBow = true;
+    }
+
+    public void CollectBoomerang()
+    {
+        inventory.hasRang = true;
+    }
+
+    public void CollectCompass()
+    {
+        inventory.hasCompass = true;
+    }
+
+    public void CollectMap()
+    {
+        inventory.hasMap = true;
+    }
+
+    public void CollectCandle()
+    {
+        inventory.hasCandle = true;
+    }
+
     // --------------------- Attack Methods -------------------------
     void LaunchArrow()
     {
-        if (inventory.rupees > 0)
+        if (inventory.rupees > 0 && inventory.hasBow)
         {
             GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
             ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
             arrowProjectile.Launch(lookDirection, projectileSpeed);
             inventory.rupees--;
+            PlaySound(arrowBoom);
         }
         
     }
 
     void LaunchBoomerang()
     {
-        GameObject boomerang = Instantiate(boomerangPrefab, rigidbody2d.position + Vector2.up * .2f, Quaternion.identity);
-
-        BoomerangProjectileController boomerangProjectile = boomerang.GetComponent<BoomerangProjectileController>();
+        if (inventory.hasRang)
+        {
+            GameObject boomerang = Instantiate(boomerangPrefab, rigidbody2d.position + Vector2.up * .2f, Quaternion.identity);
+            BoomerangProjectileController boomerangProjectile = boomerang.GetComponent<BoomerangProjectileController>();
             boomerangProjectile.Launch(lookDirection, projectileSpeed);
+            PlaySound(arrowBoom);
+        }
     }
 
     void PlaceBomb()
@@ -218,6 +259,7 @@ public class LinkController : MonoBehaviour
         {
             GameObject bomb = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
             inventory.bombs--;
+            PlaySound(bombPlace);
         }
         
     }
