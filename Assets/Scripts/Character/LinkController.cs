@@ -22,16 +22,12 @@ public class LinkController : MonoBehaviour
     public GameObject boomerangPrefab;
     public GameObject bombPrefab;
 
-<<<<<<< HEAD
-    public AudioClip die;
-=======
     public AudioClip swing;
     public AudioClip bombPlace;
     public AudioClip arrowBoom;
     public AudioClip getHurt;
     public AudioClip die;
 
->>>>>>> 4e8f676884189b2396822d756fc7c34b105ed745
     AudioSource audioSource;
 
     Vector2 lookDirection = new Vector2(0f, -1f);
