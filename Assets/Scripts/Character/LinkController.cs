@@ -196,10 +196,20 @@ public class LinkController : MonoBehaviour
         rigidbody2d.position = newPos;
     }
 
+    public void CollectBow()
+    {
+        inventory.hasBow = true;
+    }
+
+    public void CollectBoomerang()
+    {
+        inventory.hasRang = true;
+    }
+
     // --------------------- Attack Methods -------------------------
     void LaunchArrow()
     {
-        if (inventory.rupees > 0)
+        if (inventory.rupees > 0 && inventory.hasBow)
         {
             GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
@@ -213,11 +223,13 @@ public class LinkController : MonoBehaviour
 
     void LaunchBoomerang()
     {
-        GameObject boomerang = Instantiate(boomerangPrefab, rigidbody2d.position + Vector2.up * .2f, Quaternion.identity);
-
-        BoomerangProjectileController boomerangProjectile = boomerang.GetComponent<BoomerangProjectileController>();
+        if (inventory.hasRang)
+        {
+            GameObject boomerang = Instantiate(boomerangPrefab, rigidbody2d.position + Vector2.up * .2f, Quaternion.identity);
+            BoomerangProjectileController boomerangProjectile = boomerang.GetComponent<BoomerangProjectileController>();
             boomerangProjectile.Launch(lookDirection, projectileSpeed);
-        PlaySound(arrowBoom);
+            PlaySound(arrowBoom);
+        }
     }
 
     void PlaceBomb()

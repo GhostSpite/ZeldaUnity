@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Equipment : MonoBehaviour
+public class BoomerangCollectible : MonoBehaviour
 {
     public bool collectible;
     public AudioClip collected;
@@ -17,7 +17,7 @@ public class Equipment : MonoBehaviour
             Destroy(gameObject);
 
             controller.PlaySound(collected);
-            controller.CollectBow();
+            controller.CollectBoomerang();
         }
     }
 }
