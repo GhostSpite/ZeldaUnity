@@ -123,5 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectible: 1
-  amount: 1
+  amount: 2
   collected: {fileID: 8300000, guid: a2848fe2494f26144a220a97ec538bc7, type: 3}

@@ -2470,6 +2470,16 @@ PrefabInstance:
       propertyPath: m_UseFullKinematicContacts
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5223815306591368553, guid: 3969eb5eb46891f46aca962716fb6e38,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045109669317602806, guid: 3969eb5eb46891f46aca962716fb6e38,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3969eb5eb46891f46aca962716fb6e38, type: 3}
 --- !u!1 &129320033
@@ -23667,6 +23677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 301321465}
   - component: {fileID: 301321466}
+  - component: {fileID: 301321467}
   m_Layer: 0
   m_Name: Theme
   m_TagString: Untagged
@@ -23784,6 +23795,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &301321467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301321464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404384883ca36fc448d5c04328190348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Link: {fileID: 2083192253}
 --- !u!1 &301965060
 GameObject:
   m_ObjectHideFlags: 0
@@ -53424,6 +53448,8 @@ MonoBehaviour:
   bait: 0
   bluePotions: 0
   redPotions: 0
+  hasMap: 0
+  hasCompass: 0
   hasBow: 0
   hasRang: 0
   hasCandle: 0

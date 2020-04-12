@@ -18,6 +18,12 @@ public class LinkController : MonoBehaviour
     float invincibleTimer = 0f;
     bool invincible = false;
 
+    public float restartTime;
+    bool restarting = false;
+    public float lowLifeTime;
+    bool counting = false;
+    float healthTimer = 0f;
+
     public GameObject arrowPrefab;
     public GameObject boomerangPrefab;
     public GameObject bombPrefab;
@@ -27,6 +33,8 @@ public class LinkController : MonoBehaviour
     public AudioClip arrowBoom;
     public AudioClip getHurt;
     public AudioClip die;
+    public AudioClip lowLife;
+    public bool pauseMusic;
 
     AudioSource audioSource;
 
@@ -47,6 +55,7 @@ public class LinkController : MonoBehaviour
         health = GetComponent<Health>();
         health.health = health.maxHealth;
         audioSource = GetComponent<AudioSource>();
+        pauseMusic = false;
     }
 
     void Update()
@@ -60,6 +69,25 @@ public class LinkController : MonoBehaviour
         if (life <= 0)
         {
             DeathScene();
+        }
+        else if(life <= 2)
+        {
+            if (!counting)
+            {
+                PlaySound(lowLife);
+                healthTimer = lowLifeTime;
+                counting = true;
+            }
+            else
+            {
+                healthTimer -= Time.deltaTime;
+
+                if (healthTimer < 0)
+                {
+                    PlaySound(lowLife);
+                    counting = false;
+                }
+            }
         }
 
         if (boomerangPresent)
@@ -276,6 +304,21 @@ public class LinkController : MonoBehaviour
         animator.SetTrigger("Dead");
         //play death sound
         PlaySound(die);
+        if (!restarting)
+        {
+            pauseMusic = true;
+            restarting = true;
+            healthTimer = restartTime;
+        }
+        else
+        {
+            healthTimer -= Time.deltaTime;
+
+            if (healthTimer < 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
+        }
     }
 
     IEnumerator wait()
