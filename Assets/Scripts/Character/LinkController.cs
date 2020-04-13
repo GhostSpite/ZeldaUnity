@@ -197,6 +197,13 @@ public class LinkController : MonoBehaviour
         rigidbody2d.position = newPos;
     }
 
+    public void ChangeTriforceCount(int amount)
+	{
+        inventory.triforce += amount;
+        animator.SetTrigger("Triforce");
+
+	}
+
     // ------------------ Equipment Collection Methods ---------------------
     public void CollectBow()
     {

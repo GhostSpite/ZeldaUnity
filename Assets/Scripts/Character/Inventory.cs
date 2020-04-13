@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
     public int bait;
     public int bluePotions;
     public int redPotions;
+    public int triforce;
 
     public bool hasMap;
     public bool hasCompass;

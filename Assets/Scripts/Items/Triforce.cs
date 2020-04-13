@@ -12,6 +12,7 @@ public class Triforce : MonoBehaviour
         LinkController controller = other.GetComponent<LinkController>();
         if (controller != null && collectible)
         {
+            controller.ChangeTriforceCount(1);
             // End Game
 
             Destroy(gameObject);
