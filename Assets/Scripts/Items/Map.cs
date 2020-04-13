@@ -13,6 +13,7 @@ public class Map : MonoBehaviour
         if (controller != null && collectible)
         {
             // Show Minimap
+            controller.CollectMap();
 
             Destroy(gameObject);
 

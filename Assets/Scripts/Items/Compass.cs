@@ -13,6 +13,7 @@ public class Compass : MonoBehaviour
         if (controller != null && collectible)
         {
             // Show Triforce & Link On minimap
+            controller.CollectCompass();
 
             Destroy(gameObject);
 

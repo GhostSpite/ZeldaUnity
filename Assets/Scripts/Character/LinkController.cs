@@ -14,6 +14,8 @@ public class LinkController : MonoBehaviour
     public int life { get { return health.health; } }
     public int maxLife { get { return health.maxHealth; } }
 
+
+    float arrowTimer;
     public float invincibleTime;
     float invincibleTimer = 0f;
     bool invincible = false;
@@ -116,7 +118,12 @@ public class LinkController : MonoBehaviour
             PlaySound(swing);
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1)){
+        if (arrowTimer > 0)
+        {
+            arrowTimer -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0){
             LaunchArrow();
         }
 
@@ -144,6 +151,7 @@ public class LinkController : MonoBehaviour
                 invincible = false;
             }
         }
+
     }
 
     public void MoveLink(Vector2 posChange)
@@ -268,6 +276,7 @@ public class LinkController : MonoBehaviour
             ArrowProjectileController arrowProjectile = arrow.GetComponent<ArrowProjectileController>();
             arrowProjectile.Launch(lookDirection, projectileSpeed);
             inventory.rupees--;
+            arrowTimer = 1.5f;
             PlaySound(arrowBoom);
         }
         
