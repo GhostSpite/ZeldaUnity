@@ -133,12 +133,6 @@ public class StalfosController : MonoBehaviour
                 DamageStalfos(amount);
             }
         }
-
-        if (currentHealth <= 0)
-        {
-            StartCoroutine(wait());
-            drop.dropItem(hasKey, moveSeed, rigidbody2d.position);
-        }
     }
 
     public void DamageStalfos(int amount)
@@ -147,6 +141,11 @@ public class StalfosController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        if (currentHealth <= 0)
+        {
+            StartCoroutine(wait());
+            drop.dropItem(hasKey, moveSeed, rigidbody2d.position);
+        }
     }
 
     IEnumerator wait()

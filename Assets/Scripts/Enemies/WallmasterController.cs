@@ -145,12 +145,6 @@ public class WallmasterController : MonoBehaviour
                 DamageWallmaster(amount);
             }
         }
-
-        if (currentHealth <= 0)
-        {
-            drop.dropItem(false, moveSeed, rigidbody2d.position);
-            Destroy(gameObject);
-        }
     }
 
     public void DamageWallmaster(int amount)
@@ -159,5 +153,17 @@ public class WallmasterController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        if (currentHealth <= 0)
+        {
+            StartCoroutine(wait());
+            drop.dropItem(false, moveSeed, rigidbody2d.position);
+        }
+    }
+
+    public IEnumerator wait()
+    {
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 }

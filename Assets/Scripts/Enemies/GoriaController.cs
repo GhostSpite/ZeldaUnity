@@ -195,6 +195,14 @@ public class GoriaController : MonoBehaviour
                 DamageGoria(amount);
             }
         }
+    }
+
+    public void DamageGoria(int amount)
+    {
+        //animator.SetTrigger("Damaged");
+        invincibleTimer = invincibleTime;
+        invincible = true;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         if (currentHealth <= 0)
         {
             StartCoroutine(wait());
@@ -208,14 +216,4 @@ public class GoriaController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
-
-    public void DamageGoria(int amount)
-    {
-        //animator.SetTrigger("Damaged");
-        invincibleTimer = invincibleTime;
-        invincible = true;
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-    }
-
-    
 }
