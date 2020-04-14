@@ -31509,11 +31509,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa0be64171610543b85408d72a5ac44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2083192253}
+  player: {fileID: 0}
   inventoryCanvas: {fileID: 1953283307}
-  map: {fileID: 73760129}
-  compass: {fileID: 187749410}
-  secondary: {fileID: 1555254020}
+  map: {fileID: 0}
+  compass: {fileID: 0}
+  secondary: {fileID: 0}
   inventoryKey: 9
 --- !u!1 &757838747
 GameObject:
@@ -53521,19 +53521,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d529415bd3ae29488242fed8c52a36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondary: {fileID: 1256728426}
-  secWeapons:
-  - {fileID: -6099050445329199328, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
-  - {fileID: 1801263428120863714, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
-  - {fileID: 4337684191699249041, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
-  - {fileID: 1013099012324604318, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
-  - {fileID: 4639506938558671751, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
-  - {fileID: 8266730139402660024, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
-  primary: {fileID: 1104698495}
-  priWeapons:
-  - {fileID: -2178467043915682464, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
-  - {fileID: -7375459094207900620, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
-  secActive: 6
+  secondary: {fileID: 0}
+  secWeapons: []
+  primary: {fileID: 0}
+  priWeapons: []
+  secActive: 0
   priActive: 0
   text:
   - {fileID: 4767625}

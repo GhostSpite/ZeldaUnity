@@ -16,6 +16,7 @@ public class LinkController : MonoBehaviour
 
 
     float arrowTimer;
+    float swordTimer;
     public float invincibleTime;
     float invincibleTimer = 0f;
     bool invincible = false;
@@ -26,11 +27,15 @@ public class LinkController : MonoBehaviour
     bool counting = false;
     float healthTimer = 0f;
 
+    bool canShootSword;
+
+    public GameObject swordShotPrefab;
     public GameObject arrowPrefab;
     public GameObject boomerangPrefab;
     public GameObject bombPrefab;
 
     public AudioClip swing;
+    public AudioClip swordShotSound;
     public AudioClip bombPlace;
     public AudioClip arrowBoom;
     public AudioClip getHurt;
@@ -58,6 +63,7 @@ public class LinkController : MonoBehaviour
         health.health = health.maxHealth;
         audioSource = GetComponent<AudioSource>();
         pauseMusic = false;
+        canShootSword = true;
     }
 
     void Update()
@@ -91,6 +97,14 @@ public class LinkController : MonoBehaviour
                 }
             }
         }
+        else if (life < maxLife && canShootSword)
+        {
+            canShootSword = false;
+        }
+        else if(life == maxLife && !canShootSword)
+        {
+            canShootSword = true;
+        }
 
         if (boomerangPresent)
         {
@@ -116,11 +130,20 @@ public class LinkController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N)){
             animator.SetTrigger("Attacking");
             PlaySound(swing);
+            if (canShootSword && swordTimer <= 0)
+            {
+                LaunchSword();
+            }
         }
 
         if (arrowTimer > 0)
         {
             arrowTimer -= Time.deltaTime;
+        }
+
+        if (swordTimer > 0)
+        {
+            swordTimer -= Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0){
@@ -278,8 +301,21 @@ public class LinkController : MonoBehaviour
             inventory.rupees--;
             arrowTimer = 1.5f;
             PlaySound(arrowBoom);
+        }   
+    }
+
+    void LaunchSword()
+    {
+        if (inventory.rupees > 0 && inventory.hasBow)
+        {
+            GameObject sword = Instantiate(swordShotPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
+
+            SwordShotController swordShot = sword.GetComponent<SwordShotController>();
+            swordShot.Launch(lookDirection, projectileSpeed);
+            swordTimer = 1.5f;
+            PlaySound(swordShotSound);
         }
-        
+
     }
 
     void LaunchBoomerang()
