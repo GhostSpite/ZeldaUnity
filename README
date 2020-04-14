@@ -1,0 +1,21 @@
+Rubber Chicken Legend of Zelda NES
+
+Import Instructions:
+  Download the zip file
+  Import Project into Unity (Version 3.6 or Newer)
+  In the hierarchy, locate scenes and double click the Dungeon scene to open it.
+  Click play to run the game.
+
+Controls:
+  Move Up - W
+  Move Left - A
+  Move Right - D
+  Move Down - S
+  Sword - Z
+  Arrow - 1
+  Boomerang - 2
+  Bomb - 3
+  Teleport Next Room - [Page Up]
+  Teleport Prev Room - [Page Down]
+  Pause - [Esc]
+  Inventory - [Tab]
