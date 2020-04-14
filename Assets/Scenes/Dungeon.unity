@@ -23713,7 +23713,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f68a50c2e26212b48b6ebd3a17b23d00, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 26e5df8b0f17a994aa0e80994a2cd62b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -26710,7 +26710,7 @@ MonoBehaviour:
   - {fileID: 941071205}
   - {fileID: 132098065}
   - {fileID: 470098942}
-  appear: {fileID: 0}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
 --- !u!1 &486663236
 GameObject:
   m_ObjectHideFlags: 0
@@ -46044,7 +46044,7 @@ MonoBehaviour:
   - {fileID: 1520164799}
   - {fileID: 1574290595}
   - {fileID: 928241931}
-  appear: {fileID: 0}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
 --- !u!1 &1680839088
 GameObject:
   m_ObjectHideFlags: 0
@@ -47698,7 +47698,7 @@ MonoBehaviour:
   - {fileID: 1701700432}
   - {fileID: 284899946}
   - {fileID: 400628159}
-  appear: {fileID: 0}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
 --- !u!4 &1762752596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6628331135950198397, guid: 2843dd33d3ea17c4f815fea9f9da194a,
@@ -49090,7 +49090,7 @@ MonoBehaviour:
   - {fileID: 1709573178}
   - {fileID: 1907631876}
   - {fileID: 1173539646}
-  appear: {fileID: 0}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
 --- !u!1 &1840620907
 GameObject:
   m_ObjectHideFlags: 0

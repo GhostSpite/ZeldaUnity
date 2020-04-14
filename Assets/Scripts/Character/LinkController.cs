@@ -64,6 +64,7 @@ public class LinkController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         pauseMusic = false;
         canShootSword = true;
+        swordTimer = 0f;
     }
 
     void Update()
@@ -133,6 +134,7 @@ public class LinkController : MonoBehaviour
             if (canShootSword && swordTimer <= 0)
             {
                 LaunchSword();
+                swordTimer = 1.5f;
             }
         }
 
@@ -306,15 +308,12 @@ public class LinkController : MonoBehaviour
 
     void LaunchSword()
     {
-        if (inventory.rupees > 0 && inventory.hasBow)
-        {
-            GameObject sword = Instantiate(swordShotPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
+        GameObject sword = Instantiate(swordShotPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
-            SwordShotController swordShot = sword.GetComponent<SwordShotController>();
-            swordShot.Launch(lookDirection, projectileSpeed);
-            swordTimer = 1.5f;
-            PlaySound(swordShotSound);
-        }
+        SwordShotController swordShot = sword.GetComponent<SwordShotController>();
+        swordShot.Launch(lookDirection, projectileSpeed);
+        swordTimer = 1.5f;
+        PlaySound(swordShotSound);
 
     }
 

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 393556985243665267}
   - component: {fileID: 4642186913265656640}
   - component: {fileID: -6690146959675105332}
-  - component: {fileID: -1128521588404116083}
+  - component: {fileID: -5740615148323963354}
   m_Layer: 16
   m_Name: Sword Shot
   m_TagString: Untagged
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fly: {fileID: 8300000, guid: 2575cdd8e9b7de54abab0391e0a7bacb, type: 3}
---- !u!114 &-1128521588404116083
+--- !u!114 &-5740615148323963354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8458385016063445152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4abf88b54b8aa6c4ab496d22c0f2e113, type: 3}
+  m_Script: {fileID: 11500000, guid: 1309314e4c4fb594fa198897af61c76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   getHit: {fileID: 8300000, guid: 60e83708e745e5549a090e90b81b3d96, type: 3}

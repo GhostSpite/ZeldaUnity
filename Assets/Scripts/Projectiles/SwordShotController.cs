@@ -14,8 +14,7 @@ public class SwordShotController : MonoBehaviour
     float timer = 1.5f;
     float speed;
     Vector2 direction;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
@@ -25,8 +24,7 @@ public class SwordShotController : MonoBehaviour
 
         PlaySound(fly);
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         timer -= Time.deltaTime;
@@ -57,7 +55,8 @@ public class SwordShotController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            // Apply damage to enemies on collision
+            ProjectileDamage pd = gameObject.GetComponent<ProjectileDamage>();
+            int health = pd.damageEnemy(other.collider);
         }
         Destroy(gameObject);
     }
