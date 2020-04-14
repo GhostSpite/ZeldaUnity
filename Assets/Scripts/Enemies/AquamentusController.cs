@@ -178,11 +178,6 @@ public class AquamentusController : MonoBehaviour
                 DamageAquamentus(amount);
             }
         }
-        if (currentHealth <= 0)
-        {
-            drop = Instantiate(heartContainerPrefab, rigidbody2d.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
     }
 
     public void DamageAquamentus(int amount)
@@ -191,6 +186,18 @@ public class AquamentusController : MonoBehaviour
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        if (currentHealth <= 0)
+        {
+            StartCoroutine(wait());
+            drop = Instantiate(heartContainerPrefab, rigidbody2d.position, Quaternion.identity);
+        }
+    }
+
+    public IEnumerator wait()
+    {
+        animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
     public void PlaySound(AudioClip clip)
