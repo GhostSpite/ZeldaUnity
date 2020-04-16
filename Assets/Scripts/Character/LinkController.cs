@@ -262,7 +262,6 @@ public class LinkController : MonoBehaviour
 	{
         inventory.triforce += amount;
         animator.SetTrigger("Triforce");
-
 	}
 
     // ------------------ Equipment Collection Methods ---------------------
