@@ -56,6 +56,7 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         secActive = Secondary.NONE;
+        secondary.enabled = false;
         priActive = Primary.WOOD;
     }
 
