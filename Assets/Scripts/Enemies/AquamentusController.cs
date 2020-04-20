@@ -160,12 +160,12 @@ public class AquamentusController : MonoBehaviour
         GameObject projectileStraight = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
         GameObject projectileDown = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
-        BoomerangProjectileController boomerangProjectileUp = projectileUp.GetComponent<BoomerangProjectileController>();
-        boomerangProjectileUp.Launch(new Vector2(lookDirection.x, lookDirection.y + 0.5f), projectileSpeed);
-        BoomerangProjectileController boomerangProjectileStraight = projectileStraight.GetComponent<BoomerangProjectileController>();
-        boomerangProjectileStraight.Launch(lookDirection, projectileSpeed);
-        BoomerangProjectileController boomerangProjectileDown = projectileDown.GetComponent<BoomerangProjectileController>();
-        boomerangProjectileDown.Launch(new Vector2(lookDirection.x, lookDirection.y - 0.5f), projectileSpeed);
+        FireballProjectileController fireballProjectileUp = projectileUp.GetComponent<FireballProjectileController>();
+        fireballProjectileUp.Launch(new Vector2(lookDirection.x, lookDirection.y + 0.5f), projectileSpeed);
+        FireballProjectileController fireballProjectileStraight = projectileStraight.GetComponent<FireballProjectileController>();
+        fireballProjectileStraight.Launch(lookDirection, projectileSpeed);
+        FireballProjectileController fireballProjectileDown = projectileDown.GetComponent<FireballProjectileController>();
+        fireballProjectileDown.Launch(new Vector2(lookDirection.x, lookDirection.y - 0.5f), projectileSpeed);
 
     }
 
