@@ -176,7 +176,7 @@ MonoBehaviour:
   heartContainerPrefab: {fileID: 1343164384280962614, guid: dbb619eca3f94e449a0e963e29579461,
     type: 3}
   scream: {fileID: 8300000, guid: 0a97386fd45a0ae4bb103c7628f22d13, type: 3}
-  projectilePrefab: {fileID: 678234205808010992, guid: 36807b9fb3010814ca82fe69b7a2e9d3,
+  projectilePrefab: {fileID: 455002785302782135, guid: ccbe83981e4251c47b1fa54f337b3b9f,
     type: 3}
 --- !u!82 &9061440933061773765
 AudioSource:
