@@ -9,6 +9,7 @@ public class DoorSpriteController : MonoBehaviour
     public bool bombable;
     public bool trigger;
     public bool openForEnemyDeath;
+    bool solid;
     public List<GameObject> enemies;
     int numEnemies;
 
@@ -16,11 +17,13 @@ public class DoorSpriteController : MonoBehaviour
 
     AudioSource audioSource;
     Animator animator;
+    Collider2D collider2d;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
+        collider2d = GetComponent<Collider2D>();
 
         numEnemies = enemies.Count;
 
@@ -87,23 +90,28 @@ public class DoorSpriteController : MonoBehaviour
         switch (s)
         {
             case "wall":
-                //already set
+                //already set animator
+                collider2d.enabled = true;
                 break;
             case "door":
                 animator.SetFloat("Look X", X * 2);
                 animator.SetFloat("Look Y", Y * 2);
+                collider2d.enabled = false;
                 break;
             case "locked":
                 animator.SetFloat("Look X", X * 3);
                 animator.SetFloat("Look Y", Y * 3);
+                collider2d.enabled = true;
                 break;
             case "shut":
                 animator.SetFloat("Look X", X * 4);
                 animator.SetFloat("Look Y", Y * 4);
+                collider2d.enabled = true;
                 break;
             case "bombed":
                 animator.SetFloat("Look X", X * 5);
                 animator.SetFloat("Look Y", Y * 5);
+                collider2d.enabled = false;
                 break;
         }
     }
@@ -121,6 +129,7 @@ public class DoorSpriteController : MonoBehaviour
                 {
                     controller.ChangeKeyCount(-1);
                     setState("door");
+                    PlaySound(open);
                 }
             }
         }

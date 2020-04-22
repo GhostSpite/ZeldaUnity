@@ -120,6 +120,11 @@ public class SwordCollision : MonoBehaviour
             }
             Debug.Log("hit wallmaster " + "health: " + cont6.health + "/" + cont6.maxHealth);
         }
+        else if (col.gameObject.name.Contains("OldMan"))
+        {
+            OldManController cont7 = col.GetComponent<OldManController>();
+            cont7.hit = true;
+        }
     }
 
     public void PlaySound(AudioClip clip)
