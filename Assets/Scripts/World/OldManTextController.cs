@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OldManTextConroller : MonoBehaviour
+public class OldManTextController : MonoBehaviour
 {
     public string message;
     public GameObject textObject;
