@@ -24038,8 +24038,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -98, y: 76}
-  m_SizeDelta: {x: 500, y: 30}
+  m_AnchoredPosition: {x: -80, y: 78.4}
+  m_SizeDelta: {x: 550, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &314825670
 MonoBehaviour:
@@ -24061,14 +24061,14 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7943c9b0f2c4d854888b43b5bb1dcffa, type: 3}
-    m_FontSize: 30
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 100
     m_Alignment: 1
     m_AlignByGeometry: 0
-    m_RichText: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
@@ -27792,9 +27792,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e543dc83d4e13e54982186c17bd6c783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: EASTMOST PENNINSULA IS THE SECRET.
+  message: 'E A S T M O S T   P E N N I N S U L A   I S   T H E   S E C R E T . '
   textObject: {fileID: 314825668}
-  delay: 1
+  delay: 0.03
   messageSoFar: 
   beep: {fileID: 8300000, guid: 21025bf40d33fca43bd50258599dea6c, type: 3}
 --- !u!61 &554210353
@@ -27810,7 +27810,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.9923792, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -27821,7 +27821,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3.3142338, y: 2.4291382}
   m_EdgeRadius: 0
 --- !u!82 &554210354
 AudioSource:

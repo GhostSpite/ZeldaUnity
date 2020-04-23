@@ -32,14 +32,16 @@ public class OldManTextController : MonoBehaviour
         }
         else
         {
-            textObject.gameObject.SetActive(false);
             inRoom = false;
+            textObject.gameObject.SetActive(false);
         }
     }
 
     IEnumerator Type()
     {
-        for (int i = 0; i <= message.Length ; i++)
+        inRoom = true;
+        int i = 0;
+        while (i <= message.Length && inRoom )
         {
             messageSoFar = message.Substring(0, i);
             if (!messageSoFar.EndsWith(" "))
@@ -49,8 +51,12 @@ public class OldManTextController : MonoBehaviour
             textObject.GetComponent<Text>().text = messageSoFar;
             
             yield return new WaitForSeconds(delay);
+            i++;
         }
-        inRoom = true;
+        if (i < message.Length)
+        {
+            yield break;
+        }
     }
 
     public void PlaySound(AudioClip clip)
