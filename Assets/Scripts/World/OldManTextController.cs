@@ -25,15 +25,18 @@ public class OldManTextController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!inRoom)
+        if (other.gameObject.name.Contains("Link"))
         {
-            textObject.gameObject.SetActive(true);
-            StartCoroutine(Type());
-        }
-        else
-        {
-            inRoom = false;
-            textObject.gameObject.SetActive(false);
+            if (!inRoom)
+            {
+                textObject.gameObject.SetActive(true);
+                StartCoroutine(Type());
+            }
+            else
+            {
+                inRoom = false;
+                textObject.gameObject.SetActive(false);
+            }
         }
     }
 
