@@ -10,6 +10,9 @@ public class DoorSpriteController : MonoBehaviour
     bool isTriggered;
     public bool trigger { set { isTriggered = value; } }
     public bool openForEnemyDeath;
+    public bool hasPartner;
+    public GameObject partner;
+    DoorSpriteController partnerController;
     bool solid;
     public List<GameObject> enemies;
     int numEnemies;
@@ -25,6 +28,10 @@ public class DoorSpriteController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         animator = GetComponent<Animator>();
         collider2d = GetComponent<Collider2D>();
+        if (hasPartner)
+        {
+            partnerController = partner.GetComponent<DoorSpriteController>();
+        }
 
         numEnemies = enemies.Count;
 
@@ -49,12 +56,20 @@ public class DoorSpriteController : MonoBehaviour
                 {
                     PlaySound(open);
                     setState("door");
+                    if (hasPartner)
+                    {
+                        partnerController.setState("door");
+                    }
                 }
             }
             else if (isTriggered)
             {
                 PlaySound(open);
                 setState("door");
+                if (hasPartner)
+                {
+                    partnerController.setState("door");
+                }
             }
         }
     }
@@ -132,6 +147,10 @@ public class DoorSpriteController : MonoBehaviour
                     controller.ChangeKeyCount(-1);
                     setState("door");
                     PlaySound(open);
+                    if (hasPartner)
+                    {
+                        partnerController.setState("door");
+                    }
                 }
             }
         }
@@ -143,6 +162,10 @@ public class DoorSpriteController : MonoBehaviour
             {
                 setState("bombed");
                 PlaySound(open);
+                if (hasPartner)
+                {
+                    partnerController.setState("bombed");
+                }
             }
         }
     }

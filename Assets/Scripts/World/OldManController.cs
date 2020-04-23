@@ -8,10 +8,12 @@ public class OldManController : MonoBehaviour
     public float projectileSpeed;
     public GameObject projectilePrefab;
 
+    public float attackTime;
+    float attackTimer;
+
     public GameObject link;
     Vector2 linkPos;
-
-
+    
     bool isHit;
     public bool hit { set { isHit = value; } }
 
@@ -21,17 +23,23 @@ public class OldManController : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         linkPos = link.transform.position;
+        attackTimer = 0;
     }
 
     void Update()
     {
         if (isHit)
         {
-            Launch();
+            attackTimer -= Time.deltaTime;
+            if (attackTimer < 0)
+            {
+                Launch();
+                attackTimer = attackTime;
+            }
         }
     }
 
-    IEnumerator Launch()
+    void Launch()
     {
         Vector2 rightPos = new Vector2(rigidbody2d.position.x + 3f, rigidbody2d.position.y);
         Vector2 leftPos = new Vector2(rigidbody2d.position.x + 3f, rigidbody2d.position.y);
@@ -42,6 +50,5 @@ public class OldManController : MonoBehaviour
         fireballProjectileRight.Launch(rightPos - linkPos, projectileSpeed);
         FireballProjectileController fireballProjectileLeft = projectileLeft.GetComponent<FireballProjectileController>();
         fireballProjectileLeft.Launch(leftPos - linkPos, projectileSpeed);
-        yield return new WaitForSeconds(2);
     }
 }

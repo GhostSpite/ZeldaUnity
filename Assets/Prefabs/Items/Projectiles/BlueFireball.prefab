@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8884001528466431957}
   - component: {fileID: -3010466407060889452}
   - component: {fileID: 9102517511992186159}
-  m_Layer: 20
+  m_Layer: 21
   m_Name: BlueFireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}

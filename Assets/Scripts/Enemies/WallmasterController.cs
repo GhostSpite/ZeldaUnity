@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WallmasterController : MonoBehaviour
 {
+    CameraScript camera;
+
     DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
     Animator animator;
@@ -30,6 +32,8 @@ public class WallmasterController : MonoBehaviour
 
     void Start()
     {
+        camera = Camera.main.GetComponent<CameraScript>();
+
         rand = new System.Random(moveSeed);
         timer = moveTime;
         grabbed = false;
@@ -48,7 +52,8 @@ public class WallmasterController : MonoBehaviour
             /*Vector2 position = rigidbody2d.position;
             moveDown(position);
             rigidbody2d.position = position;**/
-            animator.SetFloat("Speed", speed);
+            //animator.SetFloat("Speed", speed);
+
         } else 
             moveWithAI();
 
@@ -132,7 +137,8 @@ public class WallmasterController : MonoBehaviour
             controller.ChangeHealth(-1);
             grabbed = true;
             Vector2 position = rigidbody2d.position;
-            controller.transform.position = startPosition;  
+            controller.transform.position = startPosition;
+            camera.GoBackToStart();
         }
     }
 
