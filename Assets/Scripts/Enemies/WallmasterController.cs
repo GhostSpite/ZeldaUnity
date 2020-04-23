@@ -80,7 +80,7 @@ public class WallmasterController : MonoBehaviour
                     position = moveLeft(position);
                     break;
              case 2:
-                    position = moveRight(position);
+                    position = moveDown(position);
                     break;
             }
             rigidbody2d.position = position;
@@ -93,7 +93,7 @@ public class WallmasterController : MonoBehaviour
 
         if (timer < 0)
         {
-            direction = rand.Next(-1, 2);
+            direction = rand.Next(-1, 3);
             timer = rand.Next(1, 5);
         }
 
