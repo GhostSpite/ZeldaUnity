@@ -6,11 +6,13 @@ public class CameraScript : MonoBehaviour
 {
     
     Vector3 target;
+    Vector3 startPos;
     public float smoothing;
     public SpriteRenderer walls;
 
     void Start()
     {
+        startPos = gameObject.transform.position;
         //May be a way to get the screen to be square like the original game
         //Camera.main.rect = new Rect(transform.position.x, transform.position.y, walls.bounds.size.x, walls.bounds.size.y);
     }
@@ -22,6 +24,12 @@ public class CameraScript : MonoBehaviour
 
         //Smooth transition
         //transform.position = Vector3.Lerp(transform.position, target, smoothing);
+    }
+
+    public void GoBackToStart()
+    {
+        target = startPos;
+        transform.position = target;
     }
 
 }
