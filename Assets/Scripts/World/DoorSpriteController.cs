@@ -7,7 +7,8 @@ public class DoorSpriteController : MonoBehaviour
     public string direction;
     public string state;
     public bool bombable;
-    public bool trigger;
+    bool isTriggered;
+    public bool trigger { set { isTriggered = value; } }
     public bool openForEnemyDeath;
     bool solid;
     public List<GameObject> enemies;
@@ -50,9 +51,10 @@ public class DoorSpriteController : MonoBehaviour
                     setState("door");
                 }
             }
-            else if (trigger)
+            else if (isTriggered)
             {
-
+                PlaySound(open);
+                setState("door");
             }
         }
     }

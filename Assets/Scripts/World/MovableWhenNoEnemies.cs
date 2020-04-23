@@ -7,15 +7,12 @@ public class MovableWhenNoEnemies : MonoBehaviour
     public List<GameObject> enemies;
     int numEnemies;
 
-    float startMass;
-
     Rigidbody2D rigidbody2d;
 
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        startMass = rigidbody2d.mass;
-        rigidbody2d.mass = 1000000f;
+        rigidbody2d.constraints = RigidbodyConstraints2D.FreezeAll;
 
         numEnemies = enemies.Count;
     }
@@ -32,7 +29,8 @@ public class MovableWhenNoEnemies : MonoBehaviour
         }
         if (numEnemies == 0)
         {
-            rigidbody2d.mass = startMass;
+            rigidbody2d.constraints = RigidbodyConstraints2D.None;
+            rigidbody2d.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 }
