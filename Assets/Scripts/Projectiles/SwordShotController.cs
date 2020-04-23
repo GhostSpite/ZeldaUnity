@@ -8,6 +8,7 @@ public class SwordShotController : MonoBehaviour
     Animator animator;
     BoxCollider2D boxCollider;
     AudioSource audioSource;
+    
 
     public AudioClip fly;
 
@@ -58,7 +59,6 @@ public class SwordShotController : MonoBehaviour
             ProjectileDamage pd = gameObject.GetComponent<ProjectileDamage>();
             int health = pd.damageEnemy(other.collider);
         }
-        Destroy(gameObject);
     }
 
     public void PlaySound(AudioClip clip)

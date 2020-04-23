@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 393556985243665267}
   - component: {fileID: 4642186913265656640}
   - component: {fileID: -6690146959675105332}
-  - component: {fileID: -5740615148323963354}
+  - component: {fileID: 4276362895167842871}
   m_Layer: 16
   m_Name: Sword Shot
   m_TagString: Untagged
@@ -122,7 +122,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8458385016063445152}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fly: {fileID: 8300000, guid: 2575cdd8e9b7de54abab0391e0a7bacb, type: 3}
---- !u!114 &-5740615148323963354
+--- !u!114 &4276362895167842871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

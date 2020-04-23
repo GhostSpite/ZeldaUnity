@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class ProjectileDamage : MonoBehaviour
 {
+    AudioSource audioSource;
+
+    public AudioClip getHit;
+    public AudioClip die;
+    public AudioClip getHitBoss;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public int damageEnemy(Collider2D col)
     {
         int remainingHealth = -1;
@@ -14,6 +24,15 @@ public class ProjectileDamage : MonoBehaviour
             {
                 cont1.ChangeHealth(-1);
                 remainingHealth = cont1.health;
+                if (cont1.health > 0)
+                {
+                    PlaySound(getHitBoss);
+                }
+                else
+                {
+                    PlaySound(getHitBoss);
+                    PlaySound(die);
+                }
             }
             Debug.Log("hit aqua " + "health: " + cont1.health + "/" + cont1.maxHealth);
         }
@@ -24,6 +43,15 @@ public class ProjectileDamage : MonoBehaviour
             {
                 cont2.ChangeHealth(-1);
                 remainingHealth = cont2.health;
+                if (cont2.health > 0)
+                {
+                    PlaySound(getHit);
+                }
+                else
+                {
+                    PlaySound(getHit);
+                    PlaySound(die);
+                }
             }
             Debug.Log("hit gel " + "health: " + cont2.health + "/" + cont2.maxHealth);
         }
@@ -34,6 +62,15 @@ public class ProjectileDamage : MonoBehaviour
             {
                 cont3.ChangeHealth(-1);
                 remainingHealth = cont3.health;
+                if (cont3.health > 0)
+                {
+                    PlaySound(getHit);
+                }
+                else
+                {
+                    PlaySound(getHit);
+                    PlaySound(die);
+                }
             }
             Debug.Log("hit goria " + "health: " + cont3.health + "/" + cont3.maxHealth);
         }
@@ -44,6 +81,15 @@ public class ProjectileDamage : MonoBehaviour
             {
                 cont4.ChangeHealth(-1);
                 remainingHealth = cont4.health;
+                if (cont4.health > 0)
+                {
+                    PlaySound(getHit);
+                }
+                else
+                {
+                    PlaySound(getHit);
+                    PlaySound(die);
+                }
             }
             Debug.Log("hit keese " + "health: " + cont4.health + "/" + cont4.maxHealth);
         }
@@ -54,6 +100,15 @@ public class ProjectileDamage : MonoBehaviour
             {
                 cont5.ChangeHealth(-1);
                 remainingHealth = cont5.health;
+                if (cont5.health > 0)
+                {
+                    PlaySound(getHit);
+                }
+                else
+                {
+                    PlaySound(getHit);
+                    PlaySound(die);
+                }
             }
             Debug.Log("hit stalfos " + "health: " + cont5.health + "/" + cont5.maxHealth);
         }
@@ -64,9 +119,32 @@ public class ProjectileDamage : MonoBehaviour
             {
                 cont6.ChangeHealth(-1);
                 remainingHealth = cont6.health;
+                if (cont6.health > 0)
+                {
+                    PlaySound(getHit);
+                }
+                else
+                {
+                    PlaySound(getHit);
+                    PlaySound(die);
+                }
             }
             Debug.Log("hit wallmaster " + "health: " + cont6.health + "/" + cont6.maxHealth);
         }
+        else if (col.gameObject.name.Contains("OldMan"))
+        {
+            OldManController cont7 = col.GetComponent<OldManController>();
+            cont7.hit = true;
+        }
         return remainingHealth;
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        Debug.Log("sound");
+        audioSource.PlayOneShot(clip);
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider2D>().isTrigger = true;
+        Destroy(gameObject, clip.length);
     }
 }
