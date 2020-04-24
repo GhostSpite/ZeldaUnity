@@ -8,7 +8,9 @@ public class BoomerangProjectileController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     AudioSource audioSource;
     public AudioClip fly;
-    float time = 0.5f;
+    public AudioClip getHit;
+    public AudioClip die;
+    float time = 1f;//0.5f;
     float timer;
     float speed= 7f;
     float rotation = 0f;
@@ -75,7 +77,52 @@ public class BoomerangProjectileController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag(collisionTag)){
-            // Apply damage to enemies on collision
+            if(collisionTag == "Enemy")
+            {
+                if (other.gameObject.name.Contains("Gel"))
+                {
+                    GelController controller = other.gameObject.GetComponent<GelController>();
+                    if (controller.health > 0)
+                    {
+                        controller.ChangeHealth(-1);
+                        if (controller.health > 0)
+                        {
+                            PlayEnemySound(getHit);
+                        }
+                        else
+                        {
+                            PlayEnemySound(getHit);
+                            PlayEnemySound(die);
+                        }
+                    }
+                }
+                else if (other.gameObject.name.Contains("Keese"))
+                {
+                    KeeseController controller = other.gameObject.GetComponent<KeeseController>();
+                    if (controller.health > 0)
+                    {
+                        controller.ChangeHealth(-1);
+                        if (controller.health > 0)
+                        {
+                            PlayEnemySound(getHit);
+                        }
+                        else
+                        {
+                            PlayEnemySound(getHit);
+                            PlayEnemySound(die);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                LinkController controller = other.gameObject.GetComponent<LinkController>();
+
+                if (controller != null)
+                {
+                    controller.ChangeHealth(-1);
+                }
+            }
             Destroy(gameObject);
         }
         else{
@@ -86,5 +133,14 @@ public class BoomerangProjectileController : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayEnemySound(AudioClip clip)
+    {
+        Debug.Log("sound");
+        audioSource.PlayOneShot(clip);
+        GetComponent<Renderer>().enabled = false;
+        GetComponent<Collider2D>().isTrigger = true;
+        Destroy(gameObject, clip.length);
     }
 }
