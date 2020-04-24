@@ -7,6 +7,7 @@ public class LiveBomb : MonoBehaviour
     public float timer;
     public bool isLive;
     public GameObject link;
+    public GameObject explosion;
     public AudioClip explode;
 
     // Start is called before the first frame update
@@ -27,8 +28,11 @@ public class LiveBomb : MonoBehaviour
                 // Set explosion trigger for animator
                 // Deal damage
                 Destroy(gameObject);
+                Instantiate(explosion, transform.position, Quaternion.identity);
                 linkC.PlaySound(explode);
+
             }
-        }
+        } 
     }
+
 }
