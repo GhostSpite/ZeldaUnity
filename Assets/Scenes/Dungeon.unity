@@ -1208,8 +1208,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TriforcePiece
       objectReference: {fileID: 0}
-    m_RemovedComponents: [{fileID: 3381560010536559306, guid: 32c9ab386c3d0704fbc2c1c56767d6ab,
-        type: 3}]
+    m_RemovedComponents:
+    - {fileID: 3381560010536559306, guid: 32c9ab386c3d0704fbc2c1c56767d6ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32c9ab386c3d0704fbc2c1c56767d6ab, type: 3}
 --- !u!4 &57164838 stripped
 Transform:
@@ -46514,7 +46514,7 @@ PrefabInstance:
     - target: {fileID: 6578458884761507637, guid: e6497ab5815c73e4785132f4ddfdbd5b,
         type: 3}
       propertyPath: direction
-      value: left
+      value: right
       objectReference: {fileID: 0}
     - target: {fileID: 6578458884761507637, guid: e6497ab5815c73e4785132f4ddfdbd5b,
         type: 3}
@@ -51644,7 +51644,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 2017142293}]
+  m_Children:
+  - {fileID: 2017142293}
   m_Father: {fileID: 1953283311}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
