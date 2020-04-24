@@ -99,6 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 5
   isLive: 1
+  link: {fileID: 0}
+  explosion: {fileID: 4290859243367489535, guid: 4b3285a2ca05c4a63aa1e1b7c738be69,
+    type: 3}
+  explode: {fileID: 8300000, guid: bf72a9f5accb0954683cf843cc189c59, type: 3}
 --- !u!82 &-9207058110972257368
 AudioSource:
   m_ObjectHideFlags: 0

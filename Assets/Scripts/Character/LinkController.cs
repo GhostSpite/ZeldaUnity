@@ -218,6 +218,8 @@ public class LinkController : MonoBehaviour
             {
                 PlaceBomb();
             }
+            clickTooFast = true;
+            mouseTimer = mouseTime;
         }
         
         if (Input.GetKeyDown(KeyCode.E))
