@@ -18,17 +18,23 @@ public class GameControl : MonoBehaviour
     Vector3 playerLoc;
     int index = 0;
 
+    static bool start = false;
 
     private void Start()
     {
         cam = Camera.main;
+        if (!start)
+        {
+            SceneManager.LoadScene(0);
+            start = true;
+        }
     }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            EditorApplication.ExecuteMenuItem("Edit/Play");
+            SceneManager.LoadScene(0);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
