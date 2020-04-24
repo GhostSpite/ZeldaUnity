@@ -283,6 +283,7 @@ public class LinkController : MonoBehaviour
     public void CollectMap()
     {
         inventory.hasMap = true;
+        inventory.map.enabled = true;
     }
 
     public void CollectCandle()

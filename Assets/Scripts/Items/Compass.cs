@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Compass : MonoBehaviour
 {
+
+    public GameObject triforceIcon;
+    public GameObject linkIcon;
+
     public bool collectible;
     public AudioClip collected;
 
@@ -12,7 +16,9 @@ public class Compass : MonoBehaviour
         LinkController controller = other.GetComponent<LinkController>();
         if (controller != null && collectible)
         {
-            // Show Triforce & Link On minimap
+            triforceIcon.SetActive(true);
+            linkIcon.SetActive(true);
+
             controller.CollectCompass();
 
             Destroy(gameObject);

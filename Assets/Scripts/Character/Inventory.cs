@@ -31,6 +31,8 @@ public class Inventory : MonoBehaviour
     public Image primary;
     public Sprite[] priWeapons;
 
+    public RawImage map;
+
     public Secondary secActive;
     public Primary priActive;
     public TextMeshProUGUI[] text;
@@ -55,6 +57,7 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
+        map.enabled = false;
         secActive = Secondary.NONE;
         secondary.enabled = false;
         priActive = Primary.WOOD;

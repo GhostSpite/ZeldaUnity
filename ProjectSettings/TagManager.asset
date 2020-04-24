@@ -29,7 +29,8 @@ TagManager:
   - Walls
   - Wallmaster
   - WallmasterWalls
-  - 
+  - Fireball
+  - Map
   - 
   - 
   - 
@@ -41,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Map
+    uniqueID: 3740464035
+    locked: 0
   - name: Floor
     uniqueID: 1620706019
     locked: 0
