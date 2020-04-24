@@ -9,14 +9,14 @@ public class LiveBomb : MonoBehaviour
     public GameObject link;
     public GameObject explosion;
     public AudioClip explode;
-
-    // Start is called before the first frame update
+    AudioSource audioSource;
+    Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (isLive)
@@ -24,15 +24,17 @@ public class LiveBomb : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
-                LinkController linkC = link.GetComponent<LinkController>();
-                // Set explosion trigger for animator
                 // Deal damage
-                Destroy(gameObject);
-                Instantiate(explosion, transform.position, Quaternion.identity);
-                linkC.PlaySound(explode);
-
+                animator.SetTrigger("explode");
+                audioSource.PlayOneShot(audioSource.clip);
+                isLive = false;
             }
         } 
+    }
+
+    void DestroyBomb()
+    {
+        Destroy(gameObject);
     }
 
 }

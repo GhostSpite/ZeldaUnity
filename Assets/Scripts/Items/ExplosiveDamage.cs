@@ -6,21 +6,19 @@ public class ExplosiveDamage : MonoBehaviour
 {
     public int power;
 
-    // Start is called before the first frame update
     void Start()
     {
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
 
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        LinkController controller = other.GetComponent<LinkController>();
+        LinkController controller = other.gameObject.GetComponent<LinkController>();
 
         if (controller != null)
         {

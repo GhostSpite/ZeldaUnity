@@ -24,6 +24,7 @@ public class LinkController : MonoBehaviour
 
     float arrowTimer;
     float swordTimer;
+    float mouseTimer;
     public float invincibleTime;
     float invincibleTimer = 0f;
     bool invincible = false;
@@ -31,6 +32,8 @@ public class LinkController : MonoBehaviour
     public float lowLifeTime;
     bool counting = false;
     float healthTimer = 0f;
+    public float mouseTime;
+    bool clickTooFast;
 
     bool canShootSword;
 
@@ -75,6 +78,7 @@ public class LinkController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         pauseMusic = false;
         canShootSword = true;
+        clickTooFast = false;
         swordTimer = 0f;
     }
 
@@ -156,6 +160,18 @@ public class LinkController : MonoBehaviour
                     swordTimer = 1.5f;
                 }
             }
+            if (Input.GetMouseButton(0) && !clickTooFast)
+            {
+                animator.SetTrigger("Attacking");
+                PlaySound(swing);
+                if (canShootSword && swordTimer <= 0)
+                {
+                    LaunchSword();
+                    swordTimer = 1.5f;
+                }
+                clickTooFast = true;
+                mouseTimer = mouseTime;
+            }
 
             if (arrowTimer > 0)
             {
@@ -166,26 +182,15 @@ public class LinkController : MonoBehaviour
             {
                 swordTimer -= Time.deltaTime;
             }
-        }
 
-
-        if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0)
-        {
-            LaunchArrow();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (!boomerangPresent)
+            if (mouseTimer > 0)
             {
-                LaunchBoomerang();
+                mouseTimer -= Time.deltaTime;
             }
-            boomerangPresent = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            PlaceBomb();
+            else
+            {
+                clickTooFast = false;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.B))
@@ -207,7 +212,25 @@ public class LinkController : MonoBehaviour
             }
         }
 
+        if (Input.GetMouseButton(1) && !clickTooFast)
+        {
+            if (inventory.secActive == Inventory.Secondary.BOW && arrowTimer <= 0)
+            {
+                LaunchArrow();
+            }
 
+            if (inventory.secActive == Inventory.Secondary.RANG && !boomerangPresent)
+            {
+                LaunchBoomerang();
+                boomerangPresent = true;
+            }
+
+            if (inventory.secActive == Inventory.Secondary.BOMB && inventory.bombs > 0)
+            {
+                PlaceBomb();
+            }
+        }
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             ChangeHealth(-1);
