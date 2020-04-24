@@ -59,6 +59,10 @@ public class SwordShotController : MonoBehaviour
             ProjectileDamage pd = gameObject.GetComponent<ProjectileDamage>();
             int health = pd.damageEnemy(other.collider);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void PlaySound(AudioClip clip)

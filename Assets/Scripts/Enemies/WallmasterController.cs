@@ -13,6 +13,12 @@ public class WallmasterController : MonoBehaviour
     Vector2 linkPosition;
     Vector2 startPosition;
 
+    public float freezeTime;
+    float freezeTimer;
+
+    bool frozen;
+    public bool freeze { set { frozen = value; } get { return frozen; } }
+
     public float speed;
     public int moveSeed;
 
@@ -34,9 +40,11 @@ public class WallmasterController : MonoBehaviour
     {
         cam = Camera.main.GetComponent<CameraScript>();
 
+        freezeTimer = freezeTime;
         rand = new System.Random(moveSeed);
         timer = moveTime;
         grabbed = false;
+        frozen = false;
         startPosition = new Vector2(0, -4);
         currentHealth = maxHealth;
 
@@ -47,23 +55,36 @@ public class WallmasterController : MonoBehaviour
     
     void Update()
     {
-       if (grabbed == true)
+        if (!frozen)
         {
-            /*Vector2 position = rigidbody2d.position;
-            moveDown(position);
-            rigidbody2d.position = position;**/
-            //animator.SetFloat("Speed", speed);
-
-        } else 
-            moveWithAI();
-
-        if (invincible)
-        {
-            invincibleTimer -= Time.deltaTime;
-
-            if (invincibleTimer < 0)
+            if (grabbed == true)
             {
-                invincible = false;
+                /*Vector2 position = rigidbody2d.position;
+                moveDown(position);
+                rigidbody2d.position = position;**/
+                //animator.SetFloat("Speed", speed);
+
+            }
+            else
+                moveWithAI();
+
+            if (invincible)
+            {
+                invincibleTimer -= Time.deltaTime;
+
+                if (invincibleTimer < 0)
+                {
+                    invincible = false;
+                }
+            }
+        }
+        else
+        {
+            freezeTimer -= Time.deltaTime;
+            if (freezeTimer < 0)
+            {
+                frozen = false;
+                freezeTimer = freezeTime;
             }
         }
     }

@@ -6,6 +6,8 @@ public class Triforce : MonoBehaviour
 {
     public bool collectible;
     public AudioClip collected;
+    public GameObject winScreen;
+    public GameObject rest;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,7 +16,8 @@ public class Triforce : MonoBehaviour
         {
             controller.ChangeTriforceCount(1);
             // End Game
-
+            winScreen.GetComponent<WinScreenTextController>().go = true;
+            Destroy(rest);
             Destroy(gameObject);
 
             controller.PlaySound(collected);

@@ -168,8 +168,9 @@ MonoBehaviour:
   speed: 1
   moveSeed: 0
   moveTime: 1
+  freezeTime: 1
   maxHealth: 2
-  invincibleTime: 1
+  invincibleTime: 0.5
   hasKey: 0
   animator: {fileID: 0}
 --- !u!114 &9171636392838225559

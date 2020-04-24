@@ -18,8 +18,10 @@ public class InventoryMenu : MonoBehaviour
     Inventory inventory;
 
     bool isPaused;
-    public KeyCode inventoryKey
-        ;
+
+    public KeyCode inventoryKey;
+    public KeyCode equipmentKey;
+        
 
     void Start()
     {
@@ -31,12 +33,8 @@ public class InventoryMenu : MonoBehaviour
     void Update()
     {
         UpdateEquipment();
-        
 
-        if (Input.GetKeyDown(inventoryKey))
-        {
-            ChangeInventory();
-        }
+        if (Input.GetKeyDown(inventoryKey)) ChangeInventory();
     }
 
     void ChangeInventory()
@@ -51,16 +49,6 @@ public class InventoryMenu : MonoBehaviour
         {
             inventoryCanvas.SetActive(false);
             Time.timeScale = 1f;
-        }
-    }
-
-    void ChangeEquipment()
-    {
-        if (isPaused)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1) && inventory.hasBow) inventory.secActive = Inventory.Secondary.BOW;
-            if (Input.GetKeyDown(KeyCode.Alpha2) && inventory.hasRang) inventory.secActive = Inventory.Secondary.RANG;
-            if (Input.GetKeyDown(KeyCode.Alpha3) && inventory.bombs > 0) inventory.secActive = Inventory.Secondary.BOMB;
         }
     }
 
