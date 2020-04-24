@@ -38,6 +38,8 @@ public class OldManController : MonoBehaviour
                 attackTimer = attackTime;
             }
         }
+
+        linkPos = link.transform.position;
     }
 
     void Launch()
