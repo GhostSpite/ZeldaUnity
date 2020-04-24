@@ -32851,7 +32851,7 @@ MonoBehaviour:
   compass: {fileID: 187749410}
   secondary: {fileID: 1555254020}
   inventoryKey: 9
-  equipmentKey: 98
+  equipmentKey: 0
 --- !u!1 &757838747
 GameObject:
   m_ObjectHideFlags: 0
@@ -36057,7 +36057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4c19e544f0c7a4ca94b1fe08a80aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Congratulations!                       Press Q to quit  or  R to play again
+  message: Congratulations!                       Press Q to quit  or  R to play
+    again
   textObject: {fileID: 314825668}
   delay: 0.1
   messageSoFar: 
@@ -44751,8 +44752,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -45, y: 62.55}
-  m_SizeDelta: {x: 249.5, y: 125.1}
+  m_AnchoredPosition: {x: -81.3, y: -5.5}
+  m_SizeDelta: {x: 472.6, y: 179.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435111528
 MonoBehaviour:
@@ -44787,7 +44788,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7943c9b0f2c4d854888b43b5bb1dcffa, type: 3}
-    m_FontSize: 20
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -44798,7 +44799,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "   game over\n\ncontinue ( c )\n   retry ( r )"
 --- !u!222 &1435111530
 CanvasRenderer:
   m_ObjectHideFlags: 0

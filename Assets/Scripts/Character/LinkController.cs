@@ -28,8 +28,6 @@ public class LinkController : MonoBehaviour
     float invincibleTimer = 0f;
     bool invincible = false;
 
-    public float restartTime;
-    bool restarting = false;
     public float lowLifeTime;
     bool counting = false;
     float healthTimer = 0f;
@@ -49,6 +47,8 @@ public class LinkController : MonoBehaviour
     public AudioClip die;
     public AudioClip lowLife;
     public bool pauseMusic;
+
+    bool winning = false;
 
     AudioSource audioSource;
 
@@ -86,83 +86,86 @@ public class LinkController : MonoBehaviour
         Vector2 posChange = new Vector2(horizontal, vertical);
         Vector2 position = rigidbody2d.position;
 
-        if (life <= 0)
+        if (!winning)
         {
-            if (triggerDead)
+            if (life <= 0)
             {
-                linkCanMove = false;
-                DeathScene();
-            }   
-        }
-        else if (life <= 2)
-        {
-            if (!counting)
+                if (triggerDead)
+                {
+                    linkCanMove = false;
+                    DeathScene();
+                }
+            }
+            else if (life <= 2)
             {
-                PlaySound(lowLife);
-                healthTimer = lowLifeTime;
-                counting = true;
+                if (!counting)
+                {
+                    PlaySound(lowLife);
+                    healthTimer = lowLifeTime;
+                    counting = true;
+                }
+                else
+                {
+                    healthTimer -= Time.deltaTime;
+
+                    if (healthTimer < 0)
+                    {
+                        PlaySound(lowLife);
+                        counting = false;
+                    }
+                }
+            }
+            else if (life < maxLife && canShootSword)
+            {
+                canShootSword = false;
+            }
+            else if (life == maxLife && !canShootSword)
+            {
+                canShootSword = true;
+            }
+
+            if (boomerangPresent)
+            {
+                posChange = new Vector2(0, 0);
+            }
+            if (posChange != Vector2.zero)
+            {
+                MoveLink(posChange);
             }
             else
             {
-                healthTimer -= Time.deltaTime;
+                animator.SetBool("Moving", false);
+            }
 
-                if (healthTimer < 0)
+            animator.SetFloat("Look X", lookDirection.x);
+            animator.SetFloat("Look Y", lookDirection.y);
+
+            if (linkCanMove)
+            {
+                posChange.Normalize();
+                position += (posChange * movementSpeed * Time.deltaTime);
+                rigidbody2d.position = position;
+            }
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N))
+            {
+                animator.SetTrigger("Attacking");
+                PlaySound(swing);
+                if (canShootSword && swordTimer <= 0)
                 {
-                    PlaySound(lowLife);
-                    counting = false;
+                    LaunchSword();
+                    swordTimer = 1.5f;
                 }
             }
-        }
-        else if (life < maxLife && canShootSword)
-        {
-            canShootSword = false;
-        }
-        else if (life == maxLife && !canShootSword)
-        {
-            canShootSword = true;
-        }
 
-        if (boomerangPresent)
-        {
-            posChange = new Vector2(0, 0);
-        }
-        if (posChange != Vector2.zero)
-        {
-            MoveLink(posChange);
-        }
-        else
-        {
-            animator.SetBool("Moving", false);
-        }
-
-        animator.SetFloat("Look X", lookDirection.x);
-        animator.SetFloat("Look Y", lookDirection.y);
-
-        if (linkCanMove)
-        {
-            posChange.Normalize();
-            position += (posChange * movementSpeed * Time.deltaTime);
-            rigidbody2d.position = position;
-        }
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N))
-        {
-            animator.SetTrigger("Attacking");
-            PlaySound(swing);
-            if (canShootSword && swordTimer <= 0)
+            if (arrowTimer > 0)
             {
-                LaunchSword();
-                swordTimer = 1.5f;
+                arrowTimer -= Time.deltaTime;
             }
-        }
 
-        if (arrowTimer > 0)
-        {
-            arrowTimer -= Time.deltaTime;
-        }
-
-        if (swordTimer > 0)
-        {
-            swordTimer -= Time.deltaTime;
+            if (swordTimer > 0)
+            {
+                swordTimer -= Time.deltaTime;
+            }
         }
 
 
@@ -185,6 +188,26 @@ public class LinkController : MonoBehaviour
             PlaceBomb();
         }
 
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (inventory.secActive == Inventory.Secondary.BOW && arrowTimer <= 0)
+            {
+                LaunchArrow();
+            }
+
+            if (inventory.secActive == Inventory.Secondary.RANG && !boomerangPresent)
+            {
+                LaunchBoomerang();
+                boomerangPresent = true;
+            }
+
+            if (inventory.secActive == Inventory.Secondary.BOMB && inventory.bombs > 0)
+            {
+                PlaceBomb();
+            }
+        }
+
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             ChangeHealth(-1);
@@ -193,12 +216,20 @@ public class LinkController : MonoBehaviour
         {
             invincibleTimer -= Time.deltaTime;
 
-            if (invincibleTimer < 0)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                invincible = false;
+                ChangeHealth(-1);
+            }
+            if (invincible)
+            {
+                invincibleTimer -= Time.deltaTime;
+
+                if (invincibleTimer < 0)
+                {
+                    invincible = false;
+                }
             }
         }
-
     }
     public void MoveLink(Vector2 posChange)
     {
@@ -286,7 +317,8 @@ public class LinkController : MonoBehaviour
         animator.SetTrigger("Triforce");
         linkCanMove = false;
         pauseMusic = true;
-	}
+        winning = true;
+    }
 
     // ------------------ Equipment Collection Methods ---------------------
     public void CollectBow()
@@ -394,31 +426,21 @@ public class LinkController : MonoBehaviour
             PlaySound(die);
             triggerDead = false;
         }
-        if (!restarting)
+        pauseMusic = true;
+        StartCoroutine(WaitText());
+        //reset at beginning w full health and all items
+        while (!Input.anyKey)
         {
-            pauseMusic = true;
-            restarting = true;
-            healthTimer = restartTime;
-        }
-        else
-        {
-            healthTimer -= Time.deltaTime;
-
-            if (healthTimer < 0)
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                text.PrintDeathText();
-                //reset at beginning w full health and all items
-                if (Input.GetKeyDown(KeyCode.C)) 
-                {
-                    Reset();
-                }
-                //go back to title screen
-                else if (Input.GetKeyDown(KeyCode.R))
-                {
-                    SceneManager.LoadScene("TitleScene");
-                }
+                Reset();
             }
-        }        
+            //go back to title screen
+            else if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("TitleScene");
+            }
+        }  
     }
 
 
@@ -465,5 +487,11 @@ public class LinkController : MonoBehaviour
         }
         text.DeleteText();
         StartCoroutine(grayOff());
+    }
+
+    IEnumerator WaitText()
+    {
+        yield return new WaitForSeconds(3f);
+        text.PrintDeathText();
     }
 }
