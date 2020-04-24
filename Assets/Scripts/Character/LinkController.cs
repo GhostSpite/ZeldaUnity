@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LinkController : MonoBehaviour
 {
+    public static bool linkCanMove = true;
+
     public float projectileSpeed;
     public float movementSpeed;
     public float pushScale;
@@ -77,9 +79,10 @@ public class LinkController : MonoBehaviour
 
         if (life <= 0)
         {
+            linkCanMove = false;
             DeathScene();
         }
-        else if(life <= 2)
+        else if (life <= 2)
         {
             if (!counting)
             {
@@ -102,7 +105,7 @@ public class LinkController : MonoBehaviour
         {
             canShootSword = false;
         }
-        else if(life == maxLife && !canShootSword)
+        else if (life == maxLife && !canShootSword)
         {
             canShootSword = true;
         }
@@ -124,11 +127,13 @@ public class LinkController : MonoBehaviour
         animator.SetFloat("Look Y", lookDirection.y);
 
         posChange.Normalize();
-        position += (posChange * movementSpeed * Time.deltaTime);
-
-        rigidbody2d.position = position;
-
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N)){
+        if (linkCanMove)
+        {
+            position += (posChange * movementSpeed * Time.deltaTime);
+            rigidbody2d.position = position;
+        }
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N))
+        {
             animator.SetTrigger("Attacking");
             PlaySound(swing);
             if (canShootSword && swordTimer <= 0)
@@ -148,11 +153,14 @@ public class LinkController : MonoBehaviour
             swordTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0){
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0)
+        {
             LaunchArrow();
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)){
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
             if (!boomerangPresent)
             {
                 LaunchBoomerang();
@@ -160,25 +168,26 @@ public class LinkController : MonoBehaviour
             boomerangPresent = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3)){
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
             PlaceBomb();
         }
 
-        if (Input.GetKeyDown(KeyCode.E)){
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             ChangeHealth(-1);
         }
-
-        if (invincible){
+        if (invincible)
+        {
             invincibleTimer -= Time.deltaTime;
 
-            if(invincibleTimer < 0)
+            if (invincibleTimer < 0)
             {
                 invincible = false;
             }
         }
 
     }
-
     public void MoveLink(Vector2 posChange)
     {
         if (!boomerangPresent)
@@ -192,6 +201,7 @@ public class LinkController : MonoBehaviour
         {
             animator.SetBool("Moving", false);
         }
+        
     }
 
     // ------------------- Health Methods ------------------
@@ -262,6 +272,7 @@ public class LinkController : MonoBehaviour
 	{
         inventory.triforce += amount;
         animator.SetTrigger("Triforce");
+        linkCanMove = false;
         pauseMusic = true;
 	}
 
@@ -351,7 +362,7 @@ public class LinkController : MonoBehaviour
         {
             Destroy(o);
         }
-
+        pauseMusic = true;
         StartCoroutine(wait());
         animator.SetTrigger("Dead");
         //play death sound
@@ -369,6 +380,8 @@ public class LinkController : MonoBehaviour
             if (healthTimer < 0)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                linkCanMove = true;
+                pauseMusic = false;
             }
         }
     }
@@ -382,7 +395,6 @@ public class LinkController : MonoBehaviour
                 g.SetActive(true);
                 yield return new WaitForSeconds(1f);
             }
-        }
-        
+        } 
     }
 }
