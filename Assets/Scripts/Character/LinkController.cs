@@ -45,6 +45,8 @@ public class LinkController : MonoBehaviour
     public AudioClip lowLife;
     public bool pauseMusic;
 
+    bool winning;
+
     AudioSource audioSource;
 
     Vector2 lookDirection = new Vector2(0f, -1f);
@@ -71,88 +73,110 @@ public class LinkController : MonoBehaviour
 
     void Update()
     {
-
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        Vector2 posChange = new Vector2(horizontal, vertical);
-        Vector2 position = rigidbody2d.position;
-
-        if (life <= 0)
+        if (!winning)
         {
-            linkCanMove = false;
-            DeathScene();
-        }
-        else if (life <= 2)
-        {
-            if (!counting)
+            float horizontal = Input.GetAxisRaw("Horizontal");
+            float vertical = Input.GetAxisRaw("Vertical");
+            Vector2 posChange = new Vector2(horizontal, vertical);
+            Vector2 position = rigidbody2d.position;
+
+            if (life <= 0)
             {
-                PlaySound(lowLife);
-                healthTimer = lowLifeTime;
-                counting = true;
+                linkCanMove = false;
+                DeathScene();
+            }
+            else if (life <= 2)
+            {
+                if (!counting)
+                {
+                    PlaySound(lowLife);
+                    healthTimer = lowLifeTime;
+                    counting = true;
+                }
+                else
+                {
+                    healthTimer -= Time.deltaTime;
+
+                    if (healthTimer < 0)
+                    {
+                        PlaySound(lowLife);
+                        counting = false;
+                    }
+                }
+            }
+            else if (life < maxLife && canShootSword)
+            {
+                canShootSword = false;
+            }
+            else if (life == maxLife && !canShootSword)
+            {
+                canShootSword = true;
+            }
+
+            if (boomerangPresent)
+            {
+                posChange = new Vector2(0, 0);
+            }
+            if (posChange != Vector2.zero)
+            {
+                MoveLink(posChange);
             }
             else
             {
-                healthTimer -= Time.deltaTime;
+                animator.SetBool("Moving", false);
+            }
 
-                if (healthTimer < 0)
+            animator.SetFloat("Look X", lookDirection.x);
+            animator.SetFloat("Look Y", lookDirection.y);
+
+            posChange.Normalize();
+            if (linkCanMove)
+            {
+                position += (posChange * movementSpeed * Time.deltaTime);
+                rigidbody2d.position = position;
+            }
+            if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N))
+            {
+                animator.SetTrigger("Attacking");
+                PlaySound(swing);
+                if (canShootSword && swordTimer <= 0)
                 {
-                    PlaySound(lowLife);
-                    counting = false;
+                    LaunchSword();
+                    swordTimer = 1.5f;
                 }
             }
-        }
-        else if (life < maxLife && canShootSword)
-        {
-            canShootSword = false;
-        }
-        else if (life == maxLife && !canShootSword)
-        {
-            canShootSword = true;
-        }
 
-        if (boomerangPresent)
-        {
-            posChange = new Vector2(0, 0);
-        }
-        if (posChange != Vector2.zero)
-        {
-            MoveLink(posChange);
-        }
-        else
-        {
-            animator.SetBool("Moving", false);
-        }
-
-        animator.SetFloat("Look X", lookDirection.x);
-        animator.SetFloat("Look Y", lookDirection.y);
-
-        posChange.Normalize();
-        if (linkCanMove)
-        {
-            position += (posChange * movementSpeed * Time.deltaTime);
-            rigidbody2d.position = position;
-        }
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.N))
-        {
-            animator.SetTrigger("Attacking");
-            PlaySound(swing);
-            if (canShootSword && swordTimer <= 0)
+            if (arrowTimer > 0)
             {
-                LaunchSword();
-                swordTimer = 1.5f;
+                arrowTimer -= Time.deltaTime;
             }
-        }
 
-        if (arrowTimer > 0)
-        {
-            arrowTimer -= Time.deltaTime;
-        }
+<<<<<<< HEAD
+            if (swordTimer > 0)
+            {
+                swordTimer -= Time.deltaTime;
+            }
 
-        if (swordTimer > 0)
-        {
-            swordTimer -= Time.deltaTime;
-        }
 
+            if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0)
+            {
+                LaunchArrow();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                if (!boomerangPresent)
+                {
+                    LaunchBoomerang();
+                }
+                boomerangPresent = true;
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                PlaceBomb();
+            }
+=======
         if (Input.GetKeyDown(KeyCode.B))
         {
             if (inventory.secActive == Inventory.Secondary.BOW && arrowTimer <= 0)
@@ -180,13 +204,22 @@ public class LinkController : MonoBehaviour
         if (invincible)
         {
             invincibleTimer -= Time.deltaTime;
+>>>>>>> 47e61a35952e103534b3b71d2ef47d7a98921eec
 
-            if (invincibleTimer < 0)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                invincible = false;
+                ChangeHealth(-1);
+            }
+            if (invincible)
+            {
+                invincibleTimer -= Time.deltaTime;
+
+                if (invincibleTimer < 0)
+                {
+                    invincible = false;
+                }
             }
         }
-
     }
     public void MoveLink(Vector2 posChange)
     {
@@ -274,7 +307,8 @@ public class LinkController : MonoBehaviour
         animator.SetTrigger("Triforce");
         linkCanMove = false;
         pauseMusic = true;
-	}
+        winning = true;
+    }
 
     // ------------------ Equipment Collection Methods ---------------------
     public void CollectBow()
