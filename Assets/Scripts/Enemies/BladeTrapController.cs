@@ -7,7 +7,7 @@ public class BladeTrapController : MonoBehaviour
     public float speed;
     private int direction;
     Rigidbody2D rigidbody2d;
-    //LinkController controller;
+    public bool isInRoom;
     Vector2 linkPosition;
     bool moving;
     bool returning;
@@ -22,6 +22,7 @@ public class BladeTrapController : MonoBehaviour
         linkController = GameObject.Find("Link");
         rigidbody2d = GetComponent<Rigidbody2D>();
         initialPosition = rigidbody2d.position;
+        isInRoom = false;
     }
 
     // Update is called once per frame
@@ -35,33 +36,36 @@ public class BladeTrapController : MonoBehaviour
 
     Vector2 checkPosition(Vector2 position)
     {
-        if ((int)linkPosition.y == (int)position.y && !moving)
+        if (moving || isInRoom)
         {
-            if (linkPosition.x < position.x)
+            if ((int)linkPosition.y == (int)position.y && !moving)
             {
-                direction = -1;
+                if (linkPosition.x < position.x)
+                {
+                    direction = -1;
+                }
+                else
+                {
+                    direction = 1;
+                }
+                moving = true;
             }
-            else
+            else if ((int)linkPosition.x == (int)position.x && !moving)
             {
-                direction = 1;
+                if (linkPosition.y < position.y)
+                {
+                    direction = 2;
+                }
+                else
+                {
+                    direction = -2;
+                }
+                moving = true;
             }
-            moving = true;
-        }
-        else if ((int)linkPosition.x == (int)position.x && !moving)
-        {
-            if (linkPosition.y < position.y)
+            else if (moving)
             {
-                direction = 2;
+                position = charge(position);
             }
-            else
-            {
-                direction = -2;
-            }
-            moving = true;
-        }
-        else if(moving)
-        {
-            position = charge(position);
         }
 
         if ((int)position.x == (int)initialPosition.x && (int)position.y == (int)initialPosition.y && returning)
