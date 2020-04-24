@@ -182,26 +182,6 @@ public class LinkController : MonoBehaviour
             }
         }
 
-
-        if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0)
-        {
-            LaunchArrow();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (!boomerangPresent)
-            {
-                LaunchBoomerang();
-            }
-            boomerangPresent = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            PlaceBomb();
-        }
-
         if (Input.GetKeyDown(KeyCode.B))
         {
             if (inventory.secActive == Inventory.Secondary.BOW && arrowTimer <= 0)

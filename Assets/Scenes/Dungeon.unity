@@ -3082,11 +3082,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1013099012324604318, guid: 84fc0f4d38064654db5b82bdebcab0e0,
         type: 3}
+    - target: {fileID: 2083192260, guid: 3969eb5eb46891f46aca962716fb6e38, type: 3}
+      propertyPath: bombs
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5223815306591368338, guid: 3969eb5eb46891f46aca962716fb6e38,
         type: 3}
       propertyPath: m_Name
       value: Link
       objectReference: {fileID: 0}
+    - target: {fileID: 5223815306591368341, guid: 3969eb5eb46891f46aca962716fb6e38,
+        type: 3}
+      propertyPath: bombPrefab
+      value: 
+      objectReference: {fileID: 6848686690277380165, guid: 2292c803df4e1754e9f1273bcebebf92,
+        type: 3}
     - target: {fileID: 5223815306591368341, guid: 3969eb5eb46891f46aca962716fb6e38,
         type: 3}
       propertyPath: mouseTime
@@ -36067,8 +36077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4c19e544f0c7a4ca94b1fe08a80aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Congratulations!                       Press Q to quit  or  R to play
-    again
+  message: Congratulations!                       Press Q to quit  or  R to play again
   textObject: {fileID: 314825668}
   delay: 0.1
   messageSoFar: 
