@@ -24103,7 +24103,7 @@ GameObject:
   - component: {fileID: 314825671}
   - component: {fileID: 314825670}
   m_Layer: 5
-  m_Name: Text2
+  m_Name: OldManText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32773,7 +32773,7 @@ GameObject:
   - component: {fileID: 861834582}
   - component: {fileID: 861834581}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
