@@ -151,32 +151,32 @@ public class LinkController : MonoBehaviour
                 arrowTimer -= Time.deltaTime;
             }
 
-<<<<<<< HEAD
             if (swordTimer > 0)
             {
                 swordTimer -= Time.deltaTime;
             }
+        }
 
 
-            if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0)
+        if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0)
+        {
+            LaunchArrow();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (!boomerangPresent)
             {
-                LaunchArrow();
+                LaunchBoomerang();
             }
+            boomerangPresent = true;
+        }
 
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                if (!boomerangPresent)
-                {
-                    LaunchBoomerang();
-                }
-                boomerangPresent = true;
-            }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            PlaceBomb();
+        }
 
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                PlaceBomb();
-            }
-=======
         if (Input.GetKeyDown(KeyCode.B))
         {
             if (inventory.secActive == Inventory.Secondary.BOW && arrowTimer <= 0)
@@ -204,7 +204,6 @@ public class LinkController : MonoBehaviour
         if (invincible)
         {
             invincibleTimer -= Time.deltaTime;
->>>>>>> 47e61a35952e103534b3b71d2ef47d7a98921eec
 
             if (Input.GetKeyDown(KeyCode.E))
             {
