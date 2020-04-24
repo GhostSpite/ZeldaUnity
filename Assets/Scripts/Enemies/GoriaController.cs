@@ -13,6 +13,11 @@ public class GoriaController : MonoBehaviour
     float timer;
     public float attackTime;
     float attackTimer;
+    public float freezeTime;
+    float freezeTimer;
+
+    bool frozen;
+    public bool freeze { set { frozen = value; } get { return frozen; } }
 
     private int direction;
     private System.Random rand;
@@ -41,10 +46,12 @@ public class GoriaController : MonoBehaviour
         rand = new System.Random(moveSeed);
         timer = moveTime;
         attackTimer = attackTime;
+        freezeTimer = freezeTime;
         direction = 2;
         lastDirection = direction;
         isStopped = false;
         launched = false;
+        frozen = false;
         currentHealth = maxHealth;
 
         drop = GetComponent<DropItemUponDeath>();
@@ -54,37 +61,48 @@ public class GoriaController : MonoBehaviour
     
     void Update()
     {
-        if (!isStopped)
+        if (!frozen)
         {
-            moveWithAI();
-        }
-        else if (!launched)
-        {
-            Launch();
-            launched = true;
+            if (!isStopped)
+            {
+                moveWithAI();
+            }
+            else if (!launched)
+            {
+                Launch();
+                launched = true;
+            }
+            else
+            {
+                attackTimer -= Time.deltaTime;
+                if (attackTimer < 0)
+                {
+                    isStopped = false;
+                    attackTimer = attackTime;
+                    timer = 0;
+                    launched = false;
+                }
+            }
+
+            if (invincible)
+            {
+                invincibleTimer -= Time.deltaTime;
+
+                if (invincibleTimer < 0)
+                {
+                    invincible = false;
+                }
+            }
         }
         else
         {
-            attackTimer -= Time.deltaTime;
-            if (attackTimer < 0)
+            freezeTimer -= Time.deltaTime;
+            if (freezeTimer < 0)
             {
-                isStopped = false;
-                attackTimer = attackTime;
-                timer = 0;
-                launched = false;
+                frozen = false;
+                freezeTimer = freezeTime;
             }
         }
-
-        if (invincible)
-        {
-            invincibleTimer -= Time.deltaTime;
-
-            if (invincibleTimer < 0)
-            {
-                invincible = false;
-            }
-        }
-
     }
 
     public void moveWithAI()

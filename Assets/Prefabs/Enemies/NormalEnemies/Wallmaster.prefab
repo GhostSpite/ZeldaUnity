@@ -165,11 +165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16987fe602d4e9a4b8f4099d70a6d3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeTime: 1
   speed: 1
   moveSeed: 0
   moveTime: 1
   maxHealth: 2
-  invincibleTime: 1
+  invincibleTime: 0.5
 --- !u!114 &-5337613384095050210
 MonoBehaviour:
   m_ObjectHideFlags: 0
