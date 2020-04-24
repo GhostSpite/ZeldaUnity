@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2392111276215161301}
   - component: {fileID: 2392111276215161291}
   - component: {fileID: -4730885922309736555}
-  - component: {fileID: -1947168539867317208}
+  - component: {fileID: 1836475020}
+  - component: {fileID: 6879719401242300354}
   m_Layer: 15
   m_Name: WoodenBoomerang
   m_TagString: Untagged
@@ -207,7 +208,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-1947168539867317208
+--- !u!114 &1836475020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -216,8 +217,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 2392111276215161288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 212b7e4e47e812347a2c532ee84249ef, type: 3}
+  m_Script: {fileID: 11500000, guid: cea66fc1890dca04bbb7c18361c5838d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectible: 1
+  enemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  appear: {fileID: 8300000, guid: 27b275b1b2b82f94abc424016a6fde03, type: 3}
+--- !u!114 &6879719401242300354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392111276215161288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84433b45f7e113b46bdbc88c1d112e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectible: 0
   collected: {fileID: 8300000, guid: b36ba7c5980a68740b2edcd53a861894, type: 3}

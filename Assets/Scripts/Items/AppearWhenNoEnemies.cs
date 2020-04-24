@@ -15,13 +15,13 @@ public class AppearWhenNoEnemies : MonoBehaviour
     AudioSource audioSource;
     SpriteRenderer spriteRenderer;
     Key keyScript;
-    Equipment boomScript;
+    BoomerangCollectible boomScript;
     
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         keyScript = GetComponent<Key>();
-        boomScript = GetComponent<Equipment>();
+        boomScript = GetComponent<BoomerangCollectible>();
         audioSource = GetComponent<AudioSource>();
 
         if (keyScript != null)

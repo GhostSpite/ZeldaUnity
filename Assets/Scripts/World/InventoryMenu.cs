@@ -8,6 +8,7 @@ public class InventoryMenu : MonoBehaviour
     public GameObject player;
     public GameObject inventoryCanvas;
 
+    public Image mapMask;
     public Image map;
     public Image compass;
 
@@ -53,6 +54,16 @@ public class InventoryMenu : MonoBehaviour
         }
     }
 
+    void ChangeEquipment()
+    {
+        if (isPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1) && inventory.hasBow) inventory.secActive = Inventory.Secondary.BOW;
+            if (Input.GetKeyDown(KeyCode.Alpha2) && inventory.hasRang) inventory.secActive = Inventory.Secondary.RANG;
+            if (Input.GetKeyDown(KeyCode.Alpha3) && inventory.bombs > 0) inventory.secActive = Inventory.Secondary.BOMB;
+        }
+    }
+
     void UpdateEquipment()
     {
         if (inventory.secActive != Inventory.Secondary.NONE)
@@ -77,6 +88,9 @@ public class InventoryMenu : MonoBehaviour
         if (inventory.hasMap)
         {
             map.enabled = true;
+            var color = mapMask.color;
+            color.a = 0f;
+            mapMask.color = color;
         }
         else
         {

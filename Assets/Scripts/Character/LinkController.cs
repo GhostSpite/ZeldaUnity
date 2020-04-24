@@ -280,11 +280,19 @@ public class LinkController : MonoBehaviour
     public void CollectBow()
     {
         inventory.hasBow = true;
+        if (inventory.secActive == Inventory.Secondary.NONE)
+        {
+            inventory.secActive = Inventory.Secondary.BOW;
+        }
     }
 
     public void CollectBoomerang()
     {
         inventory.hasRang = true;
+        if (inventory.secActive == Inventory.Secondary.NONE)
+        {
+            inventory.secActive = Inventory.Secondary.RANG;
+        }
     }
 
     public void CollectCompass()
@@ -301,12 +309,16 @@ public class LinkController : MonoBehaviour
     public void CollectCandle()
     {
         inventory.hasCandle = true;
+        if (inventory.secActive == Inventory.Secondary.NONE)
+        {
+            inventory.secActive = Inventory.Secondary.CANDLE;
+        }
     }
 
     // --------------------- Attack Methods -------------------------
     void LaunchArrow()
     {
-        if (inventory.rupees > 0 && inventory.hasBow)
+        if (inventory.rupees > 0 && inventory.hasBow && inventory.secActive == Inventory.Secondary.BOW)
         {
             GameObject arrow = Instantiate(arrowPrefab, rigidbody2d.position + Vector2.up * 0.2f, Quaternion.identity);
 
@@ -331,7 +343,7 @@ public class LinkController : MonoBehaviour
 
     void LaunchBoomerang()
     {
-        if (inventory.hasRang)
+        if (inventory.hasRang && inventory.secActive == Inventory.Secondary.RANG)
         {
             GameObject boomerang = Instantiate(boomerangPrefab, rigidbody2d.position + Vector2.up * .2f, Quaternion.identity);
             BoomerangProjectileController boomerangProjectile = boomerang.GetComponent<BoomerangProjectileController>();
@@ -342,7 +354,7 @@ public class LinkController : MonoBehaviour
 
     void PlaceBomb()
     {
-        if(inventory.bombs > 0)
+        if(inventory.bombs > 0 && inventory.secActive == Inventory.Secondary.BOMB)
         {
             GameObject bomb = Instantiate(bombPrefab, rigidbody2d.position, Quaternion.identity);
             inventory.bombs--;
