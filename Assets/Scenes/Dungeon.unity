@@ -36078,7 +36078,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4c19e544f0c7a4ca94b1fe08a80aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Congratulations!                       Press Q to quit  or  R to play again
+  message: Congratulations!                       Press Q to quit  or  R to play
+    again
   textObject: {fileID: 314825668}
   delay: 0.1
   messageSoFar: 
@@ -44819,7 +44820,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "   game over\n\ncontinue ( c )\n   retry ( r )"
+  m_Text: 
 --- !u!222 &1435111530
 CanvasRenderer:
   m_ObjectHideFlags: 0
