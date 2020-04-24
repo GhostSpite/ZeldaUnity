@@ -156,9 +156,9 @@ public class DoorSpriteController : MonoBehaviour
         }
         else if(state == "wall" && bombable)
         {
-            ExplosiveDamage controller = other.gameObject.GetComponent<ExplosiveDamage>();
+            LiveBomb controller = other.gameObject.GetComponent<LiveBomb>();
 
-            if (controller != null)
+            if (controller != null && !controller.isLive)
             {
                 setState("bombed");
                 PlaySound(open);

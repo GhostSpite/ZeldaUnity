@@ -27,7 +27,6 @@ public class LiveBomb : MonoBehaviour
                 // Deal damage
                 animator.SetTrigger("explode");
                 audioSource.PlayOneShot(audioSource.clip);
-                isLive = false;
             }
         } 
     }

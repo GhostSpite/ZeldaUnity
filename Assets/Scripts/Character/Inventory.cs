@@ -55,12 +55,17 @@ public class Inventory : MonoBehaviour
     //public bool hasRaft;
     //public bool hasRod;
 
+    public float mouseTime;
+    float mouseTimer;
+    bool clickTooFast;
+
     void Start()
     {
         map.enabled = false;
         secActive = Secondary.NONE;
         secondary.enabled = false;
         priActive = Primary.WOOD;
+        clickTooFast = false;
     }
 
     void Update()
@@ -73,6 +78,16 @@ public class Inventory : MonoBehaviour
 
         UpdatePrimaryImage();
         UpdateSecondaryImage();
+
+
+        if (mouseTimer > 0)
+        {
+            mouseTimer -= Time.deltaTime;
+        }
+        else
+        {
+            clickTooFast = false;
+        }
     }
 
     void UpdateSecondaryImage()
@@ -108,5 +123,34 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1) && hasBow) secActive = Secondary.BOW;
         if (Input.GetKeyDown(KeyCode.Alpha2) && hasRang) secActive = Secondary.RANG;
         if (Input.GetKeyDown(KeyCode.Alpha3) && bombs > 0) secActive = Secondary.BOMB;
+        if (Input.GetMouseButton(2) & !clickTooFast)
+        {
+            if (secActive == Secondary.BOW && hasRang)
+            {
+                secActive = Secondary.RANG;
+            }
+            else if (secActive == Secondary.BOW && bombs > 0)
+            {
+                secActive = Secondary.BOMB;
+            }
+            else if (secActive == Secondary.RANG && bombs > 0)
+            {
+                secActive = Secondary.BOMB;
+            }
+            else if (secActive == Secondary.RANG && hasBow)
+            {
+                secActive = Secondary.BOW;
+            }
+            else if (secActive == Secondary.BOMB && hasBow)
+            {
+                secActive = Secondary.BOW;
+            }
+            else if (secActive == Secondary.BOMB && hasRang)
+            {
+                secActive = Secondary.RANG;
+            }
+            clickTooFast = true;
+            mouseTimer = mouseTime;
+        }
     }
 }
