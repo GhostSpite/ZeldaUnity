@@ -7,18 +7,25 @@ Import Instructions:
   Click play to run the game.
 
 Controls:
+  In-Game:
   Move Up - W
   Move Left - A
   Move Right - D
   Move Down - S
   Sword - Z
-  Arrow - 1
-  Boomerang - 2
-  Bomb - 3
+  Use Secondary - B
+  Set Secondary Bow - 1
+  Set Secondary Boomerang - 2
+  Set Secondary Bomb - 3
   Teleport Next Room - [Page Up]
   Teleport Prev Room - [Page Down]
   Pause - [Esc]
   Inventory - [Tab]
+  Quit to Title - Q
+  
+  Title-Screen:
+  Start Game - Return
+  Quit Game - Q
 
 Grading Instructions:
 In order to see the correct project please find the "Scenes" folder in the project manager and within it click the one titled "Dungeon".
