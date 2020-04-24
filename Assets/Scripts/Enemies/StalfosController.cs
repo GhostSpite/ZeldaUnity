@@ -9,6 +9,11 @@ public class StalfosController : MonoBehaviour
 
     public float moveTime;
     float timer;
+    public float freezeTime;
+    float freezeTimer;
+
+    bool frozen;
+    public bool freeze { set { frozen = value; } get { return frozen; } }
 
     private int direction;
     private System.Random rand;
@@ -31,8 +36,10 @@ public class StalfosController : MonoBehaviour
     {
         rand = new System.Random(moveSeed);
         timer = moveTime;
+        freezeTimer = freezeTime;
         direction = 2;
         currentHealth = maxHealth;
+        frozen = false;
 
         drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -41,18 +48,30 @@ public class StalfosController : MonoBehaviour
     
     void Update()
     {
-        moveWithAI();
-
-        if (invincible)
+        if (!frozen)
         {
-            invincibleTimer -= Time.deltaTime;
+            moveWithAI();
 
-            if (invincibleTimer < 0)
+            if (invincible)
             {
-                invincible = false;
+                invincibleTimer -= Time.deltaTime;
+
+                if (invincibleTimer < 0)
+                {
+                    invincible = false;
+                }
             }
         }
-    }
+        else
+        {
+            freezeTimer -= Time.deltaTime;
+            if (freezeTimer < 0)
+            {
+                frozen = false;
+                freezeTimer = freezeTime;
+            }
+        }
+        }
 
     public void moveWithAI()
     {

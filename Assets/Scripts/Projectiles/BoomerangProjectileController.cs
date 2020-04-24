@@ -79,40 +79,7 @@ public class BoomerangProjectileController : MonoBehaviour
         if (other.gameObject.CompareTag(collisionTag)){
             if(collisionTag == "Enemy")
             {
-                if (other.gameObject.name.Contains("Gel"))
-                {
-                    GelController controller = other.gameObject.GetComponent<GelController>();
-                    if (controller.health > 0)
-                    {
-                        controller.ChangeHealth(-1);
-                        if (controller.health > 0)
-                        {
-                            PlayEnemySound(getHit);
-                        }
-                        else
-                        {
-                            PlayEnemySound(getHit);
-                            PlayEnemySound(die);
-                        }
-                    }
-                }
-                else if (other.gameObject.name.Contains("Keese"))
-                {
-                    KeeseController controller = other.gameObject.GetComponent<KeeseController>();
-                    if (controller.health > 0)
-                    {
-                        controller.ChangeHealth(-1);
-                        if (controller.health > 0)
-                        {
-                            PlayEnemySound(getHit);
-                        }
-                        else
-                        {
-                            PlayEnemySound(getHit);
-                            PlayEnemySound(die);
-                        }
-                    }
-                }
+                EnemyReaction(other.gameObject);
             }
             else
             {
@@ -127,6 +94,69 @@ public class BoomerangProjectileController : MonoBehaviour
         }
         else{
             timer = (2*time) -timer -(float) 0.1;
+        }
+    }
+
+    void EnemyReaction(GameObject enemy)
+    {
+        if (enemy.name.Contains("Gel"))
+        {
+            GelController controller = enemy.GetComponent<GelController>();
+            if (controller.health > 0)
+            {
+                controller.ChangeHealth(-1);
+                if (controller.health > 0)
+                {
+                    PlayEnemySound(getHit);
+                }
+                else
+                {
+                    PlayEnemySound(getHit);
+                    PlayEnemySound(die);
+                }
+            }
+        }
+        else if (enemy.name.Contains("Keese"))
+        {
+            KeeseController controller = enemy.GetComponent<KeeseController>();
+            if (controller.health > 0)
+            {
+                controller.ChangeHealth(-1);
+                if (controller.health > 0)
+                {
+                    PlayEnemySound(getHit);
+                }
+                else
+                {
+                    PlayEnemySound(getHit);
+                    PlayEnemySound(die);
+                }
+            }
+        }
+        else if (enemy.name.Contains("Skeleton"))
+        {
+            StalfosController controller = enemy.GetComponent<StalfosController>();
+            if (!controller.freeze)
+            {
+                controller.freeze = true;
+            }
+
+        }
+        else if (enemy.name.Contains("Goriya"))
+        {
+            GoriaController controller = enemy.GetComponent<GoriaController>();
+            if (!controller.freeze)
+            {
+                controller.freeze = true;
+            }
+        }
+        else if (enemy.name.Contains("Wallmaster"))
+        {
+            WallmasterController controller = enemy.GetComponent<WallmasterController>();
+            if (!controller.freeze)
+            {
+                controller.freeze = true;
+            }
         }
     }
 
