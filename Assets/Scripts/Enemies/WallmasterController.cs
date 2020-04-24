@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallmasterController : MonoBehaviour
 {
-    CameraScript camera;
+    CameraScript cam;
 
     DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
@@ -32,7 +32,7 @@ public class WallmasterController : MonoBehaviour
 
     void Start()
     {
-        camera = Camera.main.GetComponent<CameraScript>();
+        cam = Camera.main.GetComponent<CameraScript>();
 
         rand = new System.Random(moveSeed);
         timer = moveTime;
@@ -138,7 +138,7 @@ public class WallmasterController : MonoBehaviour
             grabbed = true;
             Vector2 position = rigidbody2d.position;
             controller.transform.position = startPosition;
-            camera.GoBackToStart();
+            cam.GoBackToStart();
         }
     }
 
