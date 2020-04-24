@@ -910,6 +910,7 @@ MonoBehaviour:
   invincibleTime: 1
   restartTime: 2.5
   lowLifeTime: 0.3
+  mouseTime: 0.3
   swordShotPrefab: {fileID: 8458385016063445152, guid: a467cec9ae1cc5f4ab0055b350645838,
     type: 3}
   arrowPrefab: {fileID: 4960686961029939646, guid: f01edfb48e4706b498ece5e00b734302,
@@ -1144,6 +1145,7 @@ MonoBehaviour:
   priWeapons:
   - {fileID: -2178467043915682464, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
   - {fileID: -7375459094207900620, guid: 84fc0f4d38064654db5b82bdebcab0e0, type: 3}
+  map: {fileID: 0}
   secActive: 0
   priActive: 0
   text:

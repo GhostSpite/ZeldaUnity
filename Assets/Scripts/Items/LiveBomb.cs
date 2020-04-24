@@ -9,14 +9,12 @@ public class LiveBomb : MonoBehaviour
     public GameObject link;
     public GameObject explosion;
     public AudioClip explode;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (isLive)
