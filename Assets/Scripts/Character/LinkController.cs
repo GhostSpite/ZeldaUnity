@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LinkController : MonoBehaviour
 {
     public static bool linkCanMove = true;
+    bool triggerDead = true;
+
+    TextScript text;
+    CameraScript cam;
 
     public float projectileSpeed;
     public float movementSpeed;
@@ -24,8 +29,6 @@ public class LinkController : MonoBehaviour
     float invincibleTimer = 0f;
     bool invincible = false;
 
-    public float restartTime;
-    bool restarting = false;
     public float lowLifeTime;
     bool counting = false;
     float healthTimer = 0f;
@@ -48,7 +51,7 @@ public class LinkController : MonoBehaviour
     public AudioClip lowLife;
     public bool pauseMusic;
 
-    bool winning;
+    bool winning = false;
 
     AudioSource audioSource;
 
@@ -58,10 +61,14 @@ public class LinkController : MonoBehaviour
     Health health;
     Rigidbody2D rigidbody2d;
     Animator animator;
+    Vector2 startPos;
 
     // ------------------ Core Methods ----------------
     void Start()
     {
+        startPos = new Vector2(0, -4);
+        text = GameObject.FindGameObjectWithTag("DeathText").GetComponent<TextScript>();
+        cam = Camera.main.GetComponent<CameraScript>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         inventory = GetComponent<Inventory>();
@@ -77,17 +84,21 @@ public class LinkController : MonoBehaviour
 
     void Update()
     {
+
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        Vector2 posChange = new Vector2(horizontal, vertical);
+        Vector2 position = rigidbody2d.position;
+
         if (!winning)
         {
-            float horizontal = Input.GetAxisRaw("Horizontal");
-            float vertical = Input.GetAxisRaw("Vertical");
-            Vector2 posChange = new Vector2(horizontal, vertical);
-            Vector2 position = rigidbody2d.position;
-
             if (life <= 0)
             {
-                linkCanMove = false;
-                DeathScene();
+                if (triggerDead)
+                {
+                    linkCanMove = false;
+                    DeathScene();
+                }
             }
             else if (life <= 2)
             {
@@ -133,9 +144,9 @@ public class LinkController : MonoBehaviour
             animator.SetFloat("Look X", lookDirection.x);
             animator.SetFloat("Look Y", lookDirection.y);
 
-            posChange.Normalize();
             if (linkCanMove)
             {
+                posChange.Normalize();
                 position += (posChange * movementSpeed * Time.deltaTime);
                 rigidbody2d.position = position;
             }
@@ -430,33 +441,35 @@ public class LinkController : MonoBehaviour
     {
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Enemy"))
         {
-            Destroy(o);
+            o.SetActive(false);
         }
         pauseMusic = true;
-        StartCoroutine(wait());
-        animator.SetTrigger("Dead");
-        //play death sound
-        PlaySound(die);
-        if (!restarting)
-        {
-            pauseMusic = true;
-            restarting = true;
-            healthTimer = restartTime;
+        StartCoroutine(grayOn());
+        if (triggerDead) {
+            animator.SetTrigger("Dead");
+            //play death sound
+            PlaySound(die);
+            triggerDead = false;
         }
-        else
+        pauseMusic = true;
+        StartCoroutine(WaitText());
+        //reset at beginning w full health and all items
+        while (!Input.anyKey)
         {
-            healthTimer -= Time.deltaTime;
-
-            if (healthTimer < 0)
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                linkCanMove = true;
-                pauseMusic = false;
+                Reset();
             }
-        }
+            //go back to title screen
+            else if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("TitleScene");
+            }
+        }  
     }
 
-    IEnumerator wait()
+
+    IEnumerator grayOn()
     {
         foreach (GameObject g in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
         {
@@ -466,5 +479,44 @@ public class LinkController : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
         } 
+    }
+    IEnumerator grayOff()
+    {
+        foreach (GameObject g in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
+            if (g.name.Contains("gray"))
+            {
+                g.SetActive(false);
+                yield return new WaitForSeconds(1f);
+            }
+        }
+        linkCanMove = true;
+        pauseMusic = false;
+        yield return new WaitForSeconds(1f);
+        triggerDead = true;
+    }
+
+    public void Reset()
+    {
+        cam.GoBackToStart();
+        Vector2 position = rigidbody2d.position;
+        gameObject.transform.position = startPos;
+        ChangeHealth(6);
+        Debug.Log(life);
+        foreach (GameObject g in Resources.FindObjectsOfTypeAll(typeof(GameObject)))
+        {
+            if (g.tag == "Enemy")
+            {
+                g.SetActive(true);
+            }
+        }
+        text.DeleteText();
+        StartCoroutine(grayOff());
+    }
+
+    IEnumerator WaitText()
+    {
+        yield return new WaitForSeconds(3f);
+        text.PrintDeathText();
     }
 }

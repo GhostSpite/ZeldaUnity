@@ -904,6 +904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a496b0c0c13b364aad4c1711063b39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathText: '  GAME OVER CONTINUE (C) RETRY (R)'
+  textObject: {fileID: 0}
   projectileSpeed: 5
   movementSpeed: 4
   pushScale: 1
