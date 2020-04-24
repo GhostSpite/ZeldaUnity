@@ -144,7 +144,7 @@ public class StalfosController : MonoBehaviour
         if (currentHealth <= 0)
         {
             StartCoroutine(wait());
-            drop.dropItem(hasKey, moveSeed, rigidbody2d.position);
+            drop.dropItem(hasKey, (int)rigidbody2d.position.x, rigidbody2d.position);
         }
     }
 

@@ -211,7 +211,7 @@ public class KeeseController : MonoBehaviour
         if (currentHealth <= 0)
         {
             StartCoroutine(wait());
-            drop.dropItem(false, moveSeed, rigidbody2d.position);
+            drop.dropItem(false, (int)rigidbody2d.position.x, rigidbody2d.position);
         }
     }
 

@@ -15,7 +15,7 @@ public class OldManController : MonoBehaviour
     Vector2 linkPos;
     
     bool isHit;
-    public bool hit { set { isHit = value; } }
+    public bool hit { get { return isHit; } set { isHit = value; } }
 
     Rigidbody2D rigidbody2d;
     public AudioClip audioClip;

@@ -28730,6 +28730,7 @@ GameObject:
   - component: {fileID: 554210353}
   - component: {fileID: 554210352}
   - component: {fileID: 554210354}
+  - component: {fileID: 554210355}
   m_Layer: 0
   m_Name: DoorLeft
   m_TagString: Untagged
@@ -28941,6 +28942,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &554210355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554210349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b06657ecf916a429052d500e4994ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oldMan: {fileID: 1221469994}
 --- !u!1001 &557721184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40262,6 +40276,12 @@ EdgeCollider2D:
   - {x: 6.2, y: -3.8}
   - {x: 6.2, y: -1.3}
   - {x: 7.2, y: -1.3}
+--- !u!1 &1221469994 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7280912600686027457, guid: 6b8578d7e65ace44882c0bc6de9ebb15,
+    type: 3}
+  m_PrefabInstance: {fileID: 1914123047}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1223122993
 GameObject:
   m_ObjectHideFlags: 0
@@ -52347,12 +52367,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1536364073, guid: 6b8578d7e65ace44882c0bc6de9ebb15, type: 3}
       propertyPath: projectileSpeed
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1536364073, guid: 6b8578d7e65ace44882c0bc6de9ebb15, type: 3}
       propertyPath: projectilePrefab
       value: 
-      objectReference: {fileID: 455002785302782135, guid: e8ac84df5ef4b03459d55d0524731537,
+      objectReference: {fileID: 239250318563119071, guid: 60970b2085f427848b75f836cb3fef5c,
         type: 3}
     - target: {fileID: 6288230410135839390, guid: 6b8578d7e65ace44882c0bc6de9ebb15,
         type: 3}
