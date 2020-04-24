@@ -166,12 +166,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.7
-  originalSpeed: 0
+  originalSpeed: 1
   moveSeed: 0
   moveTime: 1
   stopTime: 2
   deltaSpeed: 0.009
   maxHealth: 1
+  animator: {fileID: 0}
 --- !u!114 &6770785947470026183
 MonoBehaviour:
   m_ObjectHideFlags: 0
