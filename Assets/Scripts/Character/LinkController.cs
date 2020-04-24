@@ -153,25 +153,25 @@ public class LinkController : MonoBehaviour
             swordTimer -= Time.deltaTime;
         }
 
-
-        if (Input.GetKeyDown(KeyCode.Alpha1) && arrowTimer <= 0)
+        if (Input.GetKeyDown(KeyCode.B))
         {
-            LaunchArrow();
-        }
+            if (inventory.secActive == Inventory.Secondary.BOW && arrowTimer <= 0)
+            {
+                LaunchArrow();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            if (!boomerangPresent)
+            if (inventory.secActive == Inventory.Secondary.RANG && !boomerangPresent)
             {
                 LaunchBoomerang();
+                boomerangPresent = true;
             }
-            boomerangPresent = true;
+
+            if (inventory.secActive == Inventory.Secondary.BOMB && inventory.bombs > 0)
+            {
+                PlaceBomb();
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            PlaceBomb();
-        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {

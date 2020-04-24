@@ -9,11 +9,11 @@ public class Inventory : MonoBehaviour
 {
     public enum Secondary 
     {
-        BOW, 
-        BOMB, 
+        BOW,
+        RANG,
+        BOMB,
         REDPOT, 
-        BLUEPOT, 
-        RANG, 
+        BLUEPOT,
         CANDLE,
         NONE
     }
@@ -69,6 +69,8 @@ public class Inventory : MonoBehaviour
         text[1].text = "   x " + keys.ToString();
         text[2].text = "   x " + bombs.ToString();
 
+        CycleSecondary();
+
         UpdatePrimaryImage();
         UpdateSecondaryImage();
     }
@@ -99,5 +101,12 @@ public class Inventory : MonoBehaviour
             primary.enabled = false;
         }
         
+    }
+
+    void CycleSecondary()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1) && hasBow) secActive = Secondary.BOW;
+        if (Input.GetKeyDown(KeyCode.Alpha2) && hasRang) secActive = Secondary.RANG;
+        if (Input.GetKeyDown(KeyCode.Alpha3) && bombs > 0) secActive = Secondary.BOMB;
     }
 }
