@@ -18,6 +18,7 @@ public class OldManController : MonoBehaviour
     public bool hit { set { isHit = value; } }
 
     Rigidbody2D rigidbody2d;
+    public AudioClip audioClip;
 
     void Start()
     {
@@ -42,13 +43,14 @@ public class OldManController : MonoBehaviour
     void Launch()
     {
         Vector2 rightPos = new Vector2(rigidbody2d.position.x + 3f, rigidbody2d.position.y);
-        Vector2 leftPos = new Vector2(rigidbody2d.position.x + 3f, rigidbody2d.position.y);
+        Vector2 leftPos = new Vector2(rigidbody2d.position.x - 3f, rigidbody2d.position.y);
         GameObject projectileRight = Instantiate(projectilePrefab, rightPos, Quaternion.identity);
         GameObject projectileLeft = Instantiate(projectilePrefab, leftPos, Quaternion.identity);
 
         FireballProjectileController fireballProjectileRight = projectileRight.GetComponent<FireballProjectileController>();
-        fireballProjectileRight.Launch(rightPos - linkPos, projectileSpeed);
+        fireballProjectileRight.Launch(-(rightPos - linkPos), projectileSpeed);
         FireballProjectileController fireballProjectileLeft = projectileLeft.GetComponent<FireballProjectileController>();
-        fireballProjectileLeft.Launch(leftPos - linkPos, projectileSpeed);
+        fireballProjectileLeft.Launch(-(leftPos - linkPos), projectileSpeed);
+        link.GetComponent<LinkController>().PlaySound(audioClip);
     }
 }
