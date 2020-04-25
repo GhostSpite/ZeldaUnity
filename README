@@ -39,5 +39,5 @@ In order to see the correct project please find the "Scenes" folder in the proje
 
 Known Bugs:
 Inventory menu still in progress.
-Bombable walls do not yet work.
 Clock item does not work.
+Sometimes when the boomerang is destroyed by killing an enemy link is rendered unable to move. (Note: does not always happen)
