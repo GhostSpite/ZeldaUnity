@@ -16,19 +16,16 @@ public class BoomerangProjectileController : MonoBehaviour
     float rotation = 0f;
 
     Vector2 direction;
-
-    // Start is called before the first frame update
+    
     void Awake()
     {
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
         audioSource = gameObject.GetComponent<AudioSource>();
-        //animator = gameObject.GetComponent<Animator>();
 
         PlaySound(fly);
         timer = 2 * time;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         timer -= Time.deltaTime;
@@ -67,11 +64,6 @@ public class BoomerangProjectileController : MonoBehaviour
     {
         this.direction = direction;
         this.speed = speed;
-
-        //rigidbody2d.angularVelocity = 360f;
-
-        //animator.SetFloat("Look X", direction.x);
-        //animator.SetFloat("Look Y", direction.y);
     }
 
     private void OnCollisionEnter2D(Collision2D other)

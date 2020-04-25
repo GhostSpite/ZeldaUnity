@@ -15,7 +15,7 @@ public class Triforce : MonoBehaviour
         if (controller != null && collectible)
         {
             controller.ChangeTriforceCount(1);
-            // End Game
+            
             winScreen.GetComponent<WinScreenTextController>().go = true;
             Destroy(rest);
             Destroy(gameObject);

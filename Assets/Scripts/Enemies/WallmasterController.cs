@@ -31,6 +31,7 @@ public class WallmasterController : MonoBehaviour
     public int maxHealth;
     public int health { get { return currentHealth; } }
     int currentHealth;
+    bool isDead;
 
     public float invincibleTime;
     float invincibleTimer = 0f;
@@ -48,6 +49,7 @@ public class WallmasterController : MonoBehaviour
         startPosition = new Vector2(0, -4);
         currentHealth = maxHealth;
 
+        isDead = false;
         drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -55,36 +57,38 @@ public class WallmasterController : MonoBehaviour
     
     void Update()
     {
-        if (!frozen)
+        if (!isDead)
         {
-            if (grabbed == true)
+            if (!frozen)
             {
-                /*Vector2 position = rigidbody2d.position;
-                moveDown(position);
-                rigidbody2d.position = position;**/
-                //animator.SetFloat("Speed", speed);
-
-            }
-            else
+                //if (grabbed == true)
+                //{
+                //    Vector2 position = rigidbody2d.position;
+                //    moveDown(position);
+                //    rigidbody2d.position = position;
+                //    animator.SetFloat("Speed", speed);
+                //}
+                //else
                 moveWithAI();
 
-            if (invincible)
-            {
-                invincibleTimer -= Time.deltaTime;
-
-                if (invincibleTimer < 0)
+                if (invincible)
                 {
-                    invincible = false;
+                    invincibleTimer -= Time.deltaTime;
+
+                    if (invincibleTimer < 0)
+                    {
+                        invincible = false;
+                    }
                 }
             }
-        }
-        else
-        {
-            freezeTimer -= Time.deltaTime;
-            if (freezeTimer < 0)
+            else
             {
-                frozen = false;
-                freezeTimer = freezeTime;
+                freezeTimer -= Time.deltaTime;
+                if (freezeTimer < 0)
+                {
+                    frozen = false;
+                    freezeTimer = freezeTime;
+                }
             }
         }
     }
@@ -176,7 +180,6 @@ public class WallmasterController : MonoBehaviour
 
     public void DamageWallmaster(int amount)
     {
-        //animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -190,6 +193,7 @@ public class WallmasterController : MonoBehaviour
     public IEnumerator wait()
     {
         animator.SetTrigger("Dead");
+        isDead = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

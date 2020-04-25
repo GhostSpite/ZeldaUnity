@@ -51,9 +51,6 @@ public class Inventory : MonoBehaviour
     public bool hasBow;
     public bool hasRang;
     public bool hasCandle;
-    //public bool hasFlute;
-    //public bool hasRaft;
-    //public bool hasRod;
 
     public float mouseTime;
     float mouseTimer;

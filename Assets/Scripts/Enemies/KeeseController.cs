@@ -13,6 +13,8 @@ public class KeeseController : MonoBehaviour
     private bool isStopped;
     private bool startingUp;
 
+    bool isDead;
+
     public float moveTime;
     public float stopTime;
     float timer;
@@ -35,7 +37,7 @@ public class KeeseController : MonoBehaviour
         direction = 2;
         isStopped = false;
         currentHealth = maxHealth;
-
+        isDead = false;
         startingUp = true;
         originalSpeed = speed;
         speed = 0;
@@ -48,14 +50,16 @@ public class KeeseController : MonoBehaviour
     
     void Update()
     {
-        moveWithAI();
+        if (!isDead)
+        {
+            moveWithAI();
+        }
     }
 
     void moveWithAI()
     {
         changeDirection();
         Vector2 position = rigidbody2d.position;
-        //just walking around, stop when attacking
         switch (direction)
         {
             case -4:
@@ -83,7 +87,6 @@ public class KeeseController : MonoBehaviour
                 position = moveSE(position);
                 break;
             case 0:
-                //dont move & thus attack
                 isStopped = true;
                 break;
         }
@@ -218,6 +221,7 @@ public class KeeseController : MonoBehaviour
     IEnumerator wait()
     {
         animator.SetTrigger("Dead");
+        isDead = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

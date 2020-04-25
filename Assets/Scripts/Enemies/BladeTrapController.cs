@@ -13,8 +13,7 @@ public class BladeTrapController : MonoBehaviour
     bool returning;
     Vector2 initialPosition;
     public GameObject linkController;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         moving = false;
@@ -24,8 +23,7 @@ public class BladeTrapController : MonoBehaviour
         initialPosition = rigidbody2d.position;
         isInRoom = false;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         linkPosition = linkController.transform.position;

@@ -12,8 +12,6 @@ public class Equipment : MonoBehaviour
         LinkController controller = other.GetComponent<LinkController>();
         if (controller != null && collectible)
         {
-            // Add item to inventory
-
             Destroy(gameObject);
 
             controller.PlaySound(collected);

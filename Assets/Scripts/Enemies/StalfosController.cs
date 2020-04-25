@@ -21,6 +21,7 @@ public class StalfosController : MonoBehaviour
     public int maxHealth;
     public int health { get { return currentHealth; } }
     int currentHealth;
+    bool isDead;
 
     public float invincibleTime;
     float invincibleTimer = 0f;
@@ -41,43 +42,46 @@ public class StalfosController : MonoBehaviour
         currentHealth = maxHealth;
         frozen = false;
 
+        isDead = false;
         drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-    
+
     void Update()
     {
-        if (!frozen)
+        if (!isDead)
         {
-            moveWithAI();
-
-            if (invincible)
+            if (!frozen)
             {
-                invincibleTimer -= Time.deltaTime;
+                moveWithAI();
 
-                if (invincibleTimer < 0)
+                if (invincible)
                 {
-                    invincible = false;
+                    invincibleTimer -= Time.deltaTime;
+
+                    if (invincibleTimer < 0)
+                    {
+                        invincible = false;
+                    }
+                }
+            }
+            else
+            {
+                freezeTimer -= Time.deltaTime;
+                if (freezeTimer < 0)
+                {
+                    frozen = false;
+                    freezeTimer = freezeTime;
                 }
             }
         }
-        else
-        {
-            freezeTimer -= Time.deltaTime;
-            if (freezeTimer < 0)
-            {
-                frozen = false;
-                freezeTimer = freezeTime;
-            }
-        }
-        }
+    }
 
     public void moveWithAI()
     {
         changeDirection();
         Vector2 position = rigidbody2d.position;
-        //just walking around, stop when attacking
         switch (direction)
         {
             case -2:
@@ -156,7 +160,6 @@ public class StalfosController : MonoBehaviour
 
     public void DamageStalfos(int amount)
     {
-        //animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -170,6 +173,7 @@ public class StalfosController : MonoBehaviour
     IEnumerator wait()
     {
         animator.SetTrigger("Dead");
+        isDead = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

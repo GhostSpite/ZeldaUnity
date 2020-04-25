@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8356398147363166834}
   - component: {fileID: 515920515822611876}
   - component: {fileID: -3348383457723611329}
+  - component: {fileID: 3821318597339880261}
   m_Layer: 16
   m_Name: ArrowProjectile
   m_TagString: Untagged
@@ -262,3 +263,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3821318597339880261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4960686961029939646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1309314e4c4fb594fa198897af61c76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getHit: {fileID: 8300000, guid: 60e83708e745e5549a090e90b81b3d96, type: 3}
+  die: {fileID: 8300000, guid: 97faf8406c158064c965cfb3bb19531b, type: 3}
+  getHitBoss: {fileID: 8300000, guid: 3bc84409fc0e4be499fa4f85631edcd1, type: 3}

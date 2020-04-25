@@ -15,7 +15,6 @@ public class GenericEnemyController : MonoBehaviour
 
     Rigidbody2D rigidbody2d;
     Animator animator;
-    // Start is called before the first frame update
     void Start()
     {
         timer = moveTime;
@@ -23,8 +22,7 @@ public class GenericEnemyController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         timer -= Time.deltaTime;

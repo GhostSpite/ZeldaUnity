@@ -6,16 +6,6 @@ public class ExplosiveDamage : MonoBehaviour
 {
     public int power;
 
-    void Start()
-    {
-    }
-    
-    void Update()
-    {
-
-    }
-
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         LinkController controller = other.gameObject.GetComponent<LinkController>();

@@ -21,7 +21,7 @@ public class RangedEnemyController : MonoBehaviour
     public GameObject projectilePrefab;
     Rigidbody2D rigidbody2d;
     Animator animator;
-    // Start is called before the first frame update
+    
     void Start()
     {
         moveTimer = moveTime;
@@ -30,8 +30,7 @@ public class RangedEnemyController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         moveTimer -= Time.deltaTime;

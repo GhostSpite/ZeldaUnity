@@ -182,7 +182,6 @@ public class AquamentusController : MonoBehaviour
 
     public void DamageAquamentus(int amount)
     {
-        //animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);

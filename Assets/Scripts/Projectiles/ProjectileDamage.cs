@@ -14,6 +14,7 @@ public class ProjectileDamage : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
     }
+
     public int damageEnemy(Collider2D col)
     {
         int remainingHealth = -1;

@@ -16,6 +16,7 @@ public class GelController : MonoBehaviour
     public int maxHealth;
     public int health { get { return currentHealth; } }
     int currentHealth;
+    bool isDead;
 
     DropItemUponDeath drop;
     Rigidbody2D rigidbody2d;
@@ -29,6 +30,7 @@ public class GelController : MonoBehaviour
         direction = 2;
         currentHealth = maxHealth;
 
+        isDead = false;
         drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -36,14 +38,16 @@ public class GelController : MonoBehaviour
     
     void Update()
     {
-        moveWithAI();
+        if (!isDead)
+        {
+            moveWithAI();
+        }
     }
 
     public void moveWithAI()
     {
         changeDirection();
         Vector2 position = rigidbody2d.position;
-        //just walking around, stop when attacking
         switch (direction)
         {
             case -2:
@@ -125,6 +129,7 @@ public class GelController : MonoBehaviour
     IEnumerator wait()
     {
         animator.SetTrigger("Dead");
+        isDead = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }

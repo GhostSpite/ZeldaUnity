@@ -12,8 +12,7 @@ public class Clock : MonoBehaviour
         LinkController controller = other.GetComponent<LinkController>();
         if (controller != null && collectible)
         {
-            // Freeze Enemies
-
+            //Freeze Enemies
             Destroy(gameObject);
 
             controller.PlaySound(collected);

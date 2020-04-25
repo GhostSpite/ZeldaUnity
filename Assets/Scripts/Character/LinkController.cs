@@ -459,20 +459,18 @@ public class LinkController : MonoBehaviour
         StartCoroutine(grayOn());
         if (triggerDead) {
             animator.SetTrigger("Dead");
-            //play death sound
             PlaySound(die);
             triggerDead = false;
         }
         pauseMusic = true;
         StartCoroutine(WaitText());
-        //reset at beginning w full health and all items
+        
         while (!Input.anyKey)
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                Reset();
+                Reset(); //reset at beginning w full health and all items
             }
-            //go back to title screen
             else if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene("TitleScene");

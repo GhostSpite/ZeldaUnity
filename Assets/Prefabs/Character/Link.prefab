@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 2083192260}
   m_Layer: 8
   m_Name: Link
-  m_TagString: Dungeon
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -904,13 +904,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a496b0c0c13b364aad4c1711063b39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathText: '  GAME OVER CONTINUE (C) RETRY (R)'
-  textObject: {fileID: 0}
   projectileSpeed: 5
   movementSpeed: 4
   pushScale: 1
   invincibleTime: 1
-  restartTime: 2.5
   lowLifeTime: 0.3
   mouseTime: 0.3
   swordShotPrefab: {fileID: 8458385016063445152, guid: a467cec9ae1cc5f4ab0055b350645838,
@@ -1166,3 +1163,4 @@ MonoBehaviour:
   hasBow: 0
   hasRang: 0
   hasCandle: 0
+  mouseTime: 0

@@ -28,6 +28,7 @@ public class GoriaController : MonoBehaviour
     public int maxHealth;
     public int health { get { return currentHealth; } }
     int currentHealth;
+    bool isDead;
 
     public float invincibleTime;
     float invincibleTimer = 0f;
@@ -54,6 +55,7 @@ public class GoriaController : MonoBehaviour
         frozen = false;
         currentHealth = maxHealth;
 
+        isDead = false;
         drop = GetComponent<DropItemUponDeath>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -61,46 +63,49 @@ public class GoriaController : MonoBehaviour
     
     void Update()
     {
-        if (!frozen)
+        if (!isDead)
         {
-            if (!isStopped)
+            if (!frozen)
             {
-                moveWithAI();
-            }
-            else if (!launched)
-            {
-                Launch();
-                launched = true;
+                if (!isStopped)
+                {
+                    moveWithAI();
+                }
+                else if (!launched)
+                {
+                    Launch();
+                    launched = true;
+                }
+                else
+                {
+                    attackTimer -= Time.deltaTime;
+                    if (attackTimer < 0)
+                    {
+                        isStopped = false;
+                        attackTimer = attackTime;
+                        timer = 0;
+                        launched = false;
+                    }
+                }
+
+                if (invincible)
+                {
+                    invincibleTimer -= Time.deltaTime;
+
+                    if (invincibleTimer < 0)
+                    {
+                        invincible = false;
+                    }
+                }
             }
             else
             {
-                attackTimer -= Time.deltaTime;
-                if (attackTimer < 0)
+                freezeTimer -= Time.deltaTime;
+                if (freezeTimer < 0)
                 {
-                    isStopped = false;
-                    attackTimer = attackTime;
-                    timer = 0;
-                    launched = false;
+                    frozen = false;
+                    freezeTimer = freezeTime;
                 }
-            }
-
-            if (invincible)
-            {
-                invincibleTimer -= Time.deltaTime;
-
-                if (invincibleTimer < 0)
-                {
-                    invincible = false;
-                }
-            }
-        }
-        else
-        {
-            freezeTimer -= Time.deltaTime;
-            if (freezeTimer < 0)
-            {
-                frozen = false;
-                freezeTimer = freezeTime;
             }
         }
     }
@@ -109,7 +114,6 @@ public class GoriaController : MonoBehaviour
     {
         changeDirection();
         Vector2 position = rigidbody2d.position;
-        //just walking around, stop when attacking
         switch (direction)
         {
             case -2:
@@ -125,7 +129,6 @@ public class GoriaController : MonoBehaviour
                 position = moveDown(position);
                 break;
             case 0:
-                //dont move & thus attack
                 isStopped = true;
                 break;
         }
@@ -217,7 +220,6 @@ public class GoriaController : MonoBehaviour
 
     public void DamageGoria(int amount)
     {
-        //animator.SetTrigger("Damaged");
         invincibleTimer = invincibleTime;
         invincible = true;
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -231,6 +233,7 @@ public class GoriaController : MonoBehaviour
     public IEnumerator wait()
     {
         animator.SetTrigger("Dead");
+        isDead = true;
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
