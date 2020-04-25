@@ -237,6 +237,17 @@ public class LinkController : MonoBehaviour
         {
             ChangeHealth(-1);
         }
+        if (Input.GetKeyDown(KeyCode.C) && !triggerDead)
+        {
+            Reset();
+        }
+        if (Input.GetKeyDown(KeyCode.R) && !triggerDead)
+        {
+            triggerDead = true;
+            linkCanMove = true;
+            SceneManager.LoadScene("TitleScene");
+        }
+
         if (invincible)
         {
             invincibleTimer -= Time.deltaTime;

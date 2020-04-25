@@ -37,11 +37,6 @@ public class GameControl : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
         if (Input.GetKeyDown(next) || Input.GetKeyDown(prev))
         {
             CycleRooms();
