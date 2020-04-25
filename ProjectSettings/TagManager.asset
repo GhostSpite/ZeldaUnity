@@ -8,6 +8,7 @@ TagManager:
   - Dungeon
   - Gray
   - DeathText
+  - Bomb
   layers:
   - Default
   - TransparentFX

@@ -121,8 +121,10 @@ MonoBehaviour:
   direction: 
   state: 
   bombable: 0
-  trigger: 0
+  collisionTag: Bomb
   openForEnemyDeath: 0
+  hasPartner: 0
+  partner: {fileID: 0}
   enemies: []
   open: {fileID: 8300000, guid: 05162e8da417bc643bbc455a55cae2d8, type: 3}
 --- !u!50 &1307911769781237205
