@@ -193,7 +193,7 @@ public class LinkController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.B))
         {
             if (inventory.secActive == Inventory.Secondary.BOW && arrowTimer <= 0)
             {
@@ -266,6 +266,7 @@ public class LinkController : MonoBehaviour
             }
         }
     }
+
     public void MoveLink(Vector2 posChange)
     {
         if (!boomerangPresent)
