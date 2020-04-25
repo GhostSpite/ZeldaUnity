@@ -36072,7 +36072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4c19e544f0c7a4ca94b1fe08a80aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Congratulations!                       Press Q to quit  or  R to play again
+  message: Congratulations!                       Press Q to quit  or  R to play
+    again
   textObject: {fileID: 314825668}
   delay: 0.1
   messageSoFar: 
@@ -44766,7 +44767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -81.3, y: -5.5}
+  m_AnchoredPosition: {x: -10, y: -5.5}
   m_SizeDelta: {x: 472.6, y: 179.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1435111528
@@ -44813,7 +44814,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "   game over\n\ncontinue ( c )\n   retry ( r )"
 --- !u!222 &1435111530
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class LinkController : MonoBehaviour
     public static bool linkCanMove = true;
     bool triggerDead = true;
 
-    TextScript text;
+    public TextScript text;
     CameraScript cam;
 
     public float projectileSpeed;
@@ -237,6 +237,16 @@ public class LinkController : MonoBehaviour
         {
             ChangeHealth(-1);
         }
+        if (Input.GetKeyDown(KeyCode.C) && !triggerDead)
+        {
+            Reset();
+        }
+        if (Input.GetKeyDown(KeyCode.R) && !triggerDead)
+        {
+            triggerDead = true;
+            linkCanMove = true;
+            SceneManager.LoadScene("TitleScene");
+        }
         if (invincible)
         {
             invincibleTimer -= Time.deltaTime;
@@ -451,21 +461,7 @@ public class LinkController : MonoBehaviour
             PlaySound(die);
             triggerDead = false;
         }
-        pauseMusic = true;
-        StartCoroutine(WaitText());
-        //reset at beginning w full health and all items
-        while (!Input.anyKey)
-        {
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                Reset();
-            }
-            //go back to title screen
-            else if (Input.GetKeyDown(KeyCode.R))
-            {
-                SceneManager.LoadScene("TitleScene");
-            }
-        }  
+        StartCoroutine(WaitBeforeText());        
     }
 
 
@@ -514,7 +510,7 @@ public class LinkController : MonoBehaviour
         StartCoroutine(grayOff());
     }
 
-    IEnumerator WaitText()
+    IEnumerator WaitBeforeText()
     {
         yield return new WaitForSeconds(3f);
         text.PrintDeathText();
