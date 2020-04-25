@@ -158,7 +158,7 @@ public class DoorSpriteController : MonoBehaviour
         {
             LiveBomb controller = other.gameObject.GetComponent<LiveBomb>();
 
-            if (controller != null)
+            if (controller != null && !controller.isLive)
             {
                 setState("bombed");
                 PlaySound(open);
