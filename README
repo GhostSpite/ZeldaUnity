@@ -8,32 +8,33 @@ Import Instructions:
 
 Controls:
   In-Game:
-  Move Up - W
-  Move Left - A
-  Move Right - D
-  Move Down - S
-  Sword - Z
-  Use Secondary - B
-  Set Secondary Bow - 1
-  Set Secondary Boomerang - 2
-  Set Secondary Bomb - 3
-  Teleport Next Room - [Page Up]
-  Teleport Prev Room - [Page Down]
-  Pause - [Esc]
-  Inventory - [Tab]
-  Quit to Title - Q
-  
+    Keyboard:
+    -Move Up - W or Up Arrow
+    -Move Left - A or Left Arrow
+    -Move Right - D or Right Arrow
+    -Move Down - S or Down Arrow
+    -Sword - Z or N
+    -Use Secondary - X or B
+    -Set Secondary Bow - 1
+    -Set Secondary Boomerang - 2
+    -Set Secondary Bomb - 3
+    -Teleport Next Room - [Page Up]
+    -Teleport Prev Room - [Page Down]
+    -Pause - [Esc]
+    -Inventory - [Tab]
+    -Quit to Title - Q
+    Mouse
+    -Sword - Left Click
+    -Use Secondary - Right Click
+    -Cycle Secondary - Middle Click
   Title-Screen:
-  Start Game - Return
-  Quit Game - Q
+  -Start Game - Return or Left Click
+  -Quit Game - Q
 
 Grading Instructions:
 In order to see the correct project please find the "Scenes" folder in the project manager and within it click the one titled "Dungeon".
 
 Known Bugs:
-Wallmaster is still broken as it will make link disappear but will not follow him & they cannot yet be contained within any room.
-Enemy hit and die sounds do not occur when using the launched sword.
-Inventory menu still in progress, error codes do show for this one.
-Locked doors and bombable walls do not yet work, normal doors have been put as placeholders.
-Staircase does not yet work but moveable blocks do move (though they can be pushed anywhere).
-Old Man room doesn't yet have text.
+Inventory menu still in progress.
+Bombable walls do not yet work.
+Clock item does not work.

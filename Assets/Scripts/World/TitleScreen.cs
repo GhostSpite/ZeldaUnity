@@ -19,5 +19,6 @@ public class TitleScreen : MonoBehaviour
     {
         if (Input.GetKeyDown(start)) SceneManager.LoadScene("Dungeon");
         if (Input.GetKeyDown(quit)) EditorApplication.ExecuteMenuItem("Edit/Play");
+        if (Input.GetMouseButton(0)) SceneManager.LoadScene("Dungeon");
     }
 }
