@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1847284557}
   m_Layer: 16
   m_Name: LiveBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
