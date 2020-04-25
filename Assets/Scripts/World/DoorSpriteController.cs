@@ -154,7 +154,12 @@ public class DoorSpriteController : MonoBehaviour
                 }
             }
         }
-        else if(state == "wall" && bombable)
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (state == "wall" && bombable)
         {
             LiveBomb controller = other.gameObject.GetComponent<LiveBomb>();
 

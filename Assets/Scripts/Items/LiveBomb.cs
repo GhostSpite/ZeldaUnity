@@ -29,6 +29,7 @@ public class LiveBomb : MonoBehaviour
                 audioSource.PlayOneShot(audioSource.clip);
                 Rigidbody2D body = gameObject.AddComponent<Rigidbody2D>();
                 body.gravityScale = 0;
+                isLive = false;
             }
         } 
     }
