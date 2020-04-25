@@ -30,6 +30,9 @@ Controls:
   Title-Screen:
   -Start Game - Return or Left Click
   -Quit Game - Q
+  Game Over Screen:
+  -Continue - C
+  -Retry - R
 
 Grading Instructions:
 In order to see the correct project please find the "Scenes" folder in the project manager and within it click the one titled "Dungeon".
