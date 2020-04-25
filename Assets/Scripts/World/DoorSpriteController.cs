@@ -7,7 +7,6 @@ public class DoorSpriteController : MonoBehaviour
     public string direction;
     public string state;
     public bool bombable;
-    public string collisionTag;
     bool isTriggered;
     public bool trigger { set { isTriggered = value; } }
     public bool openForEnemyDeath;
@@ -157,9 +156,9 @@ public class DoorSpriteController : MonoBehaviour
         }
         else if(state == "wall" && bombable)
         {
-            //LiveBomb controller = other.gameObject.GetComponent<LiveBomb>();
+            LiveBomb controller = other.gameObject.GetComponent<LiveBomb>();
 
-            if (other.gameObject.CompareTag(collisionTag))//controller != null && !controller.isLive)
+            if (controller != null && !controller.isLive)
             {
                 setState("bombed");
                 PlaySound(open);
