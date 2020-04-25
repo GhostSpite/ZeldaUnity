@@ -6,7 +6,6 @@ public class LiveBomb : MonoBehaviour
 {
     public float timer;
     public bool isLive;
-    public GameObject link;
     public GameObject explosion;
     public AudioClip explode;
     AudioSource audioSource;

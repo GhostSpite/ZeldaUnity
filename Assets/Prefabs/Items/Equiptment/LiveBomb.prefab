@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3567844382706991818}
   m_Layer: 16
   m_Name: LiveBomb
-  m_TagString: Untagged
+  m_TagString: Bomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 5
   isLive: 1
-  link: {fileID: 0}
   explosion: {fileID: 4290859243367489535, guid: 4b3285a2ca05c4a63aa1e1b7c738be69,
     type: 3}
   explode: {fileID: 8300000, guid: bf72a9f5accb0954683cf843cc189c59, type: 3}
@@ -232,7 +231,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.1446013, y: -1.8573165}
+  m_Offset: {x: -0.00033162534, y: -0.18586981}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -243,5 +242,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0624504, y: 1.1742086}
+  m_Size: {x: 0.4963139, y: 0.4999683}
   m_EdgeRadius: 0
