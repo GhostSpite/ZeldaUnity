@@ -27,6 +27,8 @@ public class LiveBomb : MonoBehaviour
                 // Deal damage
                 animator.SetTrigger("explode");
                 audioSource.PlayOneShot(audioSource.clip);
+                Rigidbody2D body = gameObject.AddComponent<Rigidbody2D>();
+                body.gravityScale = 0;
             }
         } 
     }
